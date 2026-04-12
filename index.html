@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Prompt Coach — Prompt Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#07070c;--surface:#101018;--surface2:#161622;--border:#1c1c30;
+  --accent:#6d28d9;--accent-light:#a78bfa;--cyan:#06b6d4;--amber:#f59e0b;
+  --text:#e2e8f0;--muted:#64748b;--success:#10b981;--danger:#ef4444;
+  --glow:rgba(109,40,217,0.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(109,40,217,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(109,40,217,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+.wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px;position:relative;z-index:1}
+
+/* Header */
+header{text-align:center;margin-bottom:40px;animation:fadeIn .5s ease}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(109,40,217,0.12);border:1px solid rgba(109,40,217,0.35);color:var(--accent-light);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:16px;text-transform:uppercase}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent-light);animation:pulse 2s infinite}
+h1{font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.1;margin-bottom:8px;background:linear-gradient(135deg,#a78bfa,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:1px}
+
+/* Usage counter */
+.usage{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:32px;font-family:'Space Mono',monospace;font-size:12px;color:var(--muted)}
+.usage-dots{display:flex;gap:4px}
+.usage-dot{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--accent);transition:all .3s}
+.usage-dot.used{background:var(--accent);border-color:var(--accent)}
+
+/* Technique cards */
+.techs{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:24px}
+.tech{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all .2s;text-align:center}
+.tech:hover{border-color:rgba(109,40,217,0.4)}
+.tech.on{border-color:var(--accent);background:rgba(109,40,217,0.08);box-shadow:0 0 20px var(--glow)}
+.tn{font-size:13px;font-weight:700;margin-bottom:2px}
+.td{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted)}
+
+/* Input card */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:20px}
+.clabel{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;padding:16px 20px 0}
+textarea{width:100%;background:transparent;border:none;color:var(--text);font-family:'Syne',sans-serif;font-size:15px;padding:10px 20px 16px;resize:vertical;min-height:100px;outline:none;line-height:1.6}
+textarea::placeholder{color:rgba(100,116,139,0.5)}
+.char{text-align:right;font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);padding:0 20px 10px}
+
+/* Settings row */
+.settings{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:24px}
+.sel-wrap{position:relative}
+.sel-wrap label{display:block;font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+select{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:'Space Mono',monospace;font-size:11px;padding:10px 12px;border-radius:10px;appearance:none;outline:none;cursor:pointer}
+select:focus{border-color:var(--accent)}
+
+/* Button */
+.btn{width:100%;padding:16px;background:linear-gradient(135deg,#6d28d9,#4c1d95);border:1px solid rgba(167,139,250,0.3);border-radius:14px;color:#fff;font-family:'Syne',sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .2s;letter-spacing:.5px}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 24px var(--glow)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn:active:not(:disabled){transform:translateY(0)}
+
+/* Loading */
+.loading{display:none;text-align:center;padding:40px}
+.loading.on{display:block}
+.dots{display:flex;gap:6px;justify-content:center;margin-bottom:12px}
+.dots span{width:8px;height:8px;background:var(--accent-light);border-radius:50%;animation:bounce 1s infinite}
+.dots span:nth-child(2){animation-delay:.15s}
+.dots span:nth-child(3){animation-delay:.3s}
+.load-text{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted)}
+
+/* Results */
+.results{display:none;animation:fadeIn .4s ease}
+.results.on{display:block}
+.rcard{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:14px}
+.rhead{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border)}
+.rhead-left{display:flex;align-items:center;gap:8px}
+.rhead-icon{font-size:16px}
+.rhead-title{font-size:13px;font-weight:700}
+.copy-btn{background:rgba(109,40,217,0.12);border:1px solid rgba(109,40,217,0.3);color:var(--accent-light);font-family:'Space Mono',monospace;font-size:10px;padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .2s}
+.copy-btn:hover{background:rgba(109,40,217,0.25)}
+.rbody{padding:16px 18px;font-size:14px;line-height:1.7;white-space:pre-wrap;word-wrap:break-word}
+.scores{display:flex;gap:8px;padding:12px 18px;border-top:1px solid var(--border);background:rgba(0,0,0,0.15);flex-wrap:wrap}
+.pill{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:16px;padding:3px 10px;font-family:'Space Mono',monospace;font-size:9px;color:var(--muted)}
+.pill b{color:var(--cyan)}
+
+/* Paywall */
+.paywall{display:none;animation:fadeIn .4s ease}
+.paywall.on{display:flex;flex-direction:column;align-items:center;text-align:center;padding:48px 24px}
+.pw-icon{font-size:48px;margin-bottom:16px}
+.pw-title{font-size:24px;font-weight:800;margin-bottom:8px}
+.pw-sub{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:32px;max-width:400px;line-height:1.6}
+.pw-plans{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;justify-content:center}
+.pw-plan{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px 28px;cursor:pointer;transition:all .2s;min-width:180px}
+.pw-plan:hover{border-color:var(--accent);box-shadow:0 0 20px var(--glow)}
+.pw-plan.pop{border-color:var(--accent);position:relative}
+.pw-plan.pop::after{content:'BEST VALUE';position:absolute;top:-10px;right:12px;background:var(--accent);color:#fff;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1px;padding:3px 8px;border-radius:6px}
+.pw-price{font-size:28px;font-weight:800;margin-bottom:2px}
+.pw-period{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted)}
+.pw-note{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:8px}
+
+/* History */
+.history{margin-top:32px;display:none}
+.history.on{display:block}
+.hlabel{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+.hitem{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:6px;cursor:pointer;transition:border-color .2s}
+.hitem:hover{border-color:rgba(109,40,217,0.4)}
+.hitem-in{font-size:12px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hitem-meta{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);margin-top:2px}
+
+/* Error */
+.err{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);border-radius:10px;padding:12px 16px;font-family:'Space Mono',monospace;font-size:11px;color:#fca5a5;margin-bottom:14px;display:none}
+.err.on{display:block}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes bounce{0%,80%,100%{transform:scale(.6);opacity:.5}40%{transform:scale(1);opacity:1}}
+
+@media(max-width:600px){
+  .settings{grid-template-columns:1fr}
+  .techs{grid-template-columns:repeat(3,1fr)}
+  .pw-plans{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="badge">The Prompt Coach</div>
+    <h1>Prompt Engineer</h1>
+    <p class="sub">// Type your rough idea → get a master prompt</p>
+  </header>
+
+  <!-- Usage tracker -->
+  <div class="usage" id="usageBar">
+    <span id="usageText">5 free prompts remaining</span>
+    <div class="usage-dots" id="usageDots"></div>
+  </div>
+
+  <!-- Main tool area -->
+  <div id="toolArea">
+
+    <!-- Technique selector -->
+    <div class="techs" id="techs">
+      <div class="tech on" data-t="auto"><div class="tn">Auto</div><div class="td">AI picks best</div></div>
+      <div class="tech" data-t="chain-of-thought"><div class="tn">Chain of Thought</div><div class="td">Step-by-step</div></div>
+      <div class="tech" data-t="few-shot"><div class="tn">Few-Shot</div><div class="td">Examples first</div></div>
+      <div class="tech" data-t="role-based"><div class="tn">Role-Based</div><div class="td">Expert persona</div></div>
+      <div class="tech" data-t="structured"><div class="tn">Structured</div><div class="td">XML/JSON output</div></div>
+    </div>
+
+    <!-- Input -->
+    <div class="card">
+      <div class="clabel">Your raw idea or command</div>
+      <textarea id="raw" placeholder="Say it naturally... e.g. 'write me a cold email to a CEO about our AI product'" oninput="document.getElementById('charCt').textContent=this.value.length"></textarea>
+      <div class="char"><span id="charCt">0</span> chars</div>
+    </div>
+
+    <!-- Settings -->
+    <div class="settings">
+      <div class="sel-wrap">
+        <label>Target AI</label>
+        <select id="targetAI">
+          <option value="any">Any AI</option>
+          <option value="claude" selected>Claude</option>
+          <option value="chatgpt">ChatGPT</option>
+          <option value="gemini">Gemini</option>
+          <option value="midjourney">Midjourney</option>
+        </select>
+      </div>
+      <div class="sel-wrap">
+        <label>Style</label>
+        <select id="style">
+          <option value="professional" selected>Professional</option>
+          <option value="creative">Creative</option>
+          <option value="academic">Academic</option>
+          <option value="casual">Casual</option>
+          <option value="technical">Technical</option>
+        </select>
+      </div>
+      <div class="sel-wrap">
+        <label>Domain</label>
+        <select id="domain">
+          <option value="general" selected>General</option>
+          <option value="marketing">Marketing</option>
+          <option value="coding">Coding</option>
+          <option value="writing">Writing</option>
+          <option value="business">Business</option>
+          <option value="data">Data & Analytics</option>
+          <option value="education">Education</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Error -->
+    <div class="err" id="errBox"></div>
+
+    <!-- Submit -->
+    <button class="btn" id="goBtn" onclick="engineerPrompt()">⚡ Engineer My Prompt</button>
+
+    <!-- Loading -->
+    <div class="loading" id="loading">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="load-text">Engineering your prompt...</div>
+    </div>
+
+    <!-- Results -->
+    <div class="results" id="results">
+      <div class="rcard">
+        <div class="rhead">
+          <div class="rhead-left"><span class="rhead-icon">✦</span><span class="rhead-title">Engineered prompt</span></div>
+          <button class="copy-btn" onclick="copyText('mainOut')">Copy</button>
+        </div>
+        <div class="rbody" id="mainOut"></div>
+        <div class="scores" id="scoreRow"></div>
+      </div>
+      <div class="rcard">
+        <div class="rhead">
+          <div class="rhead-left"><span class="rhead-icon">◈</span><span class="rhead-title">Why it works</span></div>
+        </div>
+        <div class="rbody" id="whyOut"></div>
+      </div>
+      <div class="rcard">
+        <div class="rhead">
+          <div class="rhead-left"><span class="rhead-icon">◎</span><span class="rhead-title">Quick variant</span></div>
+          <button class="copy-btn" onclick="copyText('varOut')">Copy</button>
+        </div>
+        <div class="rbody" id="varOut"></div>
+      </div>
+    </div>
+
+    <!-- History -->
+    <div class="history" id="historySection">
+      <div class="hlabel">Recent prompts</div>
+      <div id="historyList"></div>
+    </div>
+  </div>
+
+  <!-- Paywall (hidden by default) -->
+  <div class="paywall" id="paywall">
+    <div class="pw-icon">🔒</div>
+    <div class="pw-title">You've used your 5 free prompts</div>
+    <div class="pw-sub">Unlock unlimited prompt engineering for less than the price of a coffee. GCash payment — instant access.</div>
+    <div class="pw-plans">
+      <div class="pw-plan" onclick="handlePayment('monthly')">
+        <div class="pw-price">₱55</div>
+        <div class="pw-period">per month</div>
+      </div>
+      <div class="pw-plan pop" onclick="handlePayment('annual')">
+        <div class="pw-price">₱275</div>
+        <div class="pw-period">per year</div>
+        <div class="pw-note">Save ₱385/year</div>
+      </div>
+    </div>
+    <div class="pw-sub" style="margin-top:16px;font-size:10px">Pay via GCash → Send confirmation screenshot → Get instant access</div>
+  </div>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// CONFIGURATION — Update these two values
+// ═══════════════════════════════════════════════════════════════
+const WORKER_URL = "https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev";
+// ↑ Replace with your Cloudflare Worker URL after deploying it
+
+const FREE_LIMIT = 5;
+
+// ═══════════════════════════════════════════════════════════════
+// USAGE TRACKING (localStorage — soft limit)
+// ═══════════════════════════════════════════════════════════════
+function getUsage() {
+  try {
+    const d = JSON.parse(localStorage.getItem('pc_usage') || '{}');
+    return { count: d.count || 0, history: d.history || [] };
+  } catch { return { count: 0, history: [] }; }
+}
+
+function saveUsage(data) {
+  localStorage.setItem('pc_usage', JSON.stringify(data));
+}
+
+function incrementUsage(input, technique) {
+  const d = getUsage();
+  d.count++;
+  d.history.unshift({
+    input: input.substring(0, 100),
+    technique,
+    time: new Date().toLocaleString()
+  });
+  if (d.history.length > 10) d.history = d.history.slice(0, 10);
+  saveUsage(d);
+  updateUI();
+}
+
+function updateUI() {
+  const d = getUsage();
+  const remaining = Math.max(0, FREE_LIMIT - d.count);
+
+  // Update dots
+  const dotsEl = document.getElementById('usageDots');
+  dotsEl.innerHTML = '';
+  for (let i = 0; i < FREE_LIMIT; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'usage-dot' + (i < d.count ? ' used' : '');
+    dotsEl.appendChild(dot);
+  }
+
+  // Update text
+  document.getElementById('usageText').textContent =
+    remaining > 0 ? `${remaining} free prompt${remaining !== 1 ? 's' : ''} remaining` : 'Free prompts used';
+
+  // Show/hide paywall
+  if (remaining <= 0) {
+    document.getElementById('toolArea').style.display = 'none';
+    document.getElementById('paywall').classList.add('on');
+  }
+
+  // Show history
+  renderHistory(d.history);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// TECHNIQUE SELECTOR
+// ═══════════════════════════════════════════════════════════════
+let selectedTechnique = 'auto';
+
+document.getElementById('techs').addEventListener('click', e => {
+  const tech = e.target.closest('.tech');
+  if (!tech) return;
+  document.querySelectorAll('.tech').forEach(t => t.classList.remove('on'));
+  tech.classList.add('on');
+  selectedTechnique = tech.dataset.t;
+});
+
+// ═══════════════════════════════════════════════════════════════
+// SYSTEM PROMPT — The Prompt Engineering Super-Skill
+// ═══════════════════════════════════════════════════════════════
+const SYSTEM_PROMPT = `You are The Prompt Engineer — an expert system trained on prompt engineering methodologies from Anthropic, DeepLearning.AI (Andrew Ng), Google Prompting Essentials, IBM, and Pluralsight.
+
+Your job: Take a user's rough, casual command and transform it into an optimized, expert-level prompt.
+
+TECHNIQUES YOU MASTER:
+- Chain-of-Thought (CoT): Break complex reasoning into explicit steps
+- Few-Shot: Provide examples that establish the pattern
+- Role-Based: Frame with expert persona and context
+- Structured Output: Use XML tags, JSON schemas, markdown formatting
+- Meta-Prompting: Prompts that generate better prompts
+- Constitutional AI Prompting: Build in self-checking and guardrails
+
+RESPONSE FORMAT (always use this exact structure):
+
+===ENGINEERED_PROMPT===
+[The fully optimized prompt, ready to copy-paste]
+===END_PROMPT===
+
+===ANALYSIS===
+Technique: [which technique(s) used]
+Clarity: [score 1-100]
+Specificity: [score 1-100]
+Why: [2-3 sentences explaining what makes this prompt effective]
+===END_ANALYSIS===
+
+===VARIANT===
+[A shorter or alternative-angle version of the prompt]
+===END_VARIANT===
+
+RULES:
+1. The engineered prompt must be dramatically better than the input
+2. Add context, constraints, format instructions, and quality markers
+3. If technique is "auto", pick the best technique for the input
+4. Always include a clear role/persona in the prompt
+5. Add output format specifications
+6. Include edge cases or constraints where relevant
+7. The variant should take a meaningfully different approach
+8. Optimize for the specified target AI, style, and domain`;
+
+// ═══════════════════════════════════════════════════════════════
+// MAIN ENGINE
+// ═══════════════════════════════════════════════════════════════
+async function engineerPrompt() {
+  const raw = document.getElementById('raw').value.trim();
+  if (!raw) return;
+
+  const remaining = FREE_LIMIT - getUsage().count;
+  if (remaining <= 0) {
+    updateUI();
+    return;
+  }
+
+  const targetAI = document.getElementById('targetAI').value;
+  const style = document.getElementById('style').value;
+  const domain = document.getElementById('domain').value;
+  const technique = selectedTechnique;
+
+  const btn = document.getElementById('goBtn');
+  const errBox = document.getElementById('errBox');
+  errBox.classList.remove('on');
+  btn.disabled = true;
+  btn.textContent = 'Engineering...';
+  document.getElementById('loading').classList.add('on');
+  document.getElementById('results').classList.remove('on');
+
+  const userMessage = `Transform this into an expert prompt:
+
+Input: "${raw}"
+Technique: ${technique}
+Target AI: ${targetAI}
+Style: ${style}
+Domain: ${domain}`;
+
+  try {
+    const resp = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system: SYSTEM_PROMPT,
+        messages: [{ role: 'user', content: userMessage }],
+        max_tokens: 2000
+      })
+    });
+
+    if (!resp.ok) {
+      const errData = await resp.json().catch(() => ({}));
+      throw new Error(errData.error || `API error (${resp.status})`);
+    }
+
+    const data = await resp.json();
+    const text = data.content.map(c => c.text || '').join('');
+
+    // Parse response sections
+    const promptMatch = text.match(/===ENGINEERED_PROMPT===([\s\S]*?)===END_PROMPT===/);
+    const analysisMatch = text.match(/===ANALYSIS===([\s\S]*?)===END_ANALYSIS===/);
+    const variantMatch = text.match(/===VARIANT===([\s\S]*?)===END_VARIANT===/);
+
+    const engineeredPrompt = promptMatch ? promptMatch[1].trim() : text;
+    const analysis = analysisMatch ? analysisMatch[1].trim() : '';
+    const variant = variantMatch ? variantMatch[1].trim() : '';
+
+    // Parse scores from analysis
+    const clarityMatch = analysis.match(/Clarity:\s*(\d+)/);
+    const specMatch = analysis.match(/Specificity:\s*(\d+)/);
+    const techMatch = analysis.match(/Technique:\s*(.+)/);
+    const whyMatch = analysis.match(/Why:\s*([\s\S]+)/);
+
+    const clarity = clarityMatch ? clarityMatch[1] : '—';
+    const specificity = specMatch ? specMatch[1] : '—';
+    const usedTechnique = techMatch ? techMatch[1].trim() : technique;
+    const why = whyMatch ? whyMatch[1].trim() : 'Optimized for clarity and specificity.';
+
+    // Display results
+    document.getElementById('mainOut').textContent = engineeredPrompt;
+    document.getElementById('whyOut').textContent = why;
+    document.getElementById('varOut').textContent = variant || 'No variant generated.';
+
+    document.getElementById('scoreRow').innerHTML = `
+      <div class="pill">Clarity <b>${clarity}%</b></div>
+      <div class="pill">Specificity <b>${specificity}%</b></div>
+      <div class="pill">Technique <b>${usedTechnique}</b></div>
+    `;
+
+    document.getElementById('results').classList.add('on');
+
+    // Track usage
+    incrementUsage(raw, usedTechnique);
+
+  } catch (err) {
+    console.error('Error:', err);
+    errBox.textContent = '⚠ ' + (err.message || 'Something went wrong. Check your Cloudflare Worker URL.');
+    errBox.classList.add('on');
+  }
+
+  document.getElementById('loading').classList.remove('on');
+  btn.disabled = false;
+  btn.textContent = '⚡ Engineer My Prompt';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// UTILITIES
+// ═══════════════════════════════════════════════════════════════
+function copyText(id) {
+  const text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector(`[onclick="copyText('${id}')"]`);
+    const og = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = og, 1500);
+  });
+}
+
+function renderHistory(history) {
+  if (!history || history.length === 0) return;
+  document.getElementById('historySection').classList.add('on');
+  document.getElementById('historyList').innerHTML = history.map((h, i) => `
+    <div class="hitem" onclick="loadHistory(${i})">
+      <div class="hitem-in">${h.input}</div>
+      <div class="hitem-meta">${h.technique} · ${h.time}</div>
+    </div>
+  `).join('');
+}
+
+function loadHistory(i) {
+  const d = getUsage();
+  if (d.history[i]) {
+    document.getElementById('raw').value = d.history[i].input;
+    document.getElementById('charCt').textContent = d.history[i].input.length;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function handlePayment(plan) {
+  const amount = plan === 'monthly' ? '₱55' : '₱275';
+  const period = plan === 'monthly' ? 'monthly' : 'annual';
+  // For prototype: open a simple instruction modal
+  // In production: integrate PayMongo / GCash API
+  alert(
+    `To subscribe (${amount}/${period}):\n\n` +
+    `1. Open GCash\n` +
+    `2. Send ${amount} to: [YOUR GCASH NUMBER]\n` +
+    `3. Screenshot the confirmation\n` +
+    `4. Send to: [YOUR EMAIL/MESSENGER]\n\n` +
+    `You'll get unlimited access within minutes!`
+  );
+}
+
+// Ctrl+Enter shortcut
+document.getElementById('raw').addEventListener('keydown', e => {
+  if (e.ctrlKey && e.key === 'Enter') engineerPrompt();
+});
+
+// Init
+updateUI();
+</script>
+</body>
+</html>
