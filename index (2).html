@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Prompt Coach — Prompt Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #07070c;
+  --surface: #101018;
+  --border: #1c1c30;
+  --accent: #6d28d9;
+  --accent-light: #a78bfa;
+  --cyan: #06b6d4;
+  --text: #e2e8f0;
+  --muted: #64748b;
+  --glow: rgba(109,40,217,0.25);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  min-height: 100vh;
+}
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+/* ── HEADER ── */
+header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(109,40,217,0.12);
+  border: 1px solid rgba(109,40,217,0.35);
+  color: var(--accent-light);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #a78bfa, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+/* ── USAGE COUNTER ── */
+.usage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.usage-dots { display: flex; gap: 5px; }
+
+.usage-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  transition: all 0.3s;
+}
+
+.usage-dot.used {
+  background: var(--accent);
+}
+
+/* ── TECHNIQUE SELECTOR ── */
+.techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.tech {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  flex: 1 1 140px;
+  max-width: 180px;
+  user-select: none;
+}
+
+.tech:hover {
+  border-color: rgba(109,40,217,0.5);
+  background: rgba(109,40,217,0.04);
+}
+
+.tech.selected {
+  border-color: var(--accent);
+  background: rgba(109,40,217,0.1);
+  box-shadow: 0 0 20px var(--glow);
+}
+
+.tech .name {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  color: var(--text);
+}
+
+.tech .desc {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+}
+
+/* ── INPUT AREA ── */
+.input-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.input-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  padding: 16px 20px 0;
+}
+
+textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  padding: 10px 20px 16px;
+  resize: vertical;
+  min-height: 110px;
+  outline: none;
+  line-height: 1.6;
+}
+
+textarea::placeholder {
+  color: rgba(100,116,139,0.5);
+}
+
+.char-count {
+  text-align: right;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  padding: 0 20px 10px;
+}
+
+/* ── SETTINGS DROPDOWNS ── */
+.settings {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.setting-group label {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.setting-group select {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  padding: 12px 36px 12px 14px;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.setting-group select:focus {
+  border-color: var(--accent);
+}
+
+/* ── BUTTON ── */
+.submit-btn {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #6d28d9, #4c1d95);
+  border: 1px solid rgba(167,139,250,0.3);
+  border-radius: 14px;
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 24px var(--glow);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── ERROR ── */
+.error-box {
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: #fca5a5;
+  margin-bottom: 16px;
+  display: none;
+}
+
+.error-box.visible { display: block; }
+
+/* ── LOADING ── */
+.loading {
+  display: none;
+  text-align: center;
+  padding: 40px;
+}
+
+.loading.visible { display: block; }
+
+.loading-dots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-light);
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+}
+
+.loading-dots span:nth-child(2) { animation-delay: 0.15s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.3s; }
+
+.loading-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ── RESULTS ── */
+.results {
+  display: none;
+  margin-top: 24px;
+}
+
+.results.visible { display: block; }
+
+.result-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.result-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.result-icon { font-size: 16px; }
+
+.copy-btn {
+  background: rgba(109,40,217,0.12);
+  border: 1px solid rgba(109,40,217,0.3);
+  color: var(--accent-light);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-btn:hover {
+  background: rgba(109,40,217,0.25);
+}
+
+.result-body {
+  padding: 18px;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.scores {
+  display: flex;
+  gap: 8px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+  background: rgba(0,0,0,0.15);
+  flex-wrap: wrap;
+}
+
+.pill {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+}
+
+.pill b { color: var(--cyan); }
+
+/* ── PAYWALL ── */
+.paywall {
+  display: none;
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.paywall.visible {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paywall-icon { font-size: 48px; margin-bottom: 16px; }
+
+.paywall-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.paywall-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 28px;
+  max-width: 440px;
+  line-height: 1.6;
+}
+
+.paywall-plans {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.plan-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 180px;
+  position: relative;
+}
+
+.plan-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--glow);
+}
+
+.plan-card.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--glow);
+}
+
+.plan-card.best::after {
+  content: 'BEST VALUE';
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.plan-price {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.plan-period {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.plan-note {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--accent-light);
+  margin-top: 8px;
+}
+
+/* ── QR PAYMENT SECTION ── */
+.qr-section {
+  display: none;
+  max-width: 400px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.qr-section.visible { display: block; }
+
+.qr-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.qr-card img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 8px;
+}
+
+.qr-amount {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.qr-note {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #666;
+}
+
+.qr-steps {
+  text-align: left;
+  margin-bottom: 20px;
+  padding: 0 8px;
+}
+
+.qr-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.qr-step-num {
+  background: var(--accent);
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.qr-step-text {
+  color: var(--muted);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+}
+
+.qr-step-text b { color: var(--text); }
+
+/* ── UNLOCK CODE ── */
+.unlock-section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  width: 100%;
+  max-width: 400px;
+}
+
+.unlock-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.unlock-row {
+  display: flex;
+  gap: 8px;
+}
+
+.unlock-input {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  outline: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.unlock-input:focus {
+  border-color: var(--accent);
+}
+
+.unlock-btn {
+  background: linear-gradient(135deg, #6d28d9, #4c1d95);
+  border: 1px solid rgba(167,139,250,0.3);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.unlock-btn:hover {
+  box-shadow: 0 4px 16px var(--glow);
+}
+
+.unlock-msg {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  margin-top: 8px;
+  min-height: 16px;
+}
+
+.unlock-msg.success { color: #10b981; }
+.unlock-msg.fail { color: #ef4444; }
+
+/* ── HISTORY ── */
+.history {
+  margin-top: 32px;
+  display: none;
+}
+
+.history.visible { display: block; }
+
+.history-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.history-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.history-item:hover {
+  border-color: rgba(109,40,217,0.4);
+}
+
+.history-input {
+  font-size: 12px;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .settings { grid-template-columns: 1fr; }
+  .techs { justify-content: center; }
+  .tech { flex: 1 1 45%; max-width: none; }
+  .paywall-plans { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="badge">The Prompt Coach</div>
+    <h1>Prompt Engineer</h1>
+    <p class="sub">// Type your rough idea → get a master prompt</p>
+  </header>
+
+  <!-- Usage -->
+  <div class="usage">
+    <span id="usageText">5 free prompts remaining</span>
+    <div class="usage-dots" id="usageDots"></div>
+  </div>
+
+  <!-- Main tool -->
+  <div id="toolArea">
+
+    <!-- Techniques -->
+    <div class="techs" id="techContainer">
+      <div class="tech selected" data-tech="auto" onclick="selectTech(this)">
+        <div class="name">Auto</div>
+        <div class="desc">AI picks best</div>
+      </div>
+      <div class="tech" data-tech="chain-of-thought" onclick="selectTech(this)">
+        <div class="name">Chain of Thought</div>
+        <div class="desc">Step-by-step</div>
+      </div>
+      <div class="tech" data-tech="few-shot" onclick="selectTech(this)">
+        <div class="name">Few-Shot</div>
+        <div class="desc">Examples first</div>
+      </div>
+      <div class="tech" data-tech="role-based" onclick="selectTech(this)">
+        <div class="name">Role-Based</div>
+        <div class="desc">Expert persona</div>
+      </div>
+      <div class="tech" data-tech="structured" onclick="selectTech(this)">
+        <div class="name">Structured</div>
+        <div class="desc">XML/JSON output</div>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="input-card">
+      <div class="input-label">Your raw idea or command</div>
+      <textarea id="rawInput" placeholder="Say it naturally... e.g. 'write me a cold email to a CEO about our AI product'" oninput="updateCharCount()"></textarea>
+      <div class="char-count"><span id="charCount">0</span> chars</div>
+    </div>
+
+    <!-- Settings -->
+    <div class="settings">
+      <div class="setting-group">
+        <label>Target AI</label>
+        <select id="targetAI">
+          <option value="any">Any AI</option>
+          <option value="claude" selected>Claude</option>
+          <option value="chatgpt">ChatGPT</option>
+          <option value="gemini">Gemini</option>
+          <option value="midjourney">Midjourney</option>
+        </select>
+      </div>
+      <div class="setting-group">
+        <label>Style</label>
+        <select id="styleSelect">
+          <option value="professional" selected>Professional</option>
+          <option value="creative">Creative</option>
+          <option value="academic">Academic</option>
+          <option value="casual">Casual</option>
+          <option value="technical">Technical</option>
+        </select>
+      </div>
+      <div class="setting-group">
+        <label>Domain</label>
+        <select id="domainSelect">
+          <option value="general" selected>General</option>
+          <option value="marketing">Marketing</option>
+          <option value="coding">Coding</option>
+          <option value="writing">Writing</option>
+          <option value="business">Business</option>
+          <option value="data">Data & Analytics</option>
+          <option value="education">Education</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Error -->
+    <div class="error-box" id="errorBox"></div>
+
+    <!-- Submit -->
+    <button class="submit-btn" id="submitBtn" onclick="engineerPrompt()">⚡ Engineer My Prompt</button>
+
+    <!-- Loading -->
+    <div class="loading" id="loadingArea">
+      <div class="loading-dots"><span></span><span></span><span></span></div>
+      <div class="loading-text">Engineering your prompt...</div>
+    </div>
+
+    <!-- Results -->
+    <div class="results" id="resultsArea">
+      <div class="result-card">
+        <div class="result-header">
+          <div class="result-title"><span class="result-icon">✦</span> Engineered prompt</div>
+          <button class="copy-btn" onclick="copyToClipboard('mainOutput')">Copy</button>
+        </div>
+        <div class="result-body" id="mainOutput"></div>
+        <div class="scores" id="scoreRow"></div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-header">
+          <div class="result-title"><span class="result-icon">◈</span> Why it works</div>
+        </div>
+        <div class="result-body" id="whyOutput"></div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-header">
+          <div class="result-title"><span class="result-icon">◎</span> Quick variant</div>
+          <button class="copy-btn" onclick="copyToClipboard('variantOutput')">Copy</button>
+        </div>
+        <div class="result-body" id="variantOutput"></div>
+      </div>
+    </div>
+
+    <!-- History -->
+    <div class="history" id="historySection">
+      <div class="history-label">Recent prompts</div>
+      <div id="historyList"></div>
+    </div>
+  </div>
+
+  <!-- Paywall -->
+  <div class="paywall" id="paywall">
+    <div class="paywall-icon">🔒</div>
+    <div class="paywall-title">You've used your 5 free prompts</div>
+    <div class="paywall-sub">Unlock unlimited prompt engineering. Choose a plan, scan the QR to pay, then enter your unlock code below.</div>
+
+    <!-- Plan selection -->
+    <div class="paywall-plans" id="planCards">
+      <div class="plan-card" onclick="selectPlan('monthly', this)">
+        <div class="plan-price">₱55</div>
+        <div class="plan-period">per month</div>
+      </div>
+      <div class="plan-card best active" onclick="selectPlan('annual', this)">
+        <div class="plan-price">₱275</div>
+        <div class="plan-period">per year</div>
+        <div class="plan-note">Save ₱385/year</div>
+      </div>
+    </div>
+
+    <!-- QR Code -->
+    <div class="qr-section visible" id="qrSection">
+      <div class="qr-card">
+        <div class="qr-amount" id="qrAmount">Send ₱275 via InstaPay</div>
+        <div class="qr-note">Scan with any Philippine banking app</div>
+        <div style="margin-top:16px">
+          <img src="BPIQR_Prompt.png" alt="BPI InstaPay QR Code">
+        </div>
+      </div>
+
+      <div class="qr-steps">
+        <div class="qr-step">
+          <div class="qr-step-num">1</div>
+          <div class="qr-step-text"><b>Scan the QR code</b> with GCash, Maya, BPI, or any InstaPay-enabled app</div>
+        </div>
+        <div class="qr-step">
+          <div class="qr-step-num">2</div>
+          <div class="qr-step-text"><b>Send the exact amount</b> shown above</div>
+        </div>
+        <div class="qr-step">
+          <div class="qr-step-num">3</div>
+          <div class="qr-step-text"><b>Screenshot your receipt</b> and send to <b>thepromptcoach@gmail.com</b></div>
+        </div>
+        <div class="qr-step">
+          <div class="qr-step-num">4</div>
+          <div class="qr-step-text"><b>Receive your unlock code</b> via email within minutes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unlock code input -->
+    <div class="unlock-section">
+      <div class="unlock-label">Already have an unlock code?</div>
+      <div class="unlock-row">
+        <input type="text" class="unlock-input" id="unlockInput" placeholder="Enter code" maxlength="12">
+        <button class="unlock-btn" onclick="tryUnlock()">Unlock</button>
+      </div>
+      <div class="unlock-msg" id="unlockMsg"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// CONFIG
+// ═══════════════════════════════════════════════════════════════
+const WORKER_URL = "https://prompt-coach-api.basak21.workers.dev";
+const FREE_LIMIT = 5;
+let selectedTechnique = "auto";
+
+// ═══════════════════════════════════════════════════════════════
+// TECHNIQUE SELECTION — direct onclick, no event delegation bugs
+// ═══════════════════════════════════════════════════════════════
+function selectTech(el) {
+  document.querySelectorAll('.tech').forEach(function(t) {
+    t.classList.remove('selected');
+  });
+  el.classList.add('selected');
+  selectedTechnique = el.getAttribute('data-tech');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHAR COUNT
+// ═══════════════════════════════════════════════════════════════
+function updateCharCount() {
+  document.getElementById('charCount').textContent =
+    document.getElementById('rawInput').value.length;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// USAGE TRACKING
+// ═══════════════════════════════════════════════════════════════
+function getUsage() {
+  try {
+    var d = JSON.parse(localStorage.getItem('pc_usage') || '{}');
+    return { count: d.count || 0, history: d.history || [] };
+  } catch (e) { return { count: 0, history: [] }; }
+}
+
+function saveUsage(data) {
+  localStorage.setItem('pc_usage', JSON.stringify(data));
+}
+
+function addUsage(input, technique) {
+  var d = getUsage();
+  d.count++;
+  d.history.unshift({
+    input: input.substring(0, 100),
+    technique: technique,
+    time: new Date().toLocaleString()
+  });
+  if (d.history.length > 10) d.history = d.history.slice(0, 10);
+  saveUsage(d);
+  refreshUI();
+}
+
+function refreshUI() {
+  var d = getUsage();
+  var isPaid = d.paid === true;
+  var remaining = Math.max(0, FREE_LIMIT - d.count);
+  var dotsEl = document.getElementById('usageDots');
+
+  if (isPaid) {
+    document.getElementById('usageText').textContent = 'Pro — unlimited prompts';
+    dotsEl.innerHTML = '';
+    document.getElementById('toolArea').style.display = '';
+    document.getElementById('paywall').classList.remove('visible');
+  } else {
+    var html = '';
+    for (var i = 0; i < FREE_LIMIT; i++) {
+      html += '<div class="usage-dot' + (i < d.count ? ' used' : '') + '"></div>';
+    }
+    dotsEl.innerHTML = html;
+    document.getElementById('usageText').textContent =
+      remaining > 0
+        ? remaining + ' free prompt' + (remaining !== 1 ? 's' : '') + ' remaining'
+        : 'Free prompts used';
+
+    if (remaining <= 0) {
+      document.getElementById('toolArea').style.display = 'none';
+      document.getElementById('paywall').classList.add('visible');
+    }
+  }
+
+  renderHistory(d.history);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SYSTEM PROMPT
+// ═══════════════════════════════════════════════════════════════
+var SYSTEM_PROMPT = 'You are The Prompt Engineer — an expert system trained on prompt engineering methodologies from Anthropic, DeepLearning.AI (Andrew Ng), Google Prompting Essentials, IBM, and Pluralsight.\n\nYour job: Take a user\'s rough, casual command and transform it into an optimized, expert-level prompt.\n\nTECHNIQUES YOU MASTER:\n- Chain-of-Thought (CoT): Break complex reasoning into explicit steps\n- Few-Shot: Provide examples that establish the pattern\n- Role-Based: Frame with expert persona and context\n- Structured Output: Use XML tags, JSON schemas, markdown formatting\n- Meta-Prompting: Prompts that generate better prompts\n\nRESPONSE FORMAT (always use this exact structure):\n\n===ENGINEERED_PROMPT===\n[The fully optimized prompt, ready to copy-paste]\n===END_PROMPT===\n\n===ANALYSIS===\nTechnique: [which technique(s) used]\nClarity: [score 1-100]\nSpecificity: [score 1-100]\nWhy: [2-3 sentences explaining what makes this prompt effective]\n===END_ANALYSIS===\n\n===VARIANT===\n[A shorter or alternative-angle version of the prompt]\n===END_VARIANT===\n\nRULES:\n1. The engineered prompt must be dramatically better than the input\n2. Add context, constraints, format instructions, and quality markers\n3. If technique is "auto", pick the best technique for the input\n4. Always include a clear role/persona in the prompt\n5. Add output format specifications\n6. Include edge cases or constraints where relevant\n7. The variant should take a meaningfully different approach\n8. Optimize for the specified target AI, style, and domain';
+
+// ═══════════════════════════════════════════════════════════════
+// MAIN ENGINE
+// ═══════════════════════════════════════════════════════════════
+async function engineerPrompt() {
+  var raw = document.getElementById('rawInput').value.trim();
+  if (!raw) {
+    showError('Please enter a prompt idea first.');
+    return;
+  }
+
+  var remaining = FREE_LIMIT - getUsage().count;
+  if (remaining <= 0) {
+    refreshUI();
+    return;
+  }
+
+  var targetAI = document.getElementById('targetAI').value;
+  var style = document.getElementById('styleSelect').value;
+  var domain = document.getElementById('domainSelect').value;
+
+  var btn = document.getElementById('submitBtn');
+  hideError();
+  btn.disabled = true;
+  btn.textContent = 'Engineering...';
+  document.getElementById('loadingArea').classList.add('visible');
+  document.getElementById('resultsArea').classList.remove('visible');
+
+  var userMessage = 'Transform this into an expert prompt:\n\nInput: "' + raw + '"\nTechnique: ' + selectedTechnique + '\nTarget AI: ' + targetAI + '\nStyle: ' + style + '\nDomain: ' + domain;
+
+  try {
+    var resp = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system: SYSTEM_PROMPT,
+        messages: [{ role: 'user', content: userMessage }],
+        max_tokens: 2000
+      })
+    });
+
+    var data = await resp.json();
+
+    if (!resp.ok) {
+      throw new Error(data.error || 'API error (' + resp.status + ')');
+    }
+
+    // Handle response
+    var text = '';
+    if (data.content && Array.isArray(data.content)) {
+      for (var i = 0; i < data.content.length; i++) {
+        if (data.content[i].text) text += data.content[i].text;
+      }
+    }
+
+    if (!text) {
+      throw new Error('Empty response from API. Check your Anthropic API key.');
+    }
+
+    // Parse sections
+    var promptMatch = text.match(/===ENGINEERED_PROMPT===([\s\S]*?)===END_PROMPT===/);
+    var analysisMatch = text.match(/===ANALYSIS===([\s\S]*?)===END_ANALYSIS===/);
+    var variantMatch = text.match(/===VARIANT===([\s\S]*?)===END_VARIANT===/);
+
+    var engineered = promptMatch ? promptMatch[1].trim() : text;
+    var analysis = analysisMatch ? analysisMatch[1].trim() : '';
+    var variant = variantMatch ? variantMatch[1].trim() : '';
+
+    var clarityMatch = analysis.match(/Clarity:\s*(\d+)/);
+    var specMatch = analysis.match(/Specificity:\s*(\d+)/);
+    var techMatch = analysis.match(/Technique:\s*(.+)/);
+    var whyMatch = analysis.match(/Why:\s*([\s\S]+)/);
+
+    var clarity = clarityMatch ? clarityMatch[1] : '—';
+    var specificity = specMatch ? specMatch[1] : '—';
+    var usedTech = techMatch ? techMatch[1].trim() : selectedTechnique;
+    var why = whyMatch ? whyMatch[1].trim() : 'Optimized for clarity and specificity.';
+
+    document.getElementById('mainOutput').textContent = engineered;
+    document.getElementById('whyOutput').textContent = why;
+    document.getElementById('variantOutput').textContent = variant || 'No variant generated.';
+    document.getElementById('scoreRow').innerHTML =
+      '<div class="pill">Clarity <b>' + clarity + '%</b></div>' +
+      '<div class="pill">Specificity <b>' + specificity + '%</b></div>' +
+      '<div class="pill">Technique <b>' + usedTech + '</b></div>';
+
+    document.getElementById('resultsArea').classList.add('visible');
+    addUsage(raw, usedTech);
+
+  } catch (err) {
+    showError(err.message || 'Something went wrong. Please try again.');
+  }
+
+  document.getElementById('loadingArea').classList.remove('visible');
+  btn.disabled = false;
+  btn.textContent = '⚡ Engineer My Prompt';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// UTILITIES
+// ═══════════════════════════════════════════════════════════════
+function showError(msg) {
+  var el = document.getElementById('errorBox');
+  el.textContent = '⚠ ' + msg;
+  el.classList.add('visible');
+}
+
+function hideError() {
+  document.getElementById('errorBox').classList.remove('visible');
+}
+
+function copyToClipboard(id) {
+  var text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    var btns = document.querySelectorAll('.copy-btn');
+    // Find the right button
+    var el = document.getElementById(id);
+    var card = el.closest('.result-card');
+    var btn = card.querySelector('.copy-btn');
+    if (btn) {
+      var orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(function() { btn.textContent = orig; }, 1500);
+    }
+  });
+}
+
+function renderHistory(history) {
+  if (!history || history.length === 0) return;
+  document.getElementById('historySection').classList.add('visible');
+  var html = '';
+  for (var i = 0; i < history.length; i++) {
+    html += '<div class="history-item" onclick="loadHistory(' + i + ')">' +
+      '<div class="history-input">' + history[i].input + '</div>' +
+      '<div class="history-meta">' + history[i].technique + ' · ' + history[i].time + '</div>' +
+      '</div>';
+  }
+  document.getElementById('historyList').innerHTML = html;
+}
+
+function loadHistory(i) {
+  var d = getUsage();
+  if (d.history[i]) {
+    document.getElementById('rawInput').value = d.history[i].input;
+    updateCharCount();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function selectPlan(plan, el) {
+  document.querySelectorAll('.plan-card').forEach(function(c) {
+    c.classList.remove('active');
+  });
+  el.classList.add('active');
+  var amount = plan === 'monthly' ? '₱55' : '₱275';
+  document.getElementById('qrAmount').textContent = 'Send ' + amount + ' via InstaPay';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// UNLOCK CODE SYSTEM
+// ═══════════════════════════════════════════════════════════════
+// You generate codes and share them manually after verifying payment.
+// To add valid codes, edit the VALID_CODES array below.
+// Each code is a simple string. Once used, it's stored in localStorage.
+var VALID_CODES = ["PROMPTPRO1", "PROMPTPRO2", "PROMPTPRO3", "EARLYBIRD", "LAUNCH2026"];
+
+function tryUnlock() {
+  var code = document.getElementById('unlockInput').value.trim().toUpperCase();
+  var msgEl = document.getElementById('unlockMsg');
+
+  if (!code) {
+    msgEl.className = 'unlock-msg fail';
+    msgEl.textContent = 'Please enter a code';
+    return;
+  }
+
+  if (VALID_CODES.indexOf(code) !== -1) {
+    // Unlock: reset usage and mark as paid
+    var d = getUsage();
+    d.count = 0;
+    d.paid = true;
+    d.code = code;
+    d.paidAt = new Date().toISOString();
+    saveUsage(d);
+
+    msgEl.className = 'unlock-msg success';
+    msgEl.textContent = 'Unlocked! Redirecting...';
+
+    setTimeout(function() {
+      document.getElementById('paywall').classList.remove('visible');
+      document.getElementById('toolArea').style.display = '';
+      refreshUI();
+    }, 1000);
+  } else {
+    msgEl.className = 'unlock-msg fail';
+    msgEl.textContent = 'Invalid code. Please check and try again.';
+  }
+}
+
+// Ctrl+Enter shortcut
+document.getElementById('rawInput').addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.key === 'Enter') engineerPrompt();
+});
+
+// Init
+refreshUI();
+</script>
+</body>
+</html>
