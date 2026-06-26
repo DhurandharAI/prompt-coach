@@ -168,7 +168,7 @@ textarea { resize: vertical; }
 /* ── Position picker ── */
 .pos-grid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(9, 1fr);
   gap: 5px;
 }
 .pos-btn {
@@ -657,14 +657,12 @@ textarea { resize: vertical; }
           <div>
             <label>Blinds</label>
             <div class="blind-row">
-              <button class="blind-chip active" onclick="setBlind(this,'1/2')">$1/2</button>
-              <button class="blind-chip" onclick="setBlind(this,'2/3')">$2/3</button>
-              <button class="blind-chip" onclick="setBlind(this,'2/5')">$2/5</button>
-              <button class="blind-chip" onclick="setBlind(this,'5/10')">$5/10</button>
+              <button class="blind-chip active" onclick="setBlind(this,'25/50')">₱25/50</button>
+              <button class="blind-chip" onclick="setBlind(this,'50/100')">₱50/100</button>
               <button class="blind-chip" onclick="setBlind(this,'custom')">Custom</button>
             </div>
             <div id="customBlindWrap" style="display:none">
-              <input type="text" id="customBlind" placeholder="e.g. 3/6">
+              <input type="text" id="customBlind" placeholder="e.g. 100/200">
             </div>
           </div>
           <div>
@@ -685,8 +683,8 @@ textarea { resize: vertical; }
       <div class="card">
         <div class="grid-2" style="gap:14px; margin-bottom:14px">
           <div>
-            <label>Stack Size ($)</label>
-            <input type="number" id="heroStack" value="300" min="1" oninput="syncStack()">
+            <label>Stack Size (₱)</label>
+            <input type="number" id="heroStack" value="5000" min="1" oninput="syncStack()">
           </div>
           <div>
             <label>Hole Cards (private)</label>
@@ -701,6 +699,7 @@ textarea { resize: vertical; }
           <div class="pos-grid">
             <button class="pos-btn" onclick="setPos(this,'UTG')">UTG</button>
             <button class="pos-btn" onclick="setPos(this,'UTG+1')">UTG+1</button>
+            <button class="pos-btn" onclick="setPos(this,'UTG+2')">UTG+2</button>
             <button class="pos-btn" onclick="setPos(this,'MP')">MP</button>
             <button class="pos-btn" onclick="setPos(this,'HJ')">HJ</button>
             <button class="pos-btn" onclick="setPos(this,'CO')">CO</button>
@@ -734,8 +733,8 @@ textarea { resize: vertical; }
         <div class="card">
           <div class="grid-2" style="gap:12px; margin-bottom:12px">
             <div>
-              <label>Pot Before Action ($)</label>
-              <input type="number" id="pre-pot" value="3" min="0" oninput="refreshSPR()">
+              <label>Pot Before Action (₱)</label>
+              <input type="number" id="pre-pot" value="75" min="0" oninput="refreshSPR()">
             </div>
             <div>
               <label>Facing Action</label>
@@ -749,12 +748,12 @@ textarea { resize: vertical; }
             </div>
           </div>
           <div style="margin-bottom:12px">
-            <label>Facing Bet/Raise Size ($) — 0 if none</label>
+            <label>Facing Bet/Raise Size (₱) — 0 if none</label>
             <input type="number" id="pre-facing" value="0" min="0">
           </div>
           <div style="margin-bottom:12px">
             <label>Context / Action sequence</label>
-            <textarea id="pre-context" rows="2" placeholder="e.g. UTG limps, MP raises to $12, you're on BTN…"></textarea>
+            <textarea id="pre-context" rows="2" placeholder="e.g. UTG limps, MP raises to ₱300, you're on BTN…"></textarea>
           </div>
           <div style="margin-bottom:12px">
             <label>Your Action</label>
@@ -767,8 +766,8 @@ textarea { resize: vertical; }
             </div>
           </div>
           <div>
-            <label>Your Bet/Raise To ($)</label>
-            <input type="number" id="pre-amount" value="12" min="0">
+            <label>Your Bet/Raise To (₱)</label>
+            <input type="number" id="pre-amount" value="150" min="0">
           </div>
         </div>
       </div>
@@ -786,8 +785,8 @@ textarea { resize: vertical; }
           </div>
           <div class="grid-2" style="gap:12px; margin-bottom:12px">
             <div>
-              <label>Pot Size ($)</label>
-              <input type="number" id="flop-pot" value="" min="0" placeholder="25" oninput="refreshSPR()">
+              <label>Pot Size (₱)</label>
+              <input type="number" id="flop-pot" value="" min="0" placeholder="600" oninput="refreshSPR()">
             </div>
             <div>
               <label>Facing Action</label>
@@ -800,7 +799,7 @@ textarea { resize: vertical; }
             </div>
           </div>
           <div style="margin-bottom:12px">
-            <label>Facing Bet Size ($) — 0 if check</label>
+            <label>Facing Bet Size (₱) — 0 if check</label>
             <input type="number" id="flop-facing" value="0" min="0">
           </div>
           <div style="margin-bottom:12px">
@@ -814,7 +813,7 @@ textarea { resize: vertical; }
             </div>
           </div>
           <div>
-            <label>Your Bet/Raise To ($)</label>
+            <label>Your Bet/Raise To (₱)</label>
             <input type="number" id="flop-amount" value="0" min="0">
           </div>
         </div>
@@ -831,8 +830,8 @@ textarea { resize: vertical; }
           </div>
           <div class="grid-2" style="gap:12px; margin-bottom:12px">
             <div>
-              <label>Pot Size ($)</label>
-              <input type="number" id="turn-pot" value="" min="0" placeholder="60" oninput="refreshSPR()">
+              <label>Pot Size (₱)</label>
+              <input type="number" id="turn-pot" value="" min="0" placeholder="1500" oninput="refreshSPR()">
             </div>
             <div>
               <label>Facing Action</label>
@@ -845,7 +844,7 @@ textarea { resize: vertical; }
             </div>
           </div>
           <div style="margin-bottom:12px">
-            <label>Facing Bet Size ($)</label>
+            <label>Facing Bet Size (₱)</label>
             <input type="number" id="turn-facing" value="0" min="0">
           </div>
           <div style="margin-bottom:12px">
@@ -859,7 +858,7 @@ textarea { resize: vertical; }
             </div>
           </div>
           <div>
-            <label>Your Bet/Raise To ($)</label>
+            <label>Your Bet/Raise To (₱)</label>
             <input type="number" id="turn-amount" value="0" min="0">
           </div>
         </div>
@@ -876,8 +875,8 @@ textarea { resize: vertical; }
           </div>
           <div class="grid-2" style="gap:12px; margin-bottom:12px">
             <div>
-              <label>Pot Size ($)</label>
-              <input type="number" id="river-pot" value="" min="0" placeholder="120" oninput="refreshSPR()">
+              <label>Pot Size (₱)</label>
+              <input type="number" id="river-pot" value="" min="0" placeholder="3000" oninput="refreshSPR()">
             </div>
             <div>
               <label>Facing Action</label>
@@ -890,7 +889,7 @@ textarea { resize: vertical; }
             </div>
           </div>
           <div style="margin-bottom:12px">
-            <label>Facing Bet Size ($)</label>
+            <label>Facing Bet Size (₱)</label>
             <input type="number" id="river-facing" value="0" min="0">
           </div>
           <div style="margin-bottom:12px">
@@ -904,7 +903,7 @@ textarea { resize: vertical; }
             </div>
           </div>
           <div>
-            <label>Your Bet/Raise To ($)</label>
+            <label>Your Bet/Raise To (₱)</label>
             <input type="number" id="river-amount" value="0" min="0">
           </div>
         </div>
@@ -927,11 +926,11 @@ textarea { resize: vertical; }
             </select>
           </div>
           <div>
-            <label>Net ($)</label>
+            <label>Net (₱)</label>
             <input type="number" id="res-amount" placeholder="0">
           </div>
           <div>
-            <label>Final Pot ($)</label>
+            <label>Final Pot (₱)</label>
             <input type="number" id="res-pot" placeholder="0">
           </div>
         </div>
@@ -956,7 +955,7 @@ textarea { resize: vertical; }
         <div class="stat-lbl">Hands</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-val" id="s-net" style="color:var(--text-dim)">$0</div>
+        <div class="stat-val" id="s-net" style="color:var(--text-dim)">₱0</div>
         <div class="stat-lbl">Session Net</div>
       </div>
       <div class="stat-cell">
@@ -1084,9 +1083,9 @@ const SUIT_LABEL = { s: 'spades', h: 'hearts', d: 'diamonds', c: 'clubs' };
 
 // ── App State ──
 const S = {
-  blind:    '1/2',
+  blind:    '25/50',
   gameType: 'NLHE',
-  heroStack: 300,
+  heroStack: 5000,
   heroPos:  'BTN',
   heroCards: [null, null],
   opps: [],                  // { id, pos, stack, profile }
@@ -1165,7 +1164,7 @@ function setBlind(btn, val) {
 }
 
 function getBlind() {
-  if (S.blind === 'custom') return q('customBlind').value || '1/2';
+  if (S.blind === 'custom') return q('customBlind').value || '25/50';
   return S.blind;
 }
 
@@ -1200,10 +1199,10 @@ function addOpp() {
     { val:'ABC', label:'ABC (Straightforward)' },
     { val:'EXP', label:'Exploitative' },
   ];
-  const positions = ['UTG','UTG+1','MP','HJ','CO','BTN','SB','BB'];
+  const positions = ['UTG','UTG+1','UTG+2','MP','HJ','CO','BTN','SB','BB'];
   const defaultPos = positions[(S.oppCtr - 1) % positions.length];
 
-  S.opps.push({ id, pos: defaultPos, stack: 200, profile: 'TAG' });
+  S.opps.push({ id, pos: defaultPos, stack: 3000, profile: 'TAG' });
   const idx = S.opps.length - 1;
 
   const row = document.createElement('div');
@@ -1217,8 +1216,8 @@ function addOpp() {
       </select>
     </div>
     <div>
-      <label>Stack ($)</label>
-      <input type="number" value="200" min="0" onchange="updOpp('${id}','stack',+this.value)" style="padding:6px 7px;font-size:11px">
+      <label>Stack (₱)</label>
+      <input type="number" value="3000" min="0" onchange="updOpp('${id}','stack',+this.value)" style="padding:6px 7px;font-size:11px">
     </div>
     <div>
       <label>Profile</label>
@@ -1353,8 +1352,8 @@ function refreshSPR() {
   const facing = parseFloat(q(facingId)?.value) || 0;
 
   q('r-spr').textContent = calcSPR(stack, pot);
-  q('r-pot').textContent = pot > 0 ? '$' + pot : '—';
-  q('r-stack').textContent = stack > 0 ? '$' + stack : '—';
+  q('r-pot').textContent = pot > 0 ? '₱' + pot : '—';
+  q('r-stack').textContent = stack > 0 ? '₱' + stack : '—';
   q('r-potodds').textContent = potOdds(facing, pot);
 }
 
@@ -1395,7 +1394,7 @@ async function analyze() {
   }
 
   const oppsStr = S.opps.length
-    ? S.opps.map(o => `${o.pos} [${o.profile}, $${o.stack}]`).join(', ')
+    ? S.opps.map(o => `${o.pos} [${o.profile}, ₱${o.stack}]`).join(', ')
     : 'No opponents specified';
 
   const presentProfiles = [...new Set(S.opps.map(o => o.profile))];
@@ -1407,7 +1406,7 @@ Analyze the situation and respond using ONLY this exact format, with no extra te
 ===GTO_ACTION===
 [One of: FOLD, CALL, CHECK, BET, RAISE, 3BET, 4BET]
 ===SIZING===
-[Specific sizing, e.g. "2.5x BB (to $5)" or "66% pot ($18)" or "Min-raise to $12" or "N/A (check/fold)"]
+[Specific sizing, e.g. "2.5x BB (to ₱125)" or "66% pot (₱400)" or "Min-raise to ₱100" or "N/A (check/fold)"]
 ===CONFIDENCE===
 [HIGH, MEDIUM, or LOW]
 ===SPR_NOTE===
@@ -1429,17 +1428,18 @@ Key principles to apply:
 - Live cash games skew looser/more passive than online; calibrate accordingly
 - Always calculate and mention relevant pot odds / equity needed when facing a bet
 - SPR dictates stack-off threshold: SPR < 4 = committed with top pair+, SPR 4-12 = moderate, SPR > 12 = deep stack dynamics
-- Be specific with dollar amounts, always
+- Use Philippine Peso (₱) for all amounts — stakes are in PHP
+- Be specific with peso amounts, always
 - If the profiled opponent(s) at the table make exploitative deviation clearly +EV, note it`;
 
   const userMsg = `HAND SITUATION:
-Game: ${gameType} $${blind}
+Game: ${gameType} ₱${blind} (Philippine Cash Game)
 Street: ${s === 'pre' ? 'PREFLOP' : s.toUpperCase()}
-Hero: ${S.heroPos} | Cards: ${heroCardStr} | Stack: $${stack}
+Hero: ${S.heroPos} | Cards: ${heroCardStr} | Stack: ₱${stack}
 Opponents: ${oppsStr}
-Pot: $${pot} | SPR: ${spr}
-${boardInfo ? boardInfo + '\n' : ''}Facing: ${facingAction}${facing > 0 ? ` of $${facing}` : ''}
-Hero's intended action: ${heroAction}${betAmt > 0 ? ` to $${betAmt}` : ''}
+Pot: ₱${pot} | SPR: ${spr}
+${boardInfo ? boardInfo + '\n' : ''}Facing: ${facingAction}${facing > 0 ? ` of ₱${facing}` : ''}
+Hero's intended action: ${heroAction}${betAmt > 0 ? ` to ₱${betAmt}` : ''}
 ${context ? 'Hand context: ' + context : ''}
 Active profiles at table: ${presentProfiles.length ? presentProfiles.join(', ') : 'Unknown'}
 
@@ -1495,8 +1495,8 @@ function renderGTO(text, meta) {
 
   // SPR row
   q('r-spr').textContent     = meta.spr;
-  q('r-pot').textContent     = meta.pot > 0 ? '$' + meta.pot : '—';
-  q('r-stack').textContent   = '$' + meta.stack;
+  q('r-pot').textContent     = meta.pot > 0 ? '₱' + meta.pot : '—';
+  q('r-stack').textContent   = '₱' + meta.stack;
   q('r-potodds').textContent = potOdds(meta.facing, meta.pot);
 
   // Action chip
@@ -1612,16 +1612,16 @@ function renderHistory() {
   empty.style.display = 'none';
   list.innerHTML = S.journal.slice(0,20).map(h => {
     const cls   = h.outcome === 'won' ? 'won' : h.outcome === 'lost' ? 'lost' : '';
-    const netTx = h.net ? (h.net > 0 ? '+$'+h.net : '-$'+Math.abs(h.net)) : h.outcome || '—';
+    const netTx = h.net ? (h.net > 0 ? '+₱'+h.net : '-₱'+Math.abs(h.net)) : h.outcome || '—';
     const tagHtml = h.opps.map(o =>
-      `<span class="hist-tag">${o.pos} <span class="badge badge-${o.profile}" style="font-size:8px">${o.profile}</span> $${o.stack}</span>`
+      `<span class="hist-tag">${o.pos} <span class="badge badge-${o.profile}" style="font-size:8px">${o.profile}</span> ₱${o.stack}</span>`
     ).join('');
     return `<div class="hist-item">
       <div class="hist-top">
-        <span class="hist-id">${h.date} ${h.time} · $${h.blind} ${h.game}</span>
+        <span class="hist-id">${h.date} ${h.time} · ₱${h.blind} ${h.game}</span>
         <span class="hist-result ${cls}">${netTx}</span>
       </div>
-      <div class="hist-summary">${h.heroPos} · $${h.heroStack}${h.heroCards?' · '+h.heroCards:''}${h.board?' | '+h.board:''}</div>
+      <div class="hist-summary">${h.heroPos} · ₱${h.heroStack}${h.heroCards?' · '+h.heroCards:''}${h.board?' | '+h.board:''}</div>
       <div class="hist-tags">${tagHtml}${h.notes?'<span class="hist-tag" style="color:var(--yellow)">📝 note</span>':''}</div>
     </div>`;
   }).join('');
@@ -1640,7 +1640,7 @@ function updateStats() {
   q('s-hands').textContent = todayH.length;
 
   const netEl = q('s-net');
-  netEl.textContent = (net >= 0 ? '+$' : '-$') + Math.abs(net);
+  netEl.textContent = (net >= 0 ? '+₱' : '-₱') + Math.abs(net);
   netEl.style.color = net > 0 ? 'var(--green)' : net < 0 ? 'var(--red)' : 'var(--text-dim)';
 
   q('s-wr').textContent = wr;
