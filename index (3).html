@@ -970,8 +970,9 @@ async function engineerPrompt() {
     return;
   }
 
-  var remaining = FREE_LIMIT - getUsage().count;
-  if (remaining <= 0) {
+  var d = getUsage();
+  var remaining = FREE_LIMIT - d.count;
+  if (!d.paid && remaining <= 0) {
     refreshUI();
     return;
   }
