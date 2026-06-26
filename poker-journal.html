@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poker Journal — Live Cash GTO Coach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #07070c;
+  --surface: #0f0f1a;
+  --surface2: #151525;
+  --border: #1e1e35;
+  --purple: #6d28d9;
+  --purple-light: #8b5cf6;
+  --cyan: #06b6d4;
+  --green: #10b981;
+  --red: #ef4444;
+  --yellow: #f59e0b;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-dim: #475569;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* ── Header ── */
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-size: 17px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-suit { color: var(--red); font-size: 20px; }
+.logo-title { color: var(--text); }
+.logo-sub { color: var(--purple-light); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* ── Layout ── */
+.main {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  height: calc(100vh - 57px);
+}
+.left-panel {
+  overflow-y: auto;
+  padding: 20px 24px;
+  border-right: 1px solid var(--border);
+}
+.right-panel {
+  overflow-y: auto;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Section ── */
+.section { margin-bottom: 20px; }
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Card ── */
+.card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+/* ── Form ── */
+label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-dim);
+  display: block;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+input[type=text], input[type=number], select, textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 7px;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--purple-light); }
+select option { background: #1a1a2e; }
+textarea { resize: vertical; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+
+/* ── Buttons ── */
+.btn {
+  padding: 8px 14px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.btn-primary { background: var(--purple); color: white; }
+.btn-primary:hover { background: var(--purple-light); }
+.btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+.btn-ghost:hover { border-color: var(--purple-light); color: var(--text); }
+.btn-danger { background: transparent; border: 1px solid #ef444430; color: var(--red); }
+.btn-danger:hover { background: #ef444412; }
+.btn-sm { padding: 5px 10px; font-size: 11px; }
+
+/* ── Blind selector ── */
+.blind-row { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }
+.blind-chip {
+  padding: 5px 11px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  transition: all 0.15s;
+}
+.blind-chip:hover { border-color: var(--purple-light); color: var(--text); }
+.blind-chip.active { background: var(--purple); border-color: var(--purple); color: white; }
+
+/* ── Position picker ── */
+.pos-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 5px;
+}
+.pos-btn {
+  padding: 7px 3px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-dim);
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.15s;
+}
+.pos-btn:hover { border-color: var(--purple-light); color: var(--text); }
+.pos-btn.active { background: var(--purple); border-color: var(--purple); color: white; }
+
+/* ── Opponent row ── */
+.opp-row {
+  display: grid;
+  grid-template-columns: 90px 110px 130px 28px;
+  gap: 8px;
+  align-items: end;
+  padding: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+/* ── Profile badge ── */
+.badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+}
+.badge-TAG { background: #1e3a5f; color: #60a5fa; }
+.badge-LAG { background: #3b1515; color: #f87171; }
+.badge-GTO { background: #1e3b2e; color: #34d399; }
+.badge-ABC { background: #2d2415; color: #fbbf24; }
+.badge-EXP { background: #2d1a3b; color: #c084fc; }
+
+/* ── Street tabs ── */
+.street-tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--bg);
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 14px;
+}
+.street-tab {
+  flex: 1;
+  padding: 7px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  color: var(--text-dim);
+  transition: all 0.15s;
+  border: none;
+  background: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.street-tab:hover:not(.active) { color: var(--text-muted); }
+.street-tab.active { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+.street-tab.complete { color: var(--green); }
+
+/* ── Action buttons ── */
+.action-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.action-btn {
+  flex: 1;
+  min-width: 60px;
+  padding: 9px 6px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.15s;
+}
+.action-btn:hover { border-color: var(--purple-light); color: var(--text); }
+.action-btn.sel-FOLD.active { background: var(--red); border-color: var(--red); color: white; }
+.action-btn.sel-CHECK.active, .action-btn.sel-CALL.active { background: var(--green); border-color: var(--green); color: white; }
+.action-btn.sel-BET.active, .action-btn.sel-RAISE.active, .action-btn.sel-3BET.active, .action-btn.sel-4BET.active { background: var(--purple); border-color: var(--purple); color: white; }
+
+/* ── Facing row ── */
+.facing-row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.facing-btn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  transition: all 0.15s;
+}
+.facing-btn:hover { border-color: var(--cyan); color: var(--text); }
+.facing-btn.active { background: #0e4b5a; border-color: var(--cyan); color: var(--cyan); }
+
+/* ── Playing cards ── */
+.card-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-end; }
+.play-card {
+  width: 42px;
+  height: 58px;
+  border-radius: 6px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  border: 2px solid transparent;
+  user-select: none;
+}
+.play-card:hover { transform: translateY(-3px); box-shadow: 0 5px 16px rgba(0,0,0,0.5); }
+.play-card .cr { font-size: 16px; font-weight: 700; line-height: 1; }
+.play-card .cs { font-size: 12px; line-height: 1; }
+.play-card.suit-s .cr, .play-card.suit-s .cs { color: #1a1a2e; }
+.play-card.suit-h .cr, .play-card.suit-h .cs { color: #dc2626; }
+.play-card.suit-d .cr, .play-card.suit-d .cs { color: #dc2626; }
+.play-card.suit-c .cr, .play-card.suit-c .cs { color: #065f46; }
+.play-card.empty-card {
+  background: var(--bg);
+  border: 2px dashed var(--border);
+  font-size: 18px;
+  color: var(--text-dim);
+}
+.play-card.empty-card:hover { border-color: var(--purple-light); color: var(--purple-light); }
+
+/* ── Card picker modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  width: 340px;
+  max-width: 100%;
+}
+.modal-title { font-size: 15px; font-weight: 800; margin-bottom: 14px; }
+.rank-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.suit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.pick-btn {
+  padding: 9px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.15s;
+}
+.pick-btn:hover { border-color: var(--purple-light); }
+.pick-btn.sel { background: var(--purple); border-color: var(--purple); }
+.pick-suit-h, .pick-suit-d { color: var(--red); }
+.pick-suit-c { color: var(--green); }
+.modal-actions { display: flex; gap: 8px; }
+
+/* ── Analyze button ── */
+.analyze-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #5b21b6, #7c3aed);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+.analyze-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(109,40,217,0.5); }
+.analyze-btn:active { transform: translateY(0); }
+.analyze-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.save-btn {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #10b98140;
+  border-radius: 8px;
+  color: var(--green);
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.save-btn:hover { background: #10b98110; }
+
+/* ── Right panel ── */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat-cell {
+  background: var(--surface2);
+  padding: 10px 12px;
+  text-align: center;
+}
+.stat-val {
+  font-size: 17px;
+  font-weight: 800;
+  font-family: 'Space Mono', monospace;
+}
+.stat-lbl {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-top: 1px;
+}
+
+/* ── GTO panel ── */
+.gto-wrap { padding: 16px 18px; flex: 1; }
+.gto-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.gto-hdr-left { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); }
+.gto-hdr-right { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--purple-light); font-weight: 700; }
+
+/* action chip */
+.action-chip {
+  border-radius: 10px;
+  text-align: center;
+  padding: 12px 16px;
+  font-size: 24px;
+  font-weight: 800;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+.chip-raise, .chip-bet, .chip-3bet, .chip-4bet {
+  background: linear-gradient(135deg, #4c1d95, #6d28d9);
+  color: white;
+  box-shadow: 0 4px 20px rgba(109,40,217,0.4);
+}
+.chip-call, .chip-check {
+  background: linear-gradient(135deg, #064e3b, #059669);
+  color: white;
+  box-shadow: 0 4px 20px rgba(5,150,105,0.4);
+}
+.chip-fold {
+  background: linear-gradient(135deg, #7f1d1d, #dc2626);
+  color: white;
+  box-shadow: 0 4px 20px rgba(220,38,38,0.4);
+}
+
+/* SPR row */
+.spr-row { display: flex; gap: 6px; margin-bottom: 12px; }
+.spr-box {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 7px 10px;
+  text-align: center;
+}
+.spr-box-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.1em; }
+.spr-box-val { font-size: 15px; font-weight: 800; font-family: 'Space Mono', monospace; color: var(--cyan); }
+
+/* sizing */
+.sizing-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+.sizing-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.1em; margin-bottom: 3px; }
+.sizing-val { font-size: 14px; font-weight: 700; font-family: 'Space Mono', monospace; color: var(--cyan); }
+
+/* confidence */
+.conf-row { margin-bottom: 14px; }
+.conf-header { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-dim); margin-bottom: 4px; }
+.conf-bar { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.conf-fill { height: 100%; border-radius: 2px; transition: width 0.5s; }
+.conf-HIGH .conf-fill { background: var(--green); width: 100%; }
+.conf-MEDIUM .conf-fill { background: var(--yellow); width: 62%; }
+.conf-LOW .conf-fill { background: var(--red); width: 28%; }
+
+/* reasoning */
+.reasoning-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 14px;
+  white-space: pre-wrap;
+}
+.sub-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+/* profile adjustments */
+.profile-list { display: flex; flex-direction: column; gap: 0; }
+.profile-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.profile-row:last-child { border-bottom: none; }
+.profile-row.at-table { background: rgba(109,40,217,0.07); border-radius: 6px; padding: 8px; margin: -2px 0; }
+.profile-badge-col { flex-shrink: 0; width: 54px; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.at-table-tag { font-size: 8px; font-weight: 700; color: var(--purple-light); text-transform: uppercase; letter-spacing: 0.08em; }
+.profile-text { font-size: 11px; color: var(--text-muted); line-height: 1.6; }
+
+/* loading */
+.loading-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; }
+.dots { display: flex; gap: 6px; margin-bottom: 12px; }
+.dot {
+  width: 8px; height: 8px;
+  background: var(--purple-light);
+  border-radius: 50%;
+  animation: bounce 1.2s ease-in-out infinite;
+}
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-8px); opacity: 1; }
+}
+
+/* empty state */
+.empty-gto {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--text-dim);
+}
+.empty-suit { font-size: 40px; margin-bottom: 12px; opacity: 0.5; }
+.empty-msg { font-size: 13px; line-height: 1.7; }
+.empty-msg strong { color: var(--purple-light); }
+
+/* ── History ── */
+.history-hdr {
+  padding: 10px 18px 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+}
+.hist-item {
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.hist-item:hover { background: var(--surface2); }
+.hist-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px; }
+.hist-id { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-dim); }
+.hist-result { font-size: 11px; font-weight: 700; font-family: 'Space Mono', monospace; }
+.won { color: var(--green); }
+.lost { color: var(--red); }
+.hist-summary { font-size: 11px; color: var(--text-muted); }
+.hist-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 5px; }
+.hist-tag {
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+
+.no-history { padding: 20px 18px; text-align: center; font-size: 12px; color: var(--text-dim); }
+
+/* ── Tab content ── */
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* ── Spacer ── */
+.spacer { height: 32px; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .main { grid-template-columns: 1fr; height: auto; }
+  .right-panel { height: auto; }
+  .opp-row { grid-template-columns: 1fr 1fr 28px; }
+  .pos-grid { grid-template-columns: repeat(4, 1fr); }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .opp-row { grid-template-columns: 1fr 28px; }
+  .blind-row { gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <span class="logo-suit">♠</span>
+    <div>
+      <div class="logo-title">Poker Journal</div>
+      <div class="logo-sub">Live Cash · GTO Coach</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ════ LEFT PANEL ════ -->
+  <div class="left-panel">
+
+    <!-- Session -->
+    <div class="section">
+      <div class="section-label">Session</div>
+      <div class="card">
+        <div class="grid-2" style="gap:14px">
+          <div>
+            <label>Blinds</label>
+            <div class="blind-row">
+              <button class="blind-chip active" onclick="setBlind(this,'1/2')">$1/2</button>
+              <button class="blind-chip" onclick="setBlind(this,'2/3')">$2/3</button>
+              <button class="blind-chip" onclick="setBlind(this,'2/5')">$2/5</button>
+              <button class="blind-chip" onclick="setBlind(this,'5/10')">$5/10</button>
+              <button class="blind-chip" onclick="setBlind(this,'custom')">Custom</button>
+            </div>
+            <div id="customBlindWrap" style="display:none">
+              <input type="text" id="customBlind" placeholder="e.g. 3/6">
+            </div>
+          </div>
+          <div>
+            <label>Game Type</label>
+            <select id="gameType">
+              <option value="NLHE">NL Hold'em</option>
+              <option value="PLO">Pot Limit Omaha</option>
+              <option value="NLO8">NL Omaha Hi-Lo</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="section">
+      <div class="section-label">Hero</div>
+      <div class="card">
+        <div class="grid-2" style="gap:14px; margin-bottom:14px">
+          <div>
+            <label>Stack Size ($)</label>
+            <input type="number" id="heroStack" value="300" min="1" oninput="syncStack()">
+          </div>
+          <div>
+            <label>Hole Cards (private)</label>
+            <div class="card-row">
+              <div class="play-card empty-card" id="hc-0" onclick="openPicker('hero',0)">+</div>
+              <div class="play-card empty-card" id="hc-1" onclick="openPicker('hero',1)">+</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label>Position</label>
+          <div class="pos-grid">
+            <button class="pos-btn" onclick="setPos(this,'UTG')">UTG</button>
+            <button class="pos-btn" onclick="setPos(this,'UTG+1')">UTG+1</button>
+            <button class="pos-btn" onclick="setPos(this,'MP')">MP</button>
+            <button class="pos-btn" onclick="setPos(this,'HJ')">HJ</button>
+            <button class="pos-btn" onclick="setPos(this,'CO')">CO</button>
+            <button class="pos-btn active" onclick="setPos(this,'BTN')">BTN</button>
+            <button class="pos-btn" onclick="setPos(this,'SB')">SB</button>
+            <button class="pos-btn" onclick="setPos(this,'BB')">BB</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Opponents -->
+    <div class="section">
+      <div class="section-label">Opponents</div>
+      <div id="oppList"></div>
+      <button class="btn btn-ghost btn-sm" onclick="addOpp()" style="margin-top:4px">+ Add Opponent</button>
+    </div>
+
+    <!-- Street Action -->
+    <div class="section">
+      <div class="section-label">Street Action</div>
+      <div class="street-tabs">
+        <button class="street-tab active" id="tab-pre" onclick="setStreet('pre')">Pre</button>
+        <button class="street-tab" id="tab-flop" onclick="setStreet('flop')">Flop</button>
+        <button class="street-tab" id="tab-turn" onclick="setStreet('turn')">Turn</button>
+        <button class="street-tab" id="tab-river" onclick="setStreet('river')">River</button>
+      </div>
+
+      <!-- PREFLOP -->
+      <div id="pane-pre" class="tab-pane active">
+        <div class="card">
+          <div class="grid-2" style="gap:12px; margin-bottom:12px">
+            <div>
+              <label>Pot Before Action ($)</label>
+              <input type="number" id="pre-pot" value="3" min="0" oninput="refreshSPR()">
+            </div>
+            <div>
+              <label>Facing Action</label>
+              <div class="facing-row" id="facing-pre">
+                <button class="facing-btn active" onclick="setFacing(this,'pre','RFI')">RFI</button>
+                <button class="facing-btn" onclick="setFacing(this,'pre','Limp')">Limp</button>
+                <button class="facing-btn" onclick="setFacing(this,'pre','3-Bet')">3-Bet</button>
+                <button class="facing-btn" onclick="setFacing(this,'pre','4-Bet')">4-Bet</button>
+                <button class="facing-btn" onclick="setFacing(this,'pre','Shove')">Shove</button>
+              </div>
+            </div>
+          </div>
+          <div style="margin-bottom:12px">
+            <label>Facing Bet/Raise Size ($) — 0 if none</label>
+            <input type="number" id="pre-facing" value="0" min="0">
+          </div>
+          <div style="margin-bottom:12px">
+            <label>Context / Action sequence</label>
+            <textarea id="pre-context" rows="2" placeholder="e.g. UTG limps, MP raises to $12, you're on BTN…"></textarea>
+          </div>
+          <div style="margin-bottom:12px">
+            <label>Your Action</label>
+            <div class="action-row" id="actions-pre">
+              <button class="action-btn sel-FOLD" onclick="setAction(this,'pre','FOLD')">FOLD</button>
+              <button class="action-btn sel-CALL" onclick="setAction(this,'pre','CALL')">CALL</button>
+              <button class="action-btn sel-RAISE active" onclick="setAction(this,'pre','RAISE')">RAISE</button>
+              <button class="action-btn sel-3BET" onclick="setAction(this,'pre','3BET')">3-BET</button>
+              <button class="action-btn sel-4BET" onclick="setAction(this,'pre','4BET')">4-BET</button>
+            </div>
+          </div>
+          <div>
+            <label>Your Bet/Raise To ($)</label>
+            <input type="number" id="pre-amount" value="12" min="0">
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOP -->
+      <div id="pane-flop" class="tab-pane">
+        <div class="card">
+          <div style="margin-bottom:12px">
+            <label>Flop Board</label>
+            <div class="card-row">
+              <div class="play-card empty-card" id="bc-flop-0" onclick="openPicker('board-flop',0)">+</div>
+              <div class="play-card empty-card" id="bc-flop-1" onclick="openPicker('board-flop',1)">+</div>
+              <div class="play-card empty-card" id="bc-flop-2" onclick="openPicker('board-flop',2)">+</div>
+            </div>
+          </div>
+          <div class="grid-2" style="gap:12px; margin-bottom:12px">
+            <div>
+              <label>Pot Size ($)</label>
+              <input type="number" id="flop-pot" value="" min="0" placeholder="25" oninput="refreshSPR()">
+            </div>
+            <div>
+              <label>Facing Action</label>
+              <div class="facing-row" id="facing-flop">
+                <button class="facing-btn active" onclick="setFacing(this,'flop','Check')">Check</button>
+                <button class="facing-btn" onclick="setFacing(this,'flop','Bet')">Bet</button>
+                <button class="facing-btn" onclick="setFacing(this,'flop','Raise')">Raise</button>
+                <button class="facing-btn" onclick="setFacing(this,'flop','Donk')">Donk</button>
+              </div>
+            </div>
+          </div>
+          <div style="margin-bottom:12px">
+            <label>Facing Bet Size ($) — 0 if check</label>
+            <input type="number" id="flop-facing" value="0" min="0">
+          </div>
+          <div style="margin-bottom:12px">
+            <label>Your Action</label>
+            <div class="action-row" id="actions-flop">
+              <button class="action-btn sel-FOLD" onclick="setAction(this,'flop','FOLD')">FOLD</button>
+              <button class="action-btn sel-CHECK active" onclick="setAction(this,'flop','CHECK')">CHECK</button>
+              <button class="action-btn sel-CALL" onclick="setAction(this,'flop','CALL')">CALL</button>
+              <button class="action-btn sel-BET" onclick="setAction(this,'flop','BET')">BET</button>
+              <button class="action-btn sel-RAISE" onclick="setAction(this,'flop','RAISE')">RAISE</button>
+            </div>
+          </div>
+          <div>
+            <label>Your Bet/Raise To ($)</label>
+            <input type="number" id="flop-amount" value="0" min="0">
+          </div>
+        </div>
+      </div>
+
+      <!-- TURN -->
+      <div id="pane-turn" class="tab-pane">
+        <div class="card">
+          <div style="margin-bottom:12px">
+            <label>Turn Card</label>
+            <div class="card-row">
+              <div class="play-card empty-card" id="bc-turn-0" onclick="openPicker('board-turn',0)">+</div>
+            </div>
+          </div>
+          <div class="grid-2" style="gap:12px; margin-bottom:12px">
+            <div>
+              <label>Pot Size ($)</label>
+              <input type="number" id="turn-pot" value="" min="0" placeholder="60" oninput="refreshSPR()">
+            </div>
+            <div>
+              <label>Facing Action</label>
+              <div class="facing-row" id="facing-turn">
+                <button class="facing-btn active" onclick="setFacing(this,'turn','Check')">Check</button>
+                <button class="facing-btn" onclick="setFacing(this,'turn','Bet')">Bet</button>
+                <button class="facing-btn" onclick="setFacing(this,'turn','Raise')">Raise</button>
+                <button class="facing-btn" onclick="setFacing(this,'turn','Donk')">Donk</button>
+              </div>
+            </div>
+          </div>
+          <div style="margin-bottom:12px">
+            <label>Facing Bet Size ($)</label>
+            <input type="number" id="turn-facing" value="0" min="0">
+          </div>
+          <div style="margin-bottom:12px">
+            <label>Your Action</label>
+            <div class="action-row" id="actions-turn">
+              <button class="action-btn sel-FOLD" onclick="setAction(this,'turn','FOLD')">FOLD</button>
+              <button class="action-btn sel-CHECK active" onclick="setAction(this,'turn','CHECK')">CHECK</button>
+              <button class="action-btn sel-CALL" onclick="setAction(this,'turn','CALL')">CALL</button>
+              <button class="action-btn sel-BET" onclick="setAction(this,'turn','BET')">BET</button>
+              <button class="action-btn sel-RAISE" onclick="setAction(this,'turn','RAISE')">RAISE</button>
+            </div>
+          </div>
+          <div>
+            <label>Your Bet/Raise To ($)</label>
+            <input type="number" id="turn-amount" value="0" min="0">
+          </div>
+        </div>
+      </div>
+
+      <!-- RIVER -->
+      <div id="pane-river" class="tab-pane">
+        <div class="card">
+          <div style="margin-bottom:12px">
+            <label>River Card</label>
+            <div class="card-row">
+              <div class="play-card empty-card" id="bc-river-0" onclick="openPicker('board-river',0)">+</div>
+            </div>
+          </div>
+          <div class="grid-2" style="gap:12px; margin-bottom:12px">
+            <div>
+              <label>Pot Size ($)</label>
+              <input type="number" id="river-pot" value="" min="0" placeholder="120" oninput="refreshSPR()">
+            </div>
+            <div>
+              <label>Facing Action</label>
+              <div class="facing-row" id="facing-river">
+                <button class="facing-btn active" onclick="setFacing(this,'river','Check')">Check</button>
+                <button class="facing-btn" onclick="setFacing(this,'river','Bet')">Bet</button>
+                <button class="facing-btn" onclick="setFacing(this,'river','Raise')">Raise</button>
+                <button class="facing-btn" onclick="setFacing(this,'river','Donk')">Donk</button>
+              </div>
+            </div>
+          </div>
+          <div style="margin-bottom:12px">
+            <label>Facing Bet Size ($)</label>
+            <input type="number" id="river-facing" value="0" min="0">
+          </div>
+          <div style="margin-bottom:12px">
+            <label>Your Action</label>
+            <div class="action-row" id="actions-river">
+              <button class="action-btn sel-FOLD" onclick="setAction(this,'river','FOLD')">FOLD</button>
+              <button class="action-btn sel-CHECK active" onclick="setAction(this,'river','CHECK')">CHECK</button>
+              <button class="action-btn sel-CALL" onclick="setAction(this,'river','CALL')">CALL</button>
+              <button class="action-btn sel-BET" onclick="setAction(this,'river','BET')">BET</button>
+              <button class="action-btn sel-RAISE" onclick="setAction(this,'river','RAISE')">RAISE</button>
+            </div>
+          </div>
+          <div>
+            <label>Your Bet/Raise To ($)</label>
+            <input type="number" id="river-amount" value="0" min="0">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="section">
+      <div class="section-label">Result (Optional)</div>
+      <div class="card">
+        <div class="grid-3" style="gap:12px; margin-bottom:12px">
+          <div>
+            <label>Outcome</label>
+            <select id="res-outcome">
+              <option value="">— —</option>
+              <option value="won">Won</option>
+              <option value="lost">Lost</option>
+              <option value="split">Split</option>
+              <option value="folded">Folded Out</option>
+            </select>
+          </div>
+          <div>
+            <label>Net ($)</label>
+            <input type="number" id="res-amount" placeholder="0">
+          </div>
+          <div>
+            <label>Final Pot ($)</label>
+            <input type="number" id="res-pot" placeholder="0">
+          </div>
+        </div>
+        <div>
+          <label>Notes</label>
+          <textarea id="hand-notes" rows="2" placeholder="Villain showed… Think I should have…"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <button class="analyze-btn" id="analyzeBtn" onclick="analyze()">♠ GET GTO ANALYSIS</button>
+    <button class="save-btn" id="saveBtn" onclick="saveHand()">Save Hand to Journal</button>
+    <div class="spacer"></div>
+  </div>
+
+  <!-- ════ RIGHT PANEL ════ -->
+  <div class="right-panel">
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat-cell">
+        <div class="stat-val" id="s-hands">0</div>
+        <div class="stat-lbl">Hands</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val" id="s-net" style="color:var(--text-dim)">$0</div>
+        <div class="stat-lbl">Session Net</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val" id="s-wr" style="color:var(--text-dim)">—</div>
+        <div class="stat-lbl">Win Rate</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val" id="s-bb100" style="color:var(--text-dim)">—</div>
+        <div class="stat-lbl">bb/100</div>
+      </div>
+    </div>
+
+    <!-- GTO analysis area -->
+    <div class="gto-wrap">
+      <div class="gto-hdr">
+        <div class="gto-hdr-left">GTO Analysis</div>
+        <div class="gto-hdr-right" id="gto-street-lbl">PREFLOP</div>
+      </div>
+
+      <!-- Empty -->
+      <div id="gto-empty" class="empty-gto">
+        <div class="empty-suit">♣</div>
+        <div class="empty-msg">
+          Enter hand details then hit<br>
+          <strong>GET GTO ANALYSIS</strong><br>
+          for immediate optimal action feedback
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <div id="gto-loading" style="display:none">
+        <div class="loading-wrap">
+          <div class="dots">
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          </div>
+          <div style="font-size:12px; color:var(--text-dim)">Calculating optimal play…</div>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div id="gto-result" style="display:none">
+        <!-- SPR row -->
+        <div class="spr-row">
+          <div class="spr-box">
+            <div class="spr-box-lbl">SPR</div>
+            <div class="spr-box-val" id="r-spr">—</div>
+          </div>
+          <div class="spr-box">
+            <div class="spr-box-lbl">Pot</div>
+            <div class="spr-box-val" id="r-pot">—</div>
+          </div>
+          <div class="spr-box">
+            <div class="spr-box-lbl">Eff. Stack</div>
+            <div class="spr-box-val" id="r-stack">—</div>
+          </div>
+          <div class="spr-box">
+            <div class="spr-box-lbl">Pot Odds</div>
+            <div class="spr-box-val" id="r-potodds">—</div>
+          </div>
+        </div>
+
+        <!-- Action chip -->
+        <div class="action-chip" id="r-action">—</div>
+
+        <!-- Sizing -->
+        <div class="sizing-box">
+          <div class="sizing-lbl">Recommended Sizing</div>
+          <div class="sizing-val" id="r-sizing">—</div>
+        </div>
+
+        <!-- Confidence -->
+        <div class="conf-row" id="r-conf-wrap">
+          <div class="conf-header">
+            <span>Model Confidence</span>
+            <span id="r-conf-lbl">—</span>
+          </div>
+          <div class="conf-bar">
+            <div class="conf-fill" id="r-conf-fill"></div>
+          </div>
+        </div>
+
+        <!-- Reasoning -->
+        <div class="sub-label">Reasoning</div>
+        <div class="reasoning-box" id="r-reasoning">—</div>
+
+        <!-- Profile adjustments -->
+        <div class="sub-label">Exploitative Adjustments by Profile</div>
+        <div class="profile-list" id="r-profiles"></div>
+      </div>
+    </div>
+
+    <!-- History -->
+    <div class="history-hdr">Recent Hands</div>
+    <div id="historyList"></div>
+    <div id="historyEmpty" class="no-history">No hands saved yet</div>
+  </div>
+</div>
+
+<!-- ════ CARD PICKER MODAL ════ -->
+<div id="cardModal" class="modal-overlay" style="display:none" onclick="onModalBg(event)">
+  <div class="modal">
+    <div class="modal-title" id="modalTitle">Select Card</div>
+    <label>Rank</label>
+    <div class="rank-grid" id="rankGrid"></div>
+    <label>Suit</label>
+    <div class="suit-grid" id="suitGrid">
+      <button class="pick-btn pick-suit-s" onclick="pickSuit(this,'s')">♠</button>
+      <button class="pick-btn pick-suit-h" onclick="pickSuit(this,'h')">♥</button>
+      <button class="pick-btn pick-suit-d" onclick="pickSuit(this,'d')">♦</button>
+      <button class="pick-btn pick-suit-c" onclick="pickSuit(this,'c')">♣</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="confirmCard()" style="flex:1">Confirm</button>
+      <button class="btn btn-danger" onclick="clearCard()">Clear</button>
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const WORKER = 'https://prompt-coach-api.basak21.workers.dev';
+const RANKS  = ['A','K','Q','J','T','9','8','7','6','5','4','3','2'];
+const SUITS  = { s: '♠', h: '♥', d: '♦', c: '♣' };
+const SUIT_LABEL = { s: 'spades', h: 'hearts', d: 'diamonds', c: 'clubs' };
+
+// ── App State ──
+const S = {
+  blind:    '1/2',
+  gameType: 'NLHE',
+  heroStack: 300,
+  heroPos:  'BTN',
+  heroCards: [null, null],
+  opps: [],                  // { id, pos, stack, profile }
+  oppCtr: 0,
+  street:  'pre',
+  boards: { flop: [null,null,null], turn: [null], river: [null] },
+  facing:  { pre:'RFI', flop:'Check', turn:'Check', river:'Check' },
+  action:  { pre:'RAISE', flop:'CHECK', turn:'CHECK', river:'CHECK' },
+  journal: [],
+};
+
+// ── Card picker state ──
+const picker = { target: null, idx: 0, rank: null, suit: null };
+
+// ── Boot ──
+(function init() {
+  buildRankGrid();
+  loadJournal();
+  renderHistory();
+  updateStats();
+  // default 2 opponents
+  addOpp(); addOpp();
+})();
+
+// ════════════════════════ HELPERS ════════════════════════
+
+function q(id) { return document.getElementById(id); }
+
+function buildRankGrid() {
+  const g = q('rankGrid');
+  g.innerHTML = '';
+  RANKS.forEach(r => {
+    const b = document.createElement('button');
+    b.className = 'pick-btn';
+    b.textContent = r;
+    b.onclick = () => pickRank(r);
+    g.appendChild(b);
+  });
+}
+
+function getSuitClass(s) { return 'suit-' + s; }
+function getSuitSymbol(s) { return SUITS[s] || s; }
+
+function renderCard(elId, rank, suit) {
+  const el = q(elId);
+  if (!el) return;
+  if (!rank || !suit) {
+    el.className = 'play-card empty-card';
+    el.innerHTML = '+';
+    return;
+  }
+  el.className = 'play-card ' + getSuitClass(suit);
+  el.innerHTML = `<div class="cr">${rank}</div><div class="cs">${getSuitSymbol(suit)}</div>`;
+}
+
+function potOdds(facingAmt, pot) {
+  if (!facingAmt || !pot) return '—';
+  const call = facingAmt;
+  const total = pot + call;
+  const pct = ((call / total) * 100).toFixed(0);
+  return pct + '%';
+}
+
+function calcSPR(stack, pot) {
+  if (!pot || pot <= 0) return '—';
+  return (stack / pot).toFixed(1);
+}
+
+// ════════════════════════ SESSION / BLIND ════════════════════════
+
+function setBlind(btn, val) {
+  document.querySelectorAll('.blind-chip').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  S.blind = val;
+  q('customBlindWrap').style.display = val === 'custom' ? 'block' : 'none';
+}
+
+function getBlind() {
+  if (S.blind === 'custom') return q('customBlind').value || '1/2';
+  return S.blind;
+}
+
+function getBBSize() {
+  const parts = getBlind().split('/');
+  return parseFloat(parts[1]) || 2;
+}
+
+// ════════════════════════ HERO ════════════════════════
+
+function syncStack() {
+  S.heroStack = parseFloat(q('heroStack').value) || 0;
+  refreshSPR();
+}
+
+function setPos(btn, pos) {
+  document.querySelectorAll('.pos-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  S.heroPos = pos;
+}
+
+// ════════════════════════ OPPONENTS ════════════════════════
+
+function addOpp() {
+  if (S.oppCtr >= 8) return;
+  S.oppCtr++;
+  const id = 'opp-' + Date.now() + '-' + S.oppCtr;
+  const profiles = [
+    { val:'TAG', label:'TAG (Tight-Aggressive)' },
+    { val:'LAG', label:'LAG (Loose-Aggressive)' },
+    { val:'GTO', label:'GTO (Balanced)' },
+    { val:'ABC', label:'ABC (Straightforward)' },
+    { val:'EXP', label:'Exploitative' },
+  ];
+  const positions = ['UTG','UTG+1','MP','HJ','CO','BTN','SB','BB'];
+  const defaultPos = positions[(S.oppCtr - 1) % positions.length];
+
+  S.opps.push({ id, pos: defaultPos, stack: 200, profile: 'TAG' });
+  const idx = S.opps.length - 1;
+
+  const row = document.createElement('div');
+  row.className = 'opp-row';
+  row.id = 'opprow-' + id;
+  row.innerHTML = `
+    <div>
+      <label>Pos</label>
+      <select onchange="updOpp('${id}','pos',this.value)" style="padding:6px 7px;font-size:11px">
+        ${positions.map(p => `<option value="${p}" ${p===defaultPos?'selected':''}>${p}</option>`).join('')}
+      </select>
+    </div>
+    <div>
+      <label>Stack ($)</label>
+      <input type="number" value="200" min="0" onchange="updOpp('${id}','stack',+this.value)" style="padding:6px 7px;font-size:11px">
+    </div>
+    <div>
+      <label>Profile</label>
+      <select onchange="updOpp('${id}','profile',this.value)" style="padding:6px 7px;font-size:11px">
+        ${profiles.map(p => `<option value="${p.val}" ${p.val==='TAG'?'selected':''}>${p.label}</option>`).join('')}
+      </select>
+    </div>
+    <div style="display:flex;align-items:flex-end">
+      <button class="btn btn-danger btn-sm" onclick="removeOpp('${id}')" style="padding:5px 8px">✕</button>
+    </div>
+  `;
+  q('oppList').appendChild(row);
+}
+
+function updOpp(id, field, val) {
+  const o = S.opps.find(x => x.id === id);
+  if (o) o[field] = val;
+}
+
+function removeOpp(id) {
+  S.opps = S.opps.filter(o => o.id !== id);
+  const el = q('opprow-' + id);
+  if (el) el.remove();
+}
+
+// ════════════════════════ STREET / ACTION / FACING ════════════════════════
+
+function setStreet(s) {
+  document.querySelectorAll('.street-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  q('tab-' + s).classList.add('active');
+  q('pane-' + s).classList.add('active');
+  S.street = s;
+  q('gto-street-lbl').textContent = s === 'pre' ? 'PREFLOP' : s.toUpperCase();
+  refreshSPR();
+}
+
+function setFacing(btn, street, val) {
+  btn.closest('.facing-row').querySelectorAll('.facing-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  S.facing[street] = val;
+}
+
+function setAction(btn, street, val) {
+  btn.closest('.action-row').querySelectorAll('.action-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  S.action[street] = val;
+}
+
+// ════════════════════════ CARD PICKER ════════════════════════
+
+function openPicker(target, idx) {
+  picker.target = target;
+  picker.idx = idx;
+  picker.rank = null;
+  picker.suit = null;
+  // Reset UI
+  document.querySelectorAll('#rankGrid .pick-btn').forEach(b => b.classList.remove('sel'));
+  document.querySelectorAll('#suitGrid .pick-btn').forEach(b => b.classList.remove('sel'));
+  // Set title
+  const label = target === 'hero' ? `Hero Card ${idx + 1}` :
+    target.startsWith('board-') ? `Board Card` : 'Card';
+  q('modalTitle').textContent = label;
+  q('cardModal').style.display = 'flex';
+}
+
+function pickRank(r) {
+  picker.rank = r;
+  document.querySelectorAll('#rankGrid .pick-btn').forEach(b => {
+    b.classList.toggle('sel', b.textContent === r);
+  });
+}
+
+function pickSuit(btn, s) {
+  picker.suit = s;
+  document.querySelectorAll('#suitGrid .pick-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+function confirmCard() {
+  const { target, idx, rank, suit } = picker;
+  if (!rank || !suit) { alert('Please select both a rank and a suit.'); return; }
+  const card = { rank, suit };
+
+  if (target === 'hero') {
+    S.heroCards[idx] = card;
+    renderCard('hc-' + idx, rank, suit);
+  } else if (target.startsWith('board-')) {
+    const street = target.replace('board-', ''); // flop, turn, river
+    S.boards[street][idx] = card;
+    renderCard('bc-' + street + '-' + idx, rank, suit);
+  }
+  closeModal();
+}
+
+function clearCard() {
+  const { target, idx } = picker;
+  if (target === 'hero') {
+    S.heroCards[idx] = null;
+    renderCard('hc-' + idx, null, null);
+  } else if (target.startsWith('board-')) {
+    const street = target.replace('board-', '');
+    S.boards[street][idx] = null;
+    renderCard('bc-' + street + '-' + idx, null, null);
+  }
+  closeModal();
+}
+
+function closeModal() { q('cardModal').style.display = 'none'; }
+function onModalBg(e) { if (e.target === q('cardModal')) closeModal(); }
+
+function cardStr(c) {
+  if (!c) return '?';
+  return c.rank + getSuitSymbol(c.suit);
+}
+
+function boardStr(street) {
+  if (street === 'flop') return S.boards.flop.map(cardStr).join(' ');
+  if (street === 'turn') return cardStr(S.boards.turn[0]);
+  if (street === 'river') return cardStr(S.boards.river[0]);
+  return '';
+}
+
+// ════════════════════════ SPR ════════════════════════
+
+function refreshSPR() {
+  const s = S.street;
+  const potId = s === 'pre' ? 'pre-pot' : s + '-pot';
+  const pot = parseFloat(q(potId)?.value) || 0;
+  const stack = parseFloat(q('heroStack').value) || 0;
+  const facingId = s === 'pre' ? 'pre-facing' : s + '-facing';
+  const facing = parseFloat(q(facingId)?.value) || 0;
+
+  q('r-spr').textContent = calcSPR(stack, pot);
+  q('r-pot').textContent = pot > 0 ? '$' + pot : '—';
+  q('r-stack').textContent = stack > 0 ? '$' + stack : '—';
+  q('r-potodds').textContent = potOdds(facing, pot);
+}
+
+// ════════════════════════ ANALYZE ════════════════════════
+
+async function analyze() {
+  const btn = q('analyzeBtn');
+  btn.disabled = true;
+  btn.textContent = '⟳ Analyzing…';
+  showGTO('loading');
+
+  const s = S.street;
+  const potId = s === 'pre' ? 'pre-pot' : s + '-pot';
+  const facingId = s === 'pre' ? 'pre-facing' : s + '-facing';
+  const amountId = s === 'pre' ? 'pre-amount' : s + '-amount';
+
+  const stack = parseFloat(q('heroStack').value) || 0;
+  const pot   = parseFloat(q(potId)?.value)   || 0;
+  const facing = parseFloat(q(facingId)?.value) || 0;
+  const betAmt = parseFloat(q(amountId)?.value) || 0;
+  const context = q('pre-context')?.value?.trim() || '';
+  const heroAction = S.action[s];
+  const facingAction = S.facing[s];
+  const gameType = q('gameType').value;
+  const blind = getBlind();
+  const spr = calcSPR(stack, pot);
+
+  const heroCardStr = S.heroCards.every(Boolean)
+    ? S.heroCards.map(c => cardStr(c)).join(' ')
+    : 'Unknown/Private';
+
+  let boardInfo = '';
+  if (s !== 'pre') {
+    const fb = S.boards.flop.every(Boolean) ? 'Flop: ' + boardStr('flop') : '';
+    const tb = S.boards.turn[0] ? ' | Turn: ' + boardStr('turn') : '';
+    const rb = S.boards.river[0] ? ' | River: ' + boardStr('river') : '';
+    boardInfo = [fb, tb, rb].filter(Boolean).join('');
+  }
+
+  const oppsStr = S.opps.length
+    ? S.opps.map(o => `${o.pos} [${o.profile}, $${o.stack}]`).join(', ')
+    : 'No opponents specified';
+
+  const presentProfiles = [...new Set(S.opps.map(o => o.profile))];
+
+  const systemPrompt = `You are an elite GTO poker coach for live cash games. You specialize in both theoretically optimal play and real-time exploitative adjustments based on opponent profiles.
+
+Analyze the situation and respond using ONLY this exact format, with no extra text:
+
+===GTO_ACTION===
+[One of: FOLD, CALL, CHECK, BET, RAISE, 3BET, 4BET]
+===SIZING===
+[Specific sizing, e.g. "2.5x BB (to $5)" or "66% pot ($18)" or "Min-raise to $12" or "N/A (check/fold)"]
+===CONFIDENCE===
+[HIGH, MEDIUM, or LOW]
+===SPR_NOTE===
+[One concise sentence about SPR implications and commitment threshold]
+===VS_TAG===
+[One specific adjustment vs tight-aggressive players]
+===VS_LAG===
+[One specific adjustment vs loose-aggressive players]
+===VS_GTO===
+[One specific adjustment vs GTO/balanced players]
+===VS_ABC===
+[One specific adjustment vs straightforward/ABC players]
+===VS_EXP===
+[One specific adjustment vs exploitative/adaptive players]
+===REASONING===
+[2-4 sentences covering: range advantage, position, board texture if applicable, pot odds math, and the single most critical factor]
+
+Key principles to apply:
+- Live cash games skew looser/more passive than online; calibrate accordingly
+- Always calculate and mention relevant pot odds / equity needed when facing a bet
+- SPR dictates stack-off threshold: SPR < 4 = committed with top pair+, SPR 4-12 = moderate, SPR > 12 = deep stack dynamics
+- Be specific with dollar amounts, always
+- If the profiled opponent(s) at the table make exploitative deviation clearly +EV, note it`;
+
+  const userMsg = `HAND SITUATION:
+Game: ${gameType} $${blind}
+Street: ${s === 'pre' ? 'PREFLOP' : s.toUpperCase()}
+Hero: ${S.heroPos} | Cards: ${heroCardStr} | Stack: $${stack}
+Opponents: ${oppsStr}
+Pot: $${pot} | SPR: ${spr}
+${boardInfo ? boardInfo + '\n' : ''}Facing: ${facingAction}${facing > 0 ? ` of $${facing}` : ''}
+Hero's intended action: ${heroAction}${betAmt > 0 ? ` to $${betAmt}` : ''}
+${context ? 'Hand context: ' + context : ''}
+Active profiles at table: ${presentProfiles.length ? presentProfiles.join(', ') : 'Unknown'}
+
+What is GTO optimal here and how should Hero adjust vs each opponent profile?`;
+
+  try {
+    const resp = await fetch(WORKER, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system: systemPrompt,
+        messages: [{ role: 'user', content: userMsg }],
+        max_tokens: 700
+      })
+    });
+
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data.error || 'HTTP ' + resp.status);
+
+    let text = '';
+    if (Array.isArray(data.content)) {
+      data.content.forEach(c => { if (c.text) text += c.text; });
+    }
+    if (!text) throw new Error('Empty response');
+
+    renderGTO(text, { stack, pot, facing, spr });
+  } catch (err) {
+    showGTO('empty');
+    alert('Analysis failed: ' + err.message);
+  }
+
+  btn.disabled = false;
+  btn.textContent = '♠ GET GTO ANALYSIS';
+}
+
+function extract(text, tag) {
+  const re = new RegExp('===' + tag + '===\\s*([\\s\\S]*?)(?:===\\w+===|$)');
+  const m = text.match(re);
+  return m ? m[1].trim() : '';
+}
+
+function renderGTO(text, meta) {
+  const action     = extract(text, 'GTO_ACTION').toUpperCase().replace(/[^A-Z0-9]/g,'');
+  const sizing     = extract(text, 'SIZING') || '—';
+  const confidence = extract(text, 'CONFIDENCE').toUpperCase() || 'MEDIUM';
+  const sprNote    = extract(text, 'SPR_NOTE') || '';
+  const vsTag      = extract(text, 'VS_TAG') || '—';
+  const vsLag      = extract(text, 'VS_LAG') || '—';
+  const vsGto      = extract(text, 'VS_GTO') || '—';
+  const vsAbc      = extract(text, 'VS_ABC') || '—';
+  const vsExp      = extract(text, 'VS_EXP') || '—';
+  const reasoning  = extract(text, 'REASONING') || text.replace(/===[\w_]+===/g,'').trim();
+
+  // SPR row
+  q('r-spr').textContent     = meta.spr;
+  q('r-pot').textContent     = meta.pot > 0 ? '$' + meta.pot : '—';
+  q('r-stack').textContent   = '$' + meta.stack;
+  q('r-potodds').textContent = potOdds(meta.facing, meta.pot);
+
+  // Action chip
+  const chipEl = q('r-action');
+  const chipClass = {
+    RAISE:'chip-raise', BET:'chip-bet', '3BET':'chip-3bet', '4BET':'chip-4bet',
+    CALL:'chip-call', CHECK:'chip-check', FOLD:'chip-fold'
+  }[action] || 'chip-raise';
+  chipEl.className = 'action-chip ' + chipClass;
+  chipEl.textContent = action || '?';
+
+  // Sizing
+  q('r-sizing').textContent = sizing;
+
+  // Confidence
+  const conf = confidence.replace(/[^A-Z]/g,'');
+  q('r-conf-lbl').textContent = conf;
+  const fillEl = q('r-conf-fill');
+  fillEl.parentElement.parentElement.className = 'conf-row conf-' + conf;
+
+  // Reasoning
+  const fullReasoning = [sprNote, reasoning].filter(Boolean).join('\n\n');
+  q('r-reasoning').textContent = fullReasoning || '—';
+
+  // Profile adjustments
+  const atTable = new Set(S.opps.map(o => o.profile));
+  const profiles = [
+    { key:'TAG', label:'TAG', text: vsTag },
+    { key:'LAG', label:'LAG', text: vsLag },
+    { key:'GTO', label:'GTO', text: vsGto },
+    { key:'ABC', label:'ABC', text: vsAbc },
+    { key:'EXP', label:'EXP', text: vsExp },
+  ];
+  q('r-profiles').innerHTML = profiles.map(p => {
+    const at = atTable.has(p.key);
+    return `<div class="profile-row ${at ? 'at-table' : ''}">
+      <div class="profile-badge-col">
+        <span class="badge badge-${p.key}">${p.label}</span>
+        ${at ? '<span class="at-table-tag">AT TABLE</span>' : ''}
+      </div>
+      <div class="profile-text">${p.text}</div>
+    </div>`;
+  }).join('');
+
+  showGTO('result');
+}
+
+function showGTO(state) {
+  q('gto-empty').style.display   = state === 'empty'   ? 'block' : 'none';
+  q('gto-loading').style.display = state === 'loading' ? 'block' : 'none';
+  q('gto-result').style.display  = state === 'result'  ? 'block' : 'none';
+}
+
+// ════════════════════════ JOURNAL ════════════════════════
+
+function saveHand() {
+  const outcome = q('res-outcome').value;
+  const amt     = parseFloat(q('res-amount').value) || 0;
+  const notes   = q('hand-notes').value.trim();
+  const stack   = parseFloat(q('heroStack').value) || 0;
+
+  const flopCards = S.boards.flop.every(Boolean) ? S.boards.flop.map(c=>cardStr(c)).join('') : '';
+  const turnCard  = S.boards.turn[0] ? cardStr(S.boards.turn[0]) : '';
+  const riverCard = S.boards.river[0] ? cardStr(S.boards.river[0]) : '';
+  const board     = [flopCards, turnCard, riverCard].filter(Boolean).join(' ');
+
+  const hand = {
+    id:      Date.now(),
+    date:    new Date().toLocaleDateString(),
+    time:    new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}),
+    blind:   getBlind(),
+    game:    q('gameType').value,
+    heroPos: S.heroPos,
+    heroStack: stack,
+    heroCards: S.heroCards.every(Boolean) ? S.heroCards.map(c=>cardStr(c)).join('') : '',
+    board,
+    opps:    S.opps.map(o => ({ pos: o.pos, stack: o.stack, profile: o.profile })),
+    outcome,
+    net:     outcome === 'lost' ? -Math.abs(amt) : amt,
+    notes,
+    street:  S.street,
+  };
+
+  S.journal.unshift(hand);
+  saveJournal();
+  renderHistory();
+  updateStats();
+
+  const btn = q('saveBtn');
+  btn.textContent = '✓ Saved!';
+  setTimeout(() => { btn.textContent = 'Save Hand to Journal'; }, 2000);
+}
+
+function saveJournal() {
+  try { localStorage.setItem('pj_v2', JSON.stringify(S.journal)); } catch(e) {}
+}
+
+function loadJournal() {
+  try {
+    const d = localStorage.getItem('pj_v2');
+    if (d) S.journal = JSON.parse(d);
+  } catch(e) {}
+}
+
+function renderHistory() {
+  const list = q('historyList');
+  const empty = q('historyEmpty');
+  if (!S.journal.length) {
+    list.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  list.innerHTML = S.journal.slice(0,20).map(h => {
+    const cls   = h.outcome === 'won' ? 'won' : h.outcome === 'lost' ? 'lost' : '';
+    const netTx = h.net ? (h.net > 0 ? '+$'+h.net : '-$'+Math.abs(h.net)) : h.outcome || '—';
+    const tagHtml = h.opps.map(o =>
+      `<span class="hist-tag">${o.pos} <span class="badge badge-${o.profile}" style="font-size:8px">${o.profile}</span> $${o.stack}</span>`
+    ).join('');
+    return `<div class="hist-item">
+      <div class="hist-top">
+        <span class="hist-id">${h.date} ${h.time} · $${h.blind} ${h.game}</span>
+        <span class="hist-result ${cls}">${netTx}</span>
+      </div>
+      <div class="hist-summary">${h.heroPos} · $${h.heroStack}${h.heroCards?' · '+h.heroCards:''}${h.board?' | '+h.board:''}</div>
+      <div class="hist-tags">${tagHtml}${h.notes?'<span class="hist-tag" style="color:var(--yellow)">📝 note</span>':''}</div>
+    </div>`;
+  }).join('');
+}
+
+function updateStats() {
+  const today = new Date().toLocaleDateString();
+  const todayH = S.journal.filter(h => h.date === today);
+  const net    = todayH.reduce((s, h) => s + (h.net || 0), 0);
+  const wins   = todayH.filter(h => h.outcome === 'won').length;
+  const total  = todayH.filter(h => h.outcome === 'won' || h.outcome === 'lost').length;
+  const bb     = getBBSize();
+  const bb100  = todayH.length ? ((net / bb) / todayH.length * 100).toFixed(0) : null;
+  const wr     = total ? Math.round(wins/total*100)+'%' : '—';
+
+  q('s-hands').textContent = todayH.length;
+
+  const netEl = q('s-net');
+  netEl.textContent = (net >= 0 ? '+$' : '-$') + Math.abs(net);
+  netEl.style.color = net > 0 ? 'var(--green)' : net < 0 ? 'var(--red)' : 'var(--text-dim)';
+
+  q('s-wr').textContent = wr;
+  q('s-wr').style.color = wr === '—' ? 'var(--text-dim)' : 'var(--text)';
+
+  const bb100El = q('s-bb100');
+  bb100El.textContent = bb100 !== null ? (bb100 > 0 ? '+' : '') + bb100 : '—';
+  bb100El.style.color = bb100 > 0 ? 'var(--green)' : bb100 < 0 ? 'var(--red)' : 'var(--text-dim)';
+}
+</script>
+</body>
+</html>
