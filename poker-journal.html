@@ -618,6 +618,46 @@ textarea { resize: vertical; }
 /* ── Spacer ── */
 .spacer { height: 32px; }
 
+/* ── New Hand button ── */
+.new-hand-btn {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #064e3b, #065f46);
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  color: var(--green);
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.new-hand-btn:hover {
+  background: var(--green);
+  color: #07070c;
+  box-shadow: 0 4px 16px rgba(16,185,129,0.35);
+}
+.new-hand-btn:active { transform: scale(0.97); }
+
+/* ── Hand info pill ── */
+.hand-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 5px 12px;
+  white-space: nowrap;
+}
+.hand-pill-num { color: var(--cyan); font-weight: 700; font-size: 13px; }
+.hand-pill-sep { color: var(--border); }
+.hand-pill-time { color: var(--text-muted); }
+.hand-pill-blind { color: var(--purple-light); font-weight: 700; }
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .main { grid-template-columns: 1fr; height: auto; }
@@ -642,6 +682,16 @@ textarea { resize: vertical; }
       <div class="logo-sub">Live Cash · GTO Coach</div>
     </div>
   </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div class="hand-pill" id="handPill" style="display:none">
+      <span class="hand-pill-num" id="h-num">#1</span>
+      <span class="hand-pill-sep">|</span>
+      <span class="hand-pill-time" id="h-time">—</span>
+      <span class="hand-pill-sep">|</span>
+      <span class="hand-pill-blind" id="h-blind">₱25/50</span>
+    </div>
+    <button class="new-hand-btn" onclick="newHand()">+ NEW HAND</button>
+  </div>
 </div>
 
 <div class="main">
@@ -662,7 +712,7 @@ textarea { resize: vertical; }
               <button class="blind-chip" onclick="setBlind(this,'custom')">Custom</button>
             </div>
             <div id="customBlindWrap" style="display:none">
-              <input type="text" id="customBlind" placeholder="e.g. 100/200">
+              <input type="text" id="customBlind" placeholder="e.g. 100/200" oninput="updateDefaultRaise()">
             </div>
           </div>
           <div>
@@ -1095,6 +1145,8 @@ const S = {
   facing:  { pre:'RFI', flop:'Check', turn:'Check', river:'Check' },
   action:  { pre:'RAISE', flop:'CHECK', turn:'CHECK', river:'CHECK' },
   journal: [],
+  handNum:  0,
+  handTime: null,
 };
 
 // ── Card picker state ──
@@ -1106,6 +1158,7 @@ const picker = { target: null, idx: 0, rank: null, suit: null };
   loadJournal();
   renderHistory();
   updateStats();
+  updateDefaultRaise();
   // default 2 opponents
   addOpp(); addOpp();
 })();
@@ -1161,6 +1214,8 @@ function setBlind(btn, val) {
   btn.classList.add('active');
   S.blind = val;
   q('customBlindWrap').style.display = val === 'custom' ? 'block' : 'none';
+  if (val !== 'custom') updateDefaultRaise();
+  updateHandInfo();
 }
 
 function getBlind() {
@@ -1170,7 +1225,100 @@ function getBlind() {
 
 function getBBSize() {
   const parts = getBlind().split('/');
-  return parseFloat(parts[1]) || 2;
+  return parseFloat(parts[1]) || 50;
+}
+
+function getSBSize() {
+  const parts = getBlind().split('/');
+  return parseFloat(parts[0]) || 25;
+}
+
+function updateDefaultRaise() {
+  const sb = getSBSize();
+  const bb = getBBSize();
+  const pot = q('pre-pot');
+  const amt = q('pre-amount');
+  if (pot) pot.value = sb + bb;
+  if (amt) amt.value = bb * 3;
+  refreshSPR();
+  updateHandInfo();
+}
+
+function updateHandInfo() {
+  const blind = getBlind();
+  const pill = q('handPill');
+  if (S.handNum > 0) {
+    pill.style.display = 'flex';
+    q('h-num').textContent = '#' + S.handNum;
+    q('h-time').textContent = S.handTime
+      ? S.handTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      : '—';
+    q('h-blind').textContent = '₱' + blind;
+  }
+}
+
+function newHand() {
+  S.handNum++;
+  S.handTime = new Date();
+
+  // Reset hero cards
+  S.heroCards = [null, null];
+  renderCard('hc-0', null, null);
+  renderCard('hc-1', null, null);
+
+  // Reset board cards
+  S.boards = { flop: [null,null,null], turn: [null], river: [null] };
+  ['flop-0','flop-1','flop-2','turn-0','river-0'].forEach(k => renderCard('bc-' + k, null, null));
+
+  // Reset facing buttons to first option, action buttons to defaults
+  ['pre','flop','turn','river'].forEach(street => {
+    const fb = document.querySelectorAll('#facing-' + street + ' .facing-btn');
+    fb.forEach((b,i) => b.classList.toggle('active', i === 0));
+    const ab = document.querySelectorAll('#actions-' + street + ' .action-btn');
+    const defIdx = street === 'pre' ? 2 : 1;
+    ab.forEach((b,i) => b.classList.toggle('active', i === defIdx));
+  });
+  S.facing = { pre:'RFI', flop:'Check', turn:'Check', river:'Check' };
+  S.action = { pre:'RAISE', flop:'CHECK', turn:'CHECK', river:'CHECK' };
+
+  // Reset street to preflop
+  document.querySelectorAll('.street-tab').forEach(t => t.classList.remove('active','complete'));
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  q('tab-pre').classList.add('active');
+  q('pane-pre').classList.add('active');
+  S.street = 'pre';
+  q('gto-street-lbl').textContent = 'PREFLOP';
+
+  // Reset context/notes
+  const ctx = q('pre-context'); if (ctx) ctx.value = '';
+  q('hand-notes').value = '';
+  q('res-outcome').value = '';
+  q('res-amount').value = '';
+  q('res-pot').value = '';
+
+  // Reset pot/bet fields with correct blind defaults
+  const sb = getSBSize(), bb = getBBSize();
+  q('pre-pot').value    = sb + bb;
+  q('pre-facing').value = 0;
+  q('pre-amount').value = bb * 3;
+  ['flop','turn','river'].forEach(s => {
+    const pot = q(s + '-pot');
+    const fac = q(s + '-facing');
+    const amt = q(s + '-amount');
+    if (pot) pot.value = '';
+    if (fac) fac.value = 0;
+    if (amt) amt.value = 0;
+  });
+
+  // Reset GTO panel
+  showGTO('empty');
+  refreshSPR();
+  updateHandInfo();
+
+  // Flash the button
+  const btn = document.querySelector('.new-hand-btn');
+  btn.textContent = '✓ Hand Started';
+  setTimeout(() => { btn.textContent = '+ NEW HAND'; }, 1200);
 }
 
 // ════════════════════════ HERO ════════════════════════
