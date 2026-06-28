@@ -73,14 +73,14 @@ body {
 }
 
 /* ── Section ── */
-.section { margin-bottom: 20px; }
+.section { margin-bottom: 24px; }
 .section-label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--text-dim);
-  margin-bottom: 10px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -97,16 +97,16 @@ body {
   background: var(--surface2);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 14px;
+  padding: 18px;
 }
 
 /* ── Form ── */
 label {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
-  color: var(--text-dim);
+  color: var(--text-muted);
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -115,10 +115,10 @@ input[type=text], input[type=number], select, textarea {
   background: var(--bg);
   border: 1px solid var(--border);
   color: var(--text);
-  padding: 8px 10px;
+  padding: 10px 12px;
   border-radius: 7px;
   font-family: 'Space Mono', monospace;
-  font-size: 13px;
+  font-size: 15px;
   outline: none;
   transition: border-color 0.2s;
   -webkit-appearance: none;
@@ -151,14 +151,14 @@ textarea { resize: vertical; }
 /* ── Blind selector ── */
 .blind-row { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }
 .blind-chip {
-  padding: 5px 11px;
+  padding: 7px 13px;
   border-radius: 6px;
   border: 1px solid var(--border);
   background: var(--bg);
   color: var(--text-muted);
   cursor: pointer;
   font-family: 'Space Mono', monospace;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   transition: all 0.15s;
 }
@@ -172,14 +172,14 @@ textarea { resize: vertical; }
   gap: 5px;
 }
 .pos-btn {
-  padding: 7px 3px;
+  padding: 9px 3px;
   border-radius: 6px;
   border: 1px solid var(--border);
   background: var(--bg);
-  color: var(--text-dim);
+  color: var(--text-muted);
   cursor: pointer;
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-align: center;
   transition: all 0.15s;
@@ -215,35 +215,86 @@ textarea { resize: vertical; }
 .badge-ABC { background: #2d2415; color: #fbbf24; }
 .badge-EXP { background: #2d1a3b; color: #c084fc; }
 
-/* ── Street tabs ── */
-.street-tabs {
-  display: flex;
-  gap: 4px;
-  background: var(--bg);
-  padding: 4px;
-  border-radius: 8px;
+/* ── Street accordion ── */
+.street-acc {
+  background: var(--surface2);
   border: 1px solid var(--border);
-  margin-bottom: 14px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  overflow: hidden;
 }
-.street-tab {
-  flex: 1;
-  padding: 7px;
-  text-align: center;
-  border-radius: 5px;
+.street-acc-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
   cursor: pointer;
-  font-size: 11px;
-  font-weight: 700;
-  font-family: 'Space Mono', monospace;
-  color: var(--text-dim);
-  transition: all 0.15s;
-  border: none;
-  background: transparent;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  user-select: none;
+  transition: background 0.15s;
 }
-.street-tab:hover:not(.active) { color: var(--text-muted); }
-.street-tab.active { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
-.street-tab.complete { color: var(--green); }
+.street-acc-hdr:hover { background: rgba(109,40,217,0.07); }
+.street-acc.open .street-acc-hdr { border-bottom: 1px solid var(--border); }
+.street-acc-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.street-acc.open .street-acc-title { color: var(--text); }
+.street-acc-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.street-acc.open .street-acc-dot { background: var(--purple-light); }
+.street-acc.done .street-acc-dot { background: var(--green); }
+.street-acc-chevron {
+  font-size: 11px;
+  color: var(--text-dim);
+  transition: transform 0.2s;
+}
+.street-acc.open .street-acc-chevron { transform: rotate(90deg); }
+.street-acc-body { padding: 16px; }
+.deal-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 11px;
+  background: transparent;
+  border: 1px dashed #6d28d960;
+  border-radius: 8px;
+  color: var(--purple-light);
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.15s;
+}
+.deal-btn:hover { background: #6d28d915; border-color: var(--purple-light); }
+/* ── Settings button ── */
+.settings-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.settings-btn:hover { border-color: var(--purple-light); color: var(--text); }
 
 /* ── Action buttons ── */
 .action-row {
@@ -432,11 +483,11 @@ textarea { resize: vertical; }
   font-family: 'Space Mono', monospace;
 }
 .stat-lbl {
-  font-size: 9px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-dim);
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 /* ── GTO panel ── */
@@ -517,10 +568,10 @@ textarea { resize: vertical; }
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 7px;
-  padding: 12px;
-  font-size: 12px;
+  padding: 14px;
+  font-size: 13px;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.75;
   margin-bottom: 14px;
   white-space: pre-wrap;
 }
@@ -546,7 +597,7 @@ textarea { resize: vertical; }
 .profile-row.at-table { background: rgba(109,40,217,0.07); border-radius: 6px; padding: 8px; margin: -2px 0; }
 .profile-badge-col { flex-shrink: 0; width: 54px; display: flex; flex-direction: column; align-items: center; gap: 3px; }
 .at-table-tag { font-size: 8px; font-weight: 700; color: var(--purple-light); text-transform: uppercase; letter-spacing: 0.08em; }
-.profile-text { font-size: 11px; color: var(--text-muted); line-height: 1.6; }
+.profile-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
 /* loading */
 .loading-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; }
@@ -611,9 +662,7 @@ textarea { resize: vertical; }
 
 .no-history { padding: 20px 18px; text-align: center; font-size: 12px; color: var(--text-dim); }
 
-/* ── Tab content ── */
-.tab-pane { display: none; }
-.tab-pane.active { display: block; }
+/* street bodies controlled by accordion JS */
 
 /* ── Spacer ── */
 .spacer { height: 32px; }
@@ -683,6 +732,7 @@ textarea { resize: vertical; }
     </div>
   </div>
   <div style="display:flex;align-items:center;gap:10px">
+    <button class="settings-btn" onclick="openSettings()" title="API Settings">⚙</button>
     <div class="hand-pill" id="handPill" style="display:none">
       <span class="hand-pill-num" id="h-num">#1</span>
       <span class="hand-pill-sep">|</span>
@@ -771,17 +821,15 @@ textarea { resize: vertical; }
     <!-- Street Action -->
     <div class="section">
       <div class="section-label">Street Action</div>
-      <div class="street-tabs">
-        <button class="street-tab active" id="tab-pre" onclick="setStreet('pre')">Pre</button>
-        <button class="street-tab" id="tab-flop" onclick="setStreet('flop')">Flop</button>
-        <button class="street-tab" id="tab-turn" onclick="setStreet('turn')">Turn</button>
-        <button class="street-tab" id="tab-river" onclick="setStreet('river')">River</button>
-      </div>
 
-      <!-- PREFLOP -->
-      <div id="pane-pre" class="tab-pane active">
-        <div class="card">
-          <div class="grid-2" style="gap:12px; margin-bottom:12px">
+      <!-- PREFLOP accordion -->
+      <div class="street-acc open" id="acc-pre">
+        <div class="street-acc-hdr" onclick="toggleAcc('pre')">
+          <div class="street-acc-title"><span class="street-acc-dot"></span>Preflop</div>
+          <span class="street-acc-chevron">▶</span>
+        </div>
+        <div class="street-acc-body" id="body-pre">
+          <div class="grid-2" style="gap:12px; margin-bottom:14px">
             <div>
               <label>Pot Before Action (₱)</label>
               <input type="number" id="pre-pot" value="75" min="0" oninput="refreshSPR()">
@@ -797,15 +845,15 @@ textarea { resize: vertical; }
               </div>
             </div>
           </div>
-          <div style="margin-bottom:12px">
+          <div style="margin-bottom:14px">
             <label>Facing Bet/Raise Size (₱) — 0 if none</label>
             <input type="number" id="pre-facing" value="0" min="0">
           </div>
-          <div style="margin-bottom:12px">
+          <div style="margin-bottom:14px">
             <label>Context / Action sequence</label>
             <textarea id="pre-context" rows="2" placeholder="e.g. UTG limps, MP raises to ₱300, you're on BTN…"></textarea>
           </div>
-          <div style="margin-bottom:12px">
+          <div style="margin-bottom:14px">
             <label>Your Action</label>
             <div class="action-row" id="actions-pre">
               <button class="action-btn sel-FOLD" onclick="setAction(this,'pre','FOLD')">FOLD</button>
@@ -819,13 +867,18 @@ textarea { resize: vertical; }
             <label>Your Bet/Raise To (₱)</label>
             <input type="number" id="pre-amount" value="150" min="0">
           </div>
+          <button class="deal-btn" onclick="dealNext('flop')">→ Deal Flop</button>
         </div>
       </div>
 
-      <!-- FLOP -->
-      <div id="pane-flop" class="tab-pane">
-        <div class="card">
-          <div style="margin-bottom:12px">
+      <!-- FLOP accordion -->
+      <div class="street-acc" id="acc-flop">
+        <div class="street-acc-hdr" onclick="toggleAcc('flop')">
+          <div class="street-acc-title"><span class="street-acc-dot"></span>Flop</div>
+          <span class="street-acc-chevron">▶</span>
+        </div>
+        <div class="street-acc-body" id="body-flop" style="display:none">
+          <div style="margin-bottom:14px">
             <label>Flop Board</label>
             <div class="card-row">
               <div class="play-card empty-card" id="bc-flop-0" onclick="openPicker('board-flop',0)">+</div>
@@ -833,7 +886,7 @@ textarea { resize: vertical; }
               <div class="play-card empty-card" id="bc-flop-2" onclick="openPicker('board-flop',2)">+</div>
             </div>
           </div>
-          <div class="grid-2" style="gap:12px; margin-bottom:12px">
+          <div class="grid-2" style="gap:12px; margin-bottom:14px">
             <div>
               <label>Pot Size (₱)</label>
               <input type="number" id="flop-pot" value="" min="0" placeholder="600" oninput="refreshSPR()">
@@ -848,11 +901,11 @@ textarea { resize: vertical; }
               </div>
             </div>
           </div>
-          <div style="margin-bottom:12px">
+          <div style="margin-bottom:14px">
             <label>Facing Bet Size (₱) — 0 if check</label>
             <input type="number" id="flop-facing" value="0" min="0">
           </div>
-          <div style="margin-bottom:12px">
+          <div style="margin-bottom:14px">
             <label>Your Action</label>
             <div class="action-row" id="actions-flop">
               <button class="action-btn sel-FOLD" onclick="setAction(this,'flop','FOLD')">FOLD</button>
@@ -866,19 +919,24 @@ textarea { resize: vertical; }
             <label>Your Bet/Raise To (₱)</label>
             <input type="number" id="flop-amount" value="0" min="0">
           </div>
+          <button class="deal-btn" onclick="dealNext('turn')">→ Deal Turn</button>
         </div>
       </div>
 
-      <!-- TURN -->
-      <div id="pane-turn" class="tab-pane">
-        <div class="card">
-          <div style="margin-bottom:12px">
+      <!-- TURN accordion -->
+      <div class="street-acc" id="acc-turn">
+        <div class="street-acc-hdr" onclick="toggleAcc('turn')">
+          <div class="street-acc-title"><span class="street-acc-dot"></span>Turn</div>
+          <span class="street-acc-chevron">▶</span>
+        </div>
+        <div class="street-acc-body" id="body-turn" style="display:none">
+          <div style="margin-bottom:14px">
             <label>Turn Card</label>
             <div class="card-row">
               <div class="play-card empty-card" id="bc-turn-0" onclick="openPicker('board-turn',0)">+</div>
             </div>
           </div>
-          <div class="grid-2" style="gap:12px; margin-bottom:12px">
+          <div class="grid-2" style="gap:12px; margin-bottom:14px">
             <div>
               <label>Pot Size (₱)</label>
               <input type="number" id="turn-pot" value="" min="0" placeholder="1500" oninput="refreshSPR()">
@@ -893,11 +951,11 @@ textarea { resize: vertical; }
               </div>
             </div>
           </div>
-          <div style="margin-bottom:12px">
+          <div style="margin-bottom:14px">
             <label>Facing Bet Size (₱)</label>
             <input type="number" id="turn-facing" value="0" min="0">
           </div>
-          <div style="margin-bottom:12px">
+          <div style="margin-bottom:14px">
             <label>Your Action</label>
             <div class="action-row" id="actions-turn">
               <button class="action-btn sel-FOLD" onclick="setAction(this,'turn','FOLD')">FOLD</button>
@@ -911,19 +969,24 @@ textarea { resize: vertical; }
             <label>Your Bet/Raise To (₱)</label>
             <input type="number" id="turn-amount" value="0" min="0">
           </div>
+          <button class="deal-btn" onclick="dealNext('river')">→ Deal River</button>
         </div>
       </div>
 
-      <!-- RIVER -->
-      <div id="pane-river" class="tab-pane">
-        <div class="card">
-          <div style="margin-bottom:12px">
+      <!-- RIVER accordion -->
+      <div class="street-acc" id="acc-river">
+        <div class="street-acc-hdr" onclick="toggleAcc('river')">
+          <div class="street-acc-title"><span class="street-acc-dot"></span>River</div>
+          <span class="street-acc-chevron">▶</span>
+        </div>
+        <div class="street-acc-body" id="body-river" style="display:none">
+          <div style="margin-bottom:14px">
             <label>River Card</label>
             <div class="card-row">
               <div class="play-card empty-card" id="bc-river-0" onclick="openPicker('board-river',0)">+</div>
             </div>
           </div>
-          <div class="grid-2" style="gap:12px; margin-bottom:12px">
+          <div class="grid-2" style="gap:12px; margin-bottom:14px">
             <div>
               <label>Pot Size (₱)</label>
               <input type="number" id="river-pot" value="" min="0" placeholder="3000" oninput="refreshSPR()">
@@ -938,11 +1001,11 @@ textarea { resize: vertical; }
               </div>
             </div>
           </div>
-          <div style="margin-bottom:12px">
+          <div style="margin-bottom:14px">
             <label>Facing Bet Size (₱)</label>
             <input type="number" id="river-facing" value="0" min="0">
           </div>
-          <div style="margin-bottom:12px">
+          <div style="margin-bottom:14px">
             <label>Your Action</label>
             <div class="action-row" id="actions-river">
               <button class="action-btn sel-FOLD" onclick="setAction(this,'river','FOLD')">FOLD</button>
@@ -1125,11 +1188,71 @@ textarea { resize: vertical; }
   </div>
 </div>
 
+<!-- ════ SETTINGS MODAL ════ -->
+<div id="settingsModal" class="modal-overlay" style="display:none" onclick="onSettingsBg(event)">
+  <div class="modal" style="width:380px">
+    <div class="modal-title">⚙ API Settings</div>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;line-height:1.65">
+      Enter your Anthropic API key to enable GTO Analysis.<br>
+      Get one at <span style="color:var(--cyan)">console.anthropic.com</span>
+    </p>
+    <label>Anthropic API Key</label>
+    <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-…" style="margin-bottom:10px">
+    <div style="font-size:12px;color:var(--text-dim);margin-bottom:18px;line-height:1.6">
+      Stored locally in your browser only. Sent directly to Anthropic — never to any other server.
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="saveApiKey()" style="flex:1">Save Key</button>
+      <button class="btn btn-ghost" onclick="closeSettings()">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <script>
-const WORKER = 'https://prompt-coach-api.basak21.workers.dev';
-const RANKS  = ['A','K','Q','J','T','9','8','7','6','5','4','3','2'];
+const RANKS = ['A','K','Q','J','T','9','8','7','6','5','4','3','2'];
 const SUITS  = { s: '♠', h: '♥', d: '♦', c: '♣' };
 const SUIT_LABEL = { s: 'spades', h: 'hearts', d: 'diamonds', c: 'clubs' };
+
+const API_URL = 'https://api.anthropic.com/v1/messages';
+
+// ── Settings / API ──
+function openSettings() {
+  q('apiKeyInput').value = localStorage.getItem('pj_api_key') || '';
+  q('settingsModal').style.display = 'flex';
+}
+function closeSettings() { q('settingsModal').style.display = 'none'; }
+function onSettingsBg(e) { if (e.target === q('settingsModal')) closeSettings(); }
+function saveApiKey() {
+  const k = q('apiKeyInput').value.trim();
+  if (k) localStorage.setItem('pj_api_key', k);
+  else localStorage.removeItem('pj_api_key');
+  closeSettings();
+}
+
+async function callClaude(system, userMsg, maxTokens) {
+  const key = localStorage.getItem('pj_api_key');
+  if (!key) { openSettings(); throw new Error('API key required — enter it in ⚙ Settings'); }
+  const resp = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': key,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-calls': 'true',
+    },
+    body: JSON.stringify({
+      model: 'claude-haiku-4-5-20251001',
+      system,
+      messages: [{ role: 'user', content: userMsg }],
+      max_tokens: maxTokens || 700,
+    }),
+  });
+  const data = await resp.json();
+  if (!resp.ok) throw new Error(data.error?.message || 'HTTP ' + resp.status);
+  let text = '';
+  if (Array.isArray(data.content)) data.content.forEach(c => { if (c.text) text += c.text; });
+  return text;
+}
 
 // ── App State ──
 const S = {
@@ -1281,11 +1404,15 @@ function newHand() {
   S.facing = { pre:'RFI', flop:'Check', turn:'Check', river:'Check' };
   S.action = { pre:'RAISE', flop:'CHECK', turn:'CHECK', river:'CHECK' };
 
-  // Reset street to preflop
-  document.querySelectorAll('.street-tab').forEach(t => t.classList.remove('active','complete'));
-  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-  q('tab-pre').classList.add('active');
-  q('pane-pre').classList.add('active');
+  // Reset accordions — preflop open, postflop closed
+  ['pre','flop','turn','river'].forEach(s => {
+    const body = q('body-' + s);
+    const acc  = q('acc-' + s);
+    const open = s === 'pre';
+    body.style.display = open ? 'block' : 'none';
+    acc.classList.toggle('open', open);
+    acc.classList.remove('done');
+  });
   S.street = 'pre';
   q('gto-street-lbl').textContent = 'PREFLOP';
 
@@ -1359,17 +1486,17 @@ function addOpp() {
   row.innerHTML = `
     <div>
       <label>Pos</label>
-      <select onchange="updOpp('${id}','pos',this.value)" style="padding:6px 7px;font-size:11px">
+      <select onchange="updOpp('${id}','pos',this.value)" style="padding:8px 10px;font-size:13px">
         ${positions.map(p => `<option value="${p}" ${p===defaultPos?'selected':''}>${p}</option>`).join('')}
       </select>
     </div>
     <div>
       <label>Stack (₱)</label>
-      <input type="number" value="3000" min="0" onchange="updOpp('${id}','stack',+this.value)" style="padding:6px 7px;font-size:11px">
+      <input type="number" value="3000" min="0" onchange="updOpp('${id}','stack',+this.value)" style="padding:8px 10px;font-size:13px">
     </div>
     <div>
       <label>Profile</label>
-      <select onchange="updOpp('${id}','profile',this.value)" style="padding:6px 7px;font-size:11px">
+      <select onchange="updOpp('${id}','profile',this.value)" style="padding:8px 10px;font-size:13px">
         ${profiles.map(p => `<option value="${p.val}" ${p.val==='TAG'?'selected':''}>${p.label}</option>`).join('')}
       </select>
     </div>
@@ -1393,14 +1520,30 @@ function removeOpp(id) {
 
 // ════════════════════════ STREET / ACTION / FACING ════════════════════════
 
-function setStreet(s) {
-  document.querySelectorAll('.street-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-  q('tab-' + s).classList.add('active');
-  q('pane-' + s).classList.add('active');
+function toggleAcc(s) {
+  const body = q('body-' + s);
+  const acc  = q('acc-' + s);
+  const opening = !acc.classList.contains('open');
+  body.style.display = opening ? 'block' : 'none';
+  acc.classList.toggle('open', opening);
+  if (opening) {
+    S.street = s;
+    q('gto-street-lbl').textContent = s === 'pre' ? 'PREFLOP' : s.toUpperCase();
+    refreshSPR();
+  }
+}
+
+function dealNext(s) {
+  const acc  = q('acc-' + s);
+  const body = q('body-' + s);
+  if (!acc.classList.contains('open')) {
+    body.style.display = 'block';
+    acc.classList.add('open');
+  }
   S.street = s;
   q('gto-street-lbl').textContent = s === 'pre' ? 'PREFLOP' : s.toUpperCase();
   refreshSPR();
+  setTimeout(() => acc.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
 }
 
 function setFacing(btn, street, val) {
@@ -1594,25 +1737,8 @@ Active profiles at table: ${presentProfiles.length ? presentProfiles.join(', ') 
 What is GTO optimal here and how should Hero adjust vs each opponent profile?`;
 
   try {
-    const resp = await fetch(WORKER, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        system: systemPrompt,
-        messages: [{ role: 'user', content: userMsg }],
-        max_tokens: 700
-      })
-    });
-
-    const data = await resp.json();
-    if (!resp.ok) throw new Error(data.error || 'HTTP ' + resp.status);
-
-    let text = '';
-    if (Array.isArray(data.content)) {
-      data.content.forEach(c => { if (c.text) text += c.text; });
-    }
+    const text = await callClaude(systemPrompt, userMsg, 700);
     if (!text) throw new Error('Empty response');
-
     renderGTO(text, { stack, pot, facing, spr });
   } catch (err) {
     showGTO('empty');
