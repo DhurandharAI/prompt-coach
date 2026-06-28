@@ -1213,7 +1213,7 @@ const RANKS = ['A','K','Q','J','T','9','8','7','6','5','4','3','2'];
 const SUITS  = { s: '♠', h: '♥', d: '♦', c: '♣' };
 const SUIT_LABEL = { s: 'spades', h: 'hearts', d: 'diamonds', c: 'clubs' };
 
-const API_URL = 'https://api.anthropic.com/v1/messages';
+const WORKER  = 'https://prompt-coach-api.basak21.workers.dev';
 
 // ── Settings / API ──
 function openSettings() {
@@ -1232,13 +1232,13 @@ function saveApiKey() {
 async function callClaude(system, userMsg, maxTokens) {
   const key = localStorage.getItem('pj_api_key');
   if (!key) { openSettings(); throw new Error('API key required — enter it in ⚙ Settings'); }
-  const resp = await fetch(API_URL, {
+
+  // Route through CORS-capable proxy; send key via header so Worker forwards it to Anthropic
+  const resp = await fetch(WORKER, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'x-api-key': key,
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-calls': 'true',
     },
     body: JSON.stringify({
       model: 'claude-haiku-4-5-20251001',
@@ -1248,7 +1248,7 @@ async function callClaude(system, userMsg, maxTokens) {
     }),
   });
   const data = await resp.json();
-  if (!resp.ok) throw new Error(data.error?.message || 'HTTP ' + resp.status);
+  if (!resp.ok) throw new Error(data.error?.message || data.error || 'HTTP ' + resp.status);
   let text = '';
   if (Array.isArray(data.content)) data.content.forEach(c => { if (c.text) text += c.text; });
   return text;
