@@ -73,32 +73,6 @@ h1 {
   letter-spacing: 1px;
 }
 
-/* ── USAGE COUNTER ── */
-.usage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 28px;
-  font-family: 'Space Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.usage-dots { display: flex; gap: 5px; }
-
-.usage-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid var(--accent);
-  transition: all 0.3s;
-}
-
-.usage-dot.used {
-  background: var(--accent);
-}
-
 /* ── TECHNIQUE SELECTOR ── */
 .techs {
   display: flex;
@@ -383,240 +357,6 @@ textarea::placeholder {
 
 .pill b { color: var(--cyan); }
 
-/* ── PAYWALL ── */
-.paywall {
-  display: none;
-  text-align: center;
-  padding: 48px 24px;
-}
-
-.paywall.visible {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.paywall-icon { font-size: 48px; margin-bottom: 16px; }
-
-.paywall-title {
-  font-size: 24px;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-.paywall-sub {
-  font-family: 'Space Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 28px;
-  max-width: 440px;
-  line-height: 1.6;
-}
-
-.paywall-plans {
-  display: flex;
-  gap: 14px;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.plan-card {
-  background: var(--surface);
-  border: 2px solid var(--border);
-  border-radius: 14px;
-  padding: 24px 28px;
-  cursor: pointer;
-  transition: all 0.2s;
-  min-width: 180px;
-  position: relative;
-}
-
-.plan-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 0 20px var(--glow);
-}
-
-.plan-card.active {
-  border-color: var(--accent);
-  box-shadow: 0 0 20px var(--glow);
-}
-
-.plan-card.best::after {
-  content: 'BEST VALUE';
-  position: absolute;
-  top: -10px;
-  right: 12px;
-  background: var(--accent);
-  color: #fff;
-  font-family: 'Space Mono', monospace;
-  font-size: 8px;
-  letter-spacing: 1px;
-  padding: 3px 8px;
-  border-radius: 6px;
-}
-
-.plan-price {
-  font-size: 28px;
-  font-weight: 800;
-  margin-bottom: 2px;
-}
-
-.plan-period {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  color: var(--muted);
-}
-
-.plan-note {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  color: var(--accent-light);
-  margin-top: 8px;
-}
-
-/* ── QR PAYMENT SECTION ── */
-.qr-section {
-  display: none;
-  max-width: 400px;
-  width: 100%;
-  margin-top: 8px;
-}
-
-.qr-section.visible { display: block; }
-
-.qr-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 16px;
-}
-
-.qr-card img {
-  width: 100%;
-  max-width: 280px;
-  border-radius: 8px;
-}
-
-.qr-amount {
-  font-size: 14px;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 4px;
-}
-
-.qr-note {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  color: #666;
-}
-
-.qr-steps {
-  text-align: left;
-  margin-bottom: 20px;
-  padding: 0 8px;
-}
-
-.qr-step {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 12px;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.qr-step-num {
-  background: var(--accent);
-  color: #fff;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.qr-step-text {
-  color: var(--muted);
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-}
-
-.qr-step-text b { color: var(--text); }
-
-/* ── UNLOCK CODE ── */
-.unlock-section {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-  width: 100%;
-  max-width: 400px;
-}
-
-.unlock-label {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  color: var(--muted);
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.unlock-row {
-  display: flex;
-  gap: 8px;
-}
-
-.unlock-input {
-  flex: 1;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-family: 'Space Mono', monospace;
-  font-size: 14px;
-  padding: 12px 16px;
-  border-radius: 10px;
-  outline: none;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.unlock-input:focus {
-  border-color: var(--accent);
-}
-
-.unlock-btn {
-  background: linear-gradient(135deg, #6d28d9, #4c1d95);
-  border: 1px solid rgba(167,139,250,0.3);
-  color: #fff;
-  font-family: 'Syne', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 12px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.unlock-btn:hover {
-  box-shadow: 0 4px 16px var(--glow);
-}
-
-.unlock-msg {
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  margin-top: 8px;
-  min-height: 16px;
-}
-
-.unlock-msg.success { color: #10b981; }
-.unlock-msg.fail { color: #ef4444; }
-
 /* ── HISTORY ── */
 .history {
   margin-top: 32px;
@@ -673,7 +413,6 @@ textarea::placeholder {
   .settings { grid-template-columns: 1fr; }
   .techs { justify-content: center; }
   .tech { flex: 1 1 45%; max-width: none; }
-  .paywall-plans { flex-direction: column; align-items: center; }
 }
 </style>
 </head>
@@ -685,12 +424,6 @@ textarea::placeholder {
     <h1>Prompt Engineer</h1>
     <p class="sub">// Type your rough idea → get a master prompt</p>
   </header>
-
-  <!-- Usage -->
-  <div class="usage">
-    <span id="usageText">5 free prompts remaining</span>
-    <div class="usage-dots" id="usageDots"></div>
-  </div>
 
   <!-- Main tool -->
   <div id="toolArea">
@@ -808,65 +541,6 @@ textarea::placeholder {
     </div>
   </div>
 
-  <!-- Paywall -->
-  <div class="paywall" id="paywall">
-    <div class="paywall-icon">🔒</div>
-    <div class="paywall-title">You've used your 5 free prompts</div>
-    <div class="paywall-sub">Unlock unlimited prompt engineering. Choose a plan, scan the QR to pay, then enter your unlock code below.</div>
-
-    <!-- Plan selection -->
-    <div class="paywall-plans" id="planCards">
-      <div class="plan-card" onclick="selectPlan('monthly', this)">
-        <div class="plan-price">₱55</div>
-        <div class="plan-period">per month</div>
-      </div>
-      <div class="plan-card best active" onclick="selectPlan('annual', this)">
-        <div class="plan-price">₱275</div>
-        <div class="plan-period">per year</div>
-        <div class="plan-note">Save ₱385/year</div>
-      </div>
-    </div>
-
-    <!-- QR Code -->
-    <div class="qr-section visible" id="qrSection">
-      <div class="qr-card">
-        <div class="qr-amount" id="qrAmount">Send ₱275 via InstaPay</div>
-        <div class="qr-note">Scan with any Philippine banking app</div>
-        <div style="margin-top:16px">
-          <img src="./BPIQR_Prompt.png" alt="BPI InstaPay QR Code">
-        </div>
-      </div>
-
-      <div class="qr-steps">
-        <div class="qr-step">
-          <div class="qr-step-num">1</div>
-          <div class="qr-step-text"><b>Scan the QR code</b> with GCash, Maya, BPI, or any InstaPay-enabled app</div>
-        </div>
-        <div class="qr-step">
-          <div class="qr-step-num">2</div>
-          <div class="qr-step-text"><b>Send the exact amount</b> shown above</div>
-        </div>
-        <div class="qr-step">
-          <div class="qr-step-num">3</div>
-          <div class="qr-step-text"><b>Screenshot your receipt</b> and send to <b>thepromptcoach@gmail.com</b></div>
-        </div>
-        <div class="qr-step">
-          <div class="qr-step-num">4</div>
-          <div class="qr-step-text"><b>Receive your unlock code</b> via email within minutes</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Unlock code input -->
-    <div class="unlock-section">
-      <div class="unlock-label">Already have an unlock code?</div>
-      <div class="unlock-row">
-        <input type="text" class="unlock-input" id="unlockInput" placeholder="Enter code" maxlength="12">
-        <button class="unlock-btn" onclick="tryUnlock()">Unlock</button>
-      </div>
-      <div class="unlock-msg" id="unlockMsg"></div>
-    </div>
-  </div>
 
 </div>
 
@@ -875,7 +549,6 @@ textarea::placeholder {
 // CONFIG
 // ═══════════════════════════════════════════════════════════════
 const WORKER_URL = "https://prompt-coach-api.basak21.workers.dev";
-const FREE_LIMIT = 5;
 let selectedTechnique = "auto";
 
 // ═══════════════════════════════════════════════════════════════
@@ -898,61 +571,24 @@ function updateCharCount() {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// USAGE TRACKING
+// HISTORY
 // ═══════════════════════════════════════════════════════════════
-function getUsage() {
+function getHistory() {
   try {
-    var d = JSON.parse(localStorage.getItem('pc_usage') || '{}');
-    return { count: d.count || 0, history: d.history || [] };
-  } catch (e) { return { count: 0, history: [] }; }
+    return JSON.parse(localStorage.getItem('pc_history') || '[]');
+  } catch (e) { return []; }
 }
 
-function saveUsage(data) {
-  localStorage.setItem('pc_usage', JSON.stringify(data));
-}
-
-function addUsage(input, technique) {
-  var d = getUsage();
-  d.count++;
-  d.history.unshift({
+function addHistory(input, technique) {
+  var history = getHistory();
+  history.unshift({
     input: input.substring(0, 100),
     technique: technique,
     time: new Date().toLocaleString()
   });
-  if (d.history.length > 10) d.history = d.history.slice(0, 10);
-  saveUsage(d);
-  refreshUI();
-}
-
-function refreshUI() {
-  var d = getUsage();
-  var isPaid = d.paid === true;
-  var remaining = Math.max(0, FREE_LIMIT - d.count);
-  var dotsEl = document.getElementById('usageDots');
-
-  if (isPaid) {
-    document.getElementById('usageText').textContent = 'Pro — unlimited prompts';
-    dotsEl.innerHTML = '';
-    document.getElementById('toolArea').style.display = '';
-    document.getElementById('paywall').classList.remove('visible');
-  } else {
-    var html = '';
-    for (var i = 0; i < FREE_LIMIT; i++) {
-      html += '<div class="usage-dot' + (i < d.count ? ' used' : '') + '"></div>';
-    }
-    dotsEl.innerHTML = html;
-    document.getElementById('usageText').textContent =
-      remaining > 0
-        ? remaining + ' free prompt' + (remaining !== 1 ? 's' : '') + ' remaining'
-        : 'Free prompts used';
-
-    if (remaining <= 0) {
-      document.getElementById('toolArea').style.display = 'none';
-      document.getElementById('paywall').classList.add('visible');
-    }
-  }
-
-  renderHistory(d.history);
+  if (history.length > 10) history = history.slice(0, 10);
+  localStorage.setItem('pc_history', JSON.stringify(history));
+  renderHistory(history);
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -967,12 +603,6 @@ async function engineerPrompt() {
   var raw = document.getElementById('rawInput').value.trim();
   if (!raw) {
     showError('Please enter a prompt idea first.');
-    return;
-  }
-
-  var remaining = FREE_LIMIT - getUsage().count;
-  if (remaining <= 0) {
-    refreshUI();
     return;
   }
 
@@ -1046,7 +676,7 @@ async function engineerPrompt() {
       '<div class="pill">Technique <b>' + usedTech + '</b></div>';
 
     document.getElementById('resultsArea').classList.add('visible');
-    addUsage(raw, usedTech);
+    addHistory(raw, usedTech);
 
   } catch (err) {
     showError(err.message || 'Something went wrong. Please try again.');
@@ -1091,8 +721,10 @@ function renderHistory(history) {
   document.getElementById('historySection').classList.add('visible');
   var html = '';
   for (var i = 0; i < history.length; i++) {
+    var safeInput = history[i].input
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     html += '<div class="history-item" onclick="loadHistory(' + i + ')">' +
-      '<div class="history-input">' + history[i].input + '</div>' +
+      '<div class="history-input">' + safeInput + '</div>' +
       '<div class="history-meta">' + history[i].technique + ' · ' + history[i].time + '</div>' +
       '</div>';
   }
@@ -1100,61 +732,11 @@ function renderHistory(history) {
 }
 
 function loadHistory(i) {
-  var d = getUsage();
-  if (d.history[i]) {
-    document.getElementById('rawInput').value = d.history[i].input;
+  var history = getHistory();
+  if (history[i]) {
+    document.getElementById('rawInput').value = history[i].input;
     updateCharCount();
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-}
-
-function selectPlan(plan, el) {
-  document.querySelectorAll('.plan-card').forEach(function(c) {
-    c.classList.remove('active');
-  });
-  el.classList.add('active');
-  var amount = plan === 'monthly' ? '₱55' : '₱275';
-  document.getElementById('qrAmount').textContent = 'Send ' + amount + ' via InstaPay';
-}
-
-// ═══════════════════════════════════════════════════════════════
-// UNLOCK CODE SYSTEM
-// ═══════════════════════════════════════════════════════════════
-// You generate codes and share them manually after verifying payment.
-// To add valid codes, edit the VALID_CODES array below.
-// Each code is a simple string. Once used, it's stored in localStorage.
-var VALID_CODES = ["PROMPTPRO1", "PROMPTPRO2", "PROMPTPRO3", "EARLYBIRD", "LAUNCH2026"];
-
-function tryUnlock() {
-  var code = document.getElementById('unlockInput').value.trim().toUpperCase();
-  var msgEl = document.getElementById('unlockMsg');
-
-  if (!code) {
-    msgEl.className = 'unlock-msg fail';
-    msgEl.textContent = 'Please enter a code';
-    return;
-  }
-
-  if (VALID_CODES.indexOf(code) !== -1) {
-    // Unlock: reset usage and mark as paid
-    var d = getUsage();
-    d.count = 0;
-    d.paid = true;
-    d.code = code;
-    d.paidAt = new Date().toISOString();
-    saveUsage(d);
-
-    msgEl.className = 'unlock-msg success';
-    msgEl.textContent = 'Unlocked! Redirecting...';
-
-    setTimeout(function() {
-      document.getElementById('paywall').classList.remove('visible');
-      document.getElementById('toolArea').style.display = '';
-      refreshUI();
-    }, 1000);
-  } else {
-    msgEl.className = 'unlock-msg fail';
-    msgEl.textContent = 'Invalid code. Please check and try again.';
   }
 }
 
@@ -1164,7 +746,7 @@ document.getElementById('rawInput').addEventListener('keydown', function(e) {
 });
 
 // Init
-refreshUI();
+renderHistory(getHistory());
 </script>
 </body>
 </html>
