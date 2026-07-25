@@ -1,0 +1,2958 @@
+[
+ {
+  "id": 572,
+  "name": "Bacon Butter",
+  "slug": "bacon-butter",
+  "sku": "CL-BCB",
+  "type": "variable",
+  "categories": [
+   "Basic Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/bacon-butter/",
+  "short_description": "A rich brown sugar pound cake studded with crisp country bacon, frosted with smooth Swiss buttercream and finished with a hint of cheddar cheese for a sweet-savory balance.",
+  "description": "",
+  "images": [
+   "Bacon-Butter-Whole.png"
+  ],
+  "price_php": 1200.0,
+  "price_range_php": [
+   1200.0,
+   2000.0
+  ],
+  "variations": [
+   {
+    "id": 576,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH"
+    },
+    "price_php": 1200.0
+   },
+   {
+    "id": 577,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH"
+    },
+    "price_php": 1600.0
+   },
+   {
+    "id": 578,
+    "label": "Size: 10 INCH",
+    "attributes": {
+     "Size": "10 INCH"
+    },
+    "price_php": 2000.0
+   }
+  ]
+ },
+ {
+  "id": 1765,
+  "name": "Bibingka Cheesecake",
+  "slug": "bibingka-cheesecake",
+  "sku": "CC-BBC",
+  "type": "simple",
+  "categories": [
+   "Basic Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/bibingka-cheesecake/",
+  "short_description": "Fluffy and cream cheesecake, with a graham crust, topped with salted duck egg / pulang itlog.",
+  "description": "6 Inches",
+  "images": [
+   "Bibingka-Cheesecake-whole.png",
+   "Bibingka-Cheesecake-Sliced.png",
+   "Bibingka-Cheesecake-whole.png"
+  ],
+  "price_php": 1500.0
+ },
+ {
+  "id": 506,
+  "name": "Carrot Cake",
+  "slug": "carrot-cake",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Basic Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/carrot-cake/",
+  "short_description": "Moist carrot cake with cream cheese frosting and walnuts, topped with sugar carrot decorations.",
+  "description": "",
+  "images": [
+   "Carrot-Cake-Whole.png"
+  ],
+  "price_php": 1500.0,
+  "price_range_php": [
+   1500.0,
+   4500.0
+  ],
+  "variations": [
+   {
+    "id": 1724,
+    "label": "Size: 12 INCH",
+    "attributes": {
+     "Size": "12 INCH"
+    },
+    "price_php": 3700.0
+   },
+   {
+    "id": 1725,
+    "label": "Size: 14 INCH",
+    "attributes": {
+     "Size": "14 INCH"
+    },
+    "price_php": 4500.0
+   },
+   {
+    "id": 507,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH"
+    },
+    "price_php": 1500.0
+   },
+   {
+    "id": 508,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH"
+    },
+    "price_php": 2000.0
+   },
+   {
+    "id": 509,
+    "label": "Size: 10 INCH",
+    "attributes": {
+     "Size": "10 INCH"
+    },
+    "price_php": 3000.0
+   }
+  ]
+ },
+ {
+  "id": 1809,
+  "name": "Cheesecake",
+  "slug": "cheesecake",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Basic Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/cheesecake/",
+  "short_description": "Rich , creamy cake made with a smooth blend of cream cheese, sugar, and eggs on a buttery crust Fruit Jam add on",
+  "description": "",
+  "images": [],
+  "price_php": 1500.0,
+  "price_range_php": [
+   1500.0,
+   3500.0
+  ],
+  "variations": [
+   {
+    "id": 1810,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH"
+    },
+    "price_php": 1500.0
+   },
+   {
+    "id": 1811,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH"
+    },
+    "price_php": 2000.0
+   },
+   {
+    "id": 1812,
+    "label": "Size: 10 INCH",
+    "attributes": {
+     "Size": "10 INCH"
+    },
+    "price_php": 3000.0
+   },
+   {
+    "id": 1813,
+    "label": "Size: 12 INCH",
+    "attributes": {
+     "Size": "12 INCH"
+    },
+    "price_php": 3500.0
+   }
+  ],
+  "images_removed": [
+   "Bibingka-Cheesecake-whole.png",
+   "Bibingka-Cheesecake-Sliced.png",
+   "Bibingka-Cheesecake-whole.png"
+  ]
+ },
+ {
+  "id": 579,
+  "name": "Chocolate Bacon",
+  "slug": "chocolate-bacon",
+  "sku": "CH-BC",
+  "type": "variable",
+  "categories": [
+   "Basic Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/chocolate-bacon/",
+  "short_description": "A rich brown sugar pound cake studded with crisp country bacon, frosted with soft, silky chocolate frosting for a bold yet well-balanced sweet-savory finish.",
+  "description": "",
+  "images": [
+   "Chocolate-Bacon-Whole.png"
+  ],
+  "price_php": 1200.0,
+  "price_range_php": [
+   1200.0,
+   2000.0
+  ],
+  "variations": [
+   {
+    "id": 623,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH"
+    },
+    "price_php": 1200.0
+   },
+   {
+    "id": 624,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH"
+    },
+    "price_php": 1600.0
+   },
+   {
+    "id": 625,
+    "label": "Size: 10 INCH",
+    "attributes": {
+     "Size": "10 INCH"
+    },
+    "price_php": 2000.0
+   }
+  ]
+ },
+ {
+  "id": 567,
+  "name": "Chocolate Cake",
+  "slug": "chocolate-cake",
+  "sku": "CL-CHC",
+  "type": "variable",
+  "categories": [
+   "Basic Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/chocolate-cake/",
+  "short_description": "Our take on the classic chocolate cake a rich, decadent cake layered with smooth chocolate frosting for a timeless, satisfying indulgence .",
+  "description": "",
+  "images": [
+   "Chocolate-Cake-Whole.png"
+  ],
+  "price_php": 1300.0,
+  "price_range_php": [
+   1300.0,
+   3500.0
+  ],
+  "variations": [
+   {
+    "id": 1723,
+    "label": "Size: 12 INCH",
+    "attributes": {
+     "Size": "12 INCH"
+    },
+    "price_php": 3500.0
+   },
+   {
+    "id": 569,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH"
+    },
+    "price_php": 1300.0
+   },
+   {
+    "id": 570,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH"
+    },
+    "price_php": 1700.0
+   },
+   {
+    "id": 571,
+    "label": "Size: 10 INCH",
+    "attributes": {
+     "Size": "10 INCH"
+    },
+    "price_php": 2700.0
+   }
+  ]
+ },
+ {
+  "id": 500,
+  "name": "Chocolate Chip Cake",
+  "slug": "chocolate-chip-cake",
+  "sku": "CL-CCCC",
+  "type": "variable",
+  "categories": [
+   "Basic Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/chocolate-chip-cake/",
+  "short_description": "Carefully baked chocolate chip cake with a soft crumb, layered with smooth cookie dough buttercream and topped with chocolate chip cookies, made to be enjoyed bite after bite.",
+  "description": "",
+  "images": [
+   "Chocolate-Chip-Cake-Whole.png"
+  ],
+  "price_php": 1700.0,
+  "price_range_php": [
+   1700.0,
+   5000.0
+  ],
+  "variations": [
+   {
+    "id": 1718,
+    "label": "Size: 12 INCH",
+    "attributes": {
+     "Size": "12 INCH"
+    },
+    "price_php": 5000.0
+   },
+   {
+    "id": 503,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH"
+    },
+    "price_php": 1700.0
+   },
+   {
+    "id": 504,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH"
+    },
+    "price_php": 2500.0
+   },
+   {
+    "id": 505,
+    "label": "Size: 10 INCH",
+    "attributes": {
+     "Size": "10 INCH"
+    },
+    "price_php": 4000.0
+   }
+  ]
+ },
+ {
+  "id": 561,
+  "name": "Dark Roast Coffee",
+  "slug": "dark-roast-coffee",
+  "sku": "CL-DRC",
+  "type": "variable",
+  "categories": [
+   "Basic Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/dark-roast-coffee/",
+  "short_description": "Moist coffee cake made from coffee extra house-made from SAGADA beans, covered in a smooth Mexican frosting.",
+  "description": "",
+  "images": [],
+  "price_php": 1500.0,
+  "price_range_php": [
+   1500.0,
+   4500.0
+  ],
+  "variations": [
+   {
+    "id": 1739,
+    "label": "Size: 12 INCH",
+    "attributes": {
+     "Size": "12 INCH"
+    },
+    "price_php": 3700.0
+   },
+   {
+    "id": 1740,
+    "label": "Size: 14 INCH",
+    "attributes": {
+     "Size": "14 INCH"
+    },
+    "price_php": 4500.0
+   },
+   {
+    "id": 564,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH"
+    },
+    "price_php": 1500.0
+   },
+   {
+    "id": 565,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH"
+    },
+    "price_php": 2000.0
+   },
+   {
+    "id": 566,
+    "label": "Size: 10 INCH",
+    "attributes": {
+     "Size": "10 INCH"
+    },
+    "price_php": 3000.0
+   }
+  ],
+  "images_removed": [
+   "Tirmisu-Cake-Whole.png",
+   "Tirmisu-Cake-Whole.png",
+   "Tiramisu-Cake-Sliced.png"
+  ]
+ },
+ {
+  "id": 1785,
+  "name": "Jack Daniels",
+  "slug": "jack-daniels",
+  "sku": "CL-JD",
+  "type": "variable",
+  "categories": [
+   "Basic Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/jack-daniels/",
+  "short_description": "A moist Jack Daniels infused chocolate cake, with Mexican buttercream frosting and Jack Daniels truffles.",
+  "description": "",
+  "images": [],
+  "price_php": 2000.0,
+  "price_range_php": [
+   2000.0,
+   4500.0
+  ],
+  "variations": [
+   {
+    "id": 1786,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH"
+    },
+    "price_php": 2000.0
+   },
+   {
+    "id": 1787,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH"
+    },
+    "price_php": 3000.0
+   },
+   {
+    "id": 1788,
+    "label": "Size: 10 INCH",
+    "attributes": {
+     "Size": "10 INCH"
+    },
+    "price_php": 4500.0
+   }
+  ]
+ },
+ {
+  "id": 1482,
+  "name": "Mini Cake Sampler",
+  "slug": "mini-cakesampler",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Basic Cakes",
+   "Seasonal Occassions"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/mini-cakesampler/",
+  "short_description": "Four inch cakes of our best-selling flavors, Red Velvet, Carrot, Chocolate and Chocolate Chip",
+  "description": "",
+  "images": [
+   "mini-cake-sampler.jpeg"
+  ],
+  "price_php": 2000.0,
+  "variations": [
+   {
+    "id": "sampler-1",
+    "label": "Edition: Standard",
+    "attributes": {
+     "Edition": "Standard"
+    },
+    "price_php": 2000.0
+   },
+   {
+    "id": "sampler-2",
+    "label": "Edition: Seasonal / Mother's Day",
+    "attributes": {
+     "Edition": "Seasonal / Mother's Day"
+    },
+    "price_php": 2500.0
+   }
+  ],
+  "price_range_php": [
+   2000.0,
+   2500.0
+  ]
+ },
+ {
+  "id": 1800,
+  "name": "Oreo Red Velvet",
+  "slug": "oreo-red-velvet",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Basic Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/oreo-red-velvet/",
+  "short_description": "Our Signature Red Velvet cake, studded with oreos in the cream cheese frosting.",
+  "description": "",
+  "images": [],
+  "price_php": 1500.0,
+  "price_range_php": [
+   1500.0,
+   4500.0
+  ],
+  "variations": [
+   {
+    "id": 1804,
+    "label": "Size: 10 INCH",
+    "attributes": {
+     "Size": "10 INCH"
+    },
+    "price_php": 3500.0
+   },
+   {
+    "id": 1805,
+    "label": "Size: 12 INCH",
+    "attributes": {
+     "Size": "12 INCH"
+    },
+    "price_php": 4500.0
+   },
+   {
+    "id": 1801,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH"
+    },
+    "price_php": 1500.0
+   },
+   {
+    "id": 1802,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH"
+    },
+    "price_php": 2500.0
+   }
+  ]
+ },
+ {
+  "id": 483,
+  "name": "Signature Red Velvet Cake",
+  "slug": "signature-red-velvet",
+  "sku": "CL-BC-RV",
+  "type": "variable",
+  "categories": [
+   "Basic Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/signature-red-velvet/",
+  "short_description": "Our best-seller! Ultra moist red velvet cake, cream cheese frosting, topped with white chocolate shavings.",
+  "description": "",
+  "images": [
+   "Red-Velvet-buttercream-Whole.png",
+   "Red-Velvet-buttercream-Sliced.png"
+  ],
+  "price_php": 1500.0,
+  "price_range_php": [
+   1500.0,
+   4500.0
+  ],
+  "variations": [
+   {
+    "id": 1710,
+    "label": "Size: 12 INCH",
+    "attributes": {
+     "Size": "12 INCH"
+    },
+    "price_php": 3700.0
+   },
+   {
+    "id": 1711,
+    "label": "Size: 14 INCH",
+    "attributes": {
+     "Size": "14 INCH"
+    },
+    "price_php": 4500.0
+   },
+   {
+    "id": 496,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH"
+    },
+    "price_php": 1500.0
+   },
+   {
+    "id": 497,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH"
+    },
+    "price_php": 2000.0
+   },
+   {
+    "id": 498,
+    "label": "Size: 10 INCH",
+    "attributes": {
+     "Size": "10 INCH"
+    },
+    "price_php": 3000.0
+   }
+  ]
+ },
+ {
+  "id": 555,
+  "name": "Ube Halaya Cake",
+  "slug": "ube-halaya-cake",
+  "sku": "CL-UHC",
+  "type": "variable",
+  "categories": [
+   "Basic Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/ube-halaya-cake/",
+  "short_description": "Moist yet fluffy ube cake, filled with swiss buttercream and ube halaya, frosted with ube swiss buttercream and ube cake crumbs.",
+  "description": "",
+  "images": [
+   "Ube-Halaya-Cake-Whole.png"
+  ],
+  "price_php": 1300.0,
+  "price_range_php": [
+   1300.0,
+   3700.0
+  ],
+  "variations": [
+   {
+    "id": 1726,
+    "label": "Size: 12 INCH",
+    "attributes": {
+     "Size": "12 INCH"
+    },
+    "price_php": 3700.0
+   },
+   {
+    "id": 558,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH"
+    },
+    "price_php": 1300.0
+   },
+   {
+    "id": 559,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH"
+    },
+    "price_php": 1700.0
+   },
+   {
+    "id": 560,
+    "label": "Size: 10 INCH",
+    "attributes": {
+     "Size": "10 INCH"
+    },
+    "price_php": 2800.0
+   }
+  ]
+ },
+ {
+  "id": 1820,
+  "name": "Bento Cakes",
+  "slug": "bento-cakes",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Bento Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/bento-cakes/",
+  "short_description": "Mini Version of basic cakes with individual package.",
+  "description": "Red Velvet Carrot Cake Ube Halayaa Lemon Butter",
+  "images": [
+   "E2B79EE4-DC35-48E0-9056-4558146215CA.png",
+   "C0DEBEA8-CA5D-44D4-854F-B17FEEA98B24.png",
+   "5182CAAA-45F7-456F-A820-049590CB118F.png",
+   "400DB527-FA35-4A0B-9717-016692AE865C.png",
+   "20FE5487-4F4E-4AB3-8458-69066C6E1C07.png"
+  ],
+  "price_php": 500.0,
+  "price_range_php": [
+   500.0,
+   700.0
+  ],
+  "variations": [
+   {
+    "id": "bento-1",
+    "label": "Flavor: Lemon Butter",
+    "attributes": {
+     "Flavor": "Lemon Butter"
+    },
+    "price_php": 500.0
+   },
+   {
+    "id": "bento-2",
+    "label": "Flavor: Chocolate Yema",
+    "attributes": {
+     "Flavor": "Chocolate Yema"
+    },
+    "price_php": 500.0
+   },
+   {
+    "id": "bento-3",
+    "label": "Flavor: Red Velvet",
+    "attributes": {
+     "Flavor": "Red Velvet"
+    },
+    "price_php": 600.0
+   },
+   {
+    "id": "bento-4",
+    "label": "Flavor: Dark Roast Coffee",
+    "attributes": {
+     "Flavor": "Dark Roast Coffee"
+    },
+    "price_php": 600.0
+   },
+   {
+    "id": "bento-5",
+    "label": "Flavor: Chiffon + Jam + Buttercream",
+    "attributes": {
+     "Flavor": "Chiffon + Jam + Buttercream"
+    },
+    "price_php": 600.0
+   },
+   {
+    "id": "bento-6",
+    "label": "Flavor: Carrot",
+    "attributes": {
+     "Flavor": "Carrot"
+    },
+    "price_php": 650.0
+   },
+   {
+    "id": "bento-7",
+    "label": "Flavor: Chocolate Chip",
+    "attributes": {
+     "Flavor": "Chocolate Chip"
+    },
+    "price_php": 700.0
+   },
+   {
+    "id": "bento-8",
+    "label": "Flavor: Ube Halaya",
+    "attributes": {
+     "Flavor": "Ube Halaya"
+    },
+    "price_php": 700.0
+   },
+   {
+    "id": "bento-9",
+    "label": "Flavor: Matcha",
+    "attributes": {
+     "Flavor": "Matcha"
+    },
+    "price_php": 600.0
+   },
+   {
+    "id": "bento-10",
+    "label": "Flavor: Butter Bacon",
+    "attributes": {
+     "Flavor": "Butter Bacon"
+    },
+    "price_php": 600.0
+   },
+   {
+    "id": "bento-11",
+    "label": "Flavor: Chocolate Bacon",
+    "attributes": {
+     "Flavor": "Chocolate Bacon"
+    },
+    "price_php": 600.0
+   }
+  ],
+  "flavor_notes": {
+   "Bacon Butter": "Brown Sugar pound cake, studded with fried country bacon, frosted with swiss buttercream and cheddar cheese.",
+   "Ube Halaya": "Moist yet fluffy ube cake. filled with swiss buttercream and ube halaya, frosted with ube swiss buttercream and ube cake crumbs.",
+   "Carrot Cake": "Moist carrot cake with cream cheese frosting and walnuts, topped with sugar carrot decorations.",
+   "Red Velvet Cake": "Our best-seller! Ultra moist red velvet cake, cream cheese frosting, topped with white chocolate shavings."
+  }
+ },
+ {
+  "id": 1470,
+  "name": "Butter Bacon",
+  "slug": "butter-bacon-2",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cake Tins"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/butter-bacon-2/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 450.0,
+  "price_range_php": [
+   450.0,
+   4000.0
+  ],
+  "variations": [
+   {
+    "id": 1471,
+    "label": "Size: Solo",
+    "attributes": {
+     "Size": "Solo"
+    },
+    "price_php": 450.0
+   },
+   {
+    "id": 1472,
+    "label": "Size: Sharing",
+    "attributes": {
+     "Size": "Sharing"
+    },
+    "price_php": 1000.0
+   },
+   {
+    "id": 1473,
+    "label": "Size: Party",
+    "attributes": {
+     "Size": "Party"
+    },
+    "price_php": 4000.0
+   }
+  ]
+ },
+ {
+  "id": 1454,
+  "name": "Carrot",
+  "slug": "carrot-2",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cake Tins"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/carrot-2/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 350.0,
+  "price_range_php": [
+   350.0,
+   3000.0
+  ],
+  "variations": [
+   {
+    "id": 1455,
+    "label": "Size: Solo",
+    "attributes": {
+     "Size": "Solo"
+    },
+    "price_php": 350.0
+   },
+   {
+    "id": 1456,
+    "label": "Size: Sharing",
+    "attributes": {
+     "Size": "Sharing"
+    },
+    "price_php": 750.0
+   },
+   {
+    "id": 1457,
+    "label": "Size: Party",
+    "attributes": {
+     "Size": "Party"
+    },
+    "price_php": 3000.0
+   }
+  ]
+ },
+ {
+  "id": 1474,
+  "name": "Chocolate Bacon",
+  "slug": "chocolate-bacon-3",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cake Tins"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/chocolate-bacon-3/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 450.0,
+  "price_range_php": [
+   450.0,
+   4000.0
+  ],
+  "variations": [
+   {
+    "id": 1475,
+    "label": "Size: Solo",
+    "attributes": {
+     "Size": "Solo"
+    },
+    "price_php": 450.0
+   },
+   {
+    "id": 1476,
+    "label": "Size: Sharing",
+    "attributes": {
+     "Size": "Sharing"
+    },
+    "price_php": 1000.0
+   },
+   {
+    "id": 1477,
+    "label": "Size: Party",
+    "attributes": {
+     "Size": "Party"
+    },
+    "price_php": 4000.0
+   }
+  ]
+ },
+ {
+  "id": 1450,
+  "name": "Chocolate Caramel",
+  "slug": "chocolate-caramel",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cake Tins"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/chocolate-caramel/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 300.0,
+  "price_range_php": [
+   300.0,
+   2500.0
+  ],
+  "variations": [
+   {
+    "id": 1451,
+    "label": "Size: Solo",
+    "attributes": {
+     "Size": "Solo"
+    },
+    "price_php": 300.0
+   },
+   {
+    "id": 1452,
+    "label": "Size: Sharing",
+    "attributes": {
+     "Size": "Sharing"
+    },
+    "price_php": 700.0
+   },
+   {
+    "id": 1453,
+    "label": "Size: Party",
+    "attributes": {
+     "Size": "Party"
+    },
+    "price_php": 2500.0
+   }
+  ]
+ },
+ {
+  "id": 1446,
+  "name": "Chocolate Chip",
+  "slug": "chocolate-chip-2",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cake Tins"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/chocolate-chip-2/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 500.0,
+  "price_range_php": [
+   500.0,
+   4000.0
+  ],
+  "variations": [
+   {
+    "id": 1447,
+    "label": "Size: Solo",
+    "attributes": {
+     "Size": "Solo"
+    },
+    "price_php": 500.0
+   },
+   {
+    "id": 1448,
+    "label": "Size: Sharing",
+    "attributes": {
+     "Size": "Sharing"
+    },
+    "price_php": 1000.0
+   },
+   {
+    "id": 1449,
+    "label": "Size: Party",
+    "attributes": {
+     "Size": "Party"
+    },
+    "price_php": 4000.0
+   }
+  ]
+ },
+ {
+  "id": 1466,
+  "name": "Dark Roast Coffee",
+  "slug": "dark-roast-coffee-3",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cake Tins"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/dark-roast-coffee-3/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 350.0,
+  "price_range_php": [
+   350.0,
+   2500.0
+  ],
+  "variations": [
+   {
+    "id": 1467,
+    "label": "Size: Solo",
+    "attributes": {
+     "Size": "Solo"
+    },
+    "price_php": 350.0
+   },
+   {
+    "id": 1468,
+    "label": "Size: Sharing",
+    "attributes": {
+     "Size": "Sharing"
+    },
+    "price_php": 750.0
+   },
+   {
+    "id": 1469,
+    "label": "Size: Party",
+    "attributes": {
+     "Size": "Party"
+    },
+    "price_php": 2500.0
+   }
+  ]
+ },
+ {
+  "id": 1438,
+  "name": "Lemon Butter",
+  "slug": "lemon-butter-2",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cake Tins"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/lemon-butter-2/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 300.0,
+  "price_range_php": [
+   300.0,
+   2500.0
+  ],
+  "variations": [
+   {
+    "id": 1880,
+    "label": "Size: Solo",
+    "attributes": {
+     "Size": "Solo"
+    },
+    "price_php": 300.0
+   },
+   {
+    "id": 1881,
+    "label": "Size: Sharing",
+    "attributes": {
+     "Size": "Sharing"
+    },
+    "price_php": 700.0
+   },
+   {
+    "id": 1882,
+    "label": "Size: Party",
+    "attributes": {
+     "Size": "Party"
+    },
+    "price_php": 2500.0
+   }
+  ]
+ },
+ {
+  "id": 1458,
+  "name": "Matcha",
+  "slug": "matcha-2",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cake Tins"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/matcha-2/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 350.0,
+  "price_range_php": [
+   350.0,
+   3000.0
+  ],
+  "variations": [
+   {
+    "id": 1459,
+    "label": "Size: Solo",
+    "attributes": {
+     "Size": "Solo"
+    },
+    "price_php": 350.0
+   },
+   {
+    "id": 1460,
+    "label": "Size: Sharing",
+    "attributes": {
+     "Size": "Sharing"
+    },
+    "price_php": 750.0
+   },
+   {
+    "id": 1461,
+    "label": "Size: Party",
+    "attributes": {
+     "Size": "Party"
+    },
+    "price_php": 3000.0
+   }
+  ]
+ },
+ {
+  "id": 1442,
+  "name": "Red Velvet",
+  "slug": "red-velvet-2",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cake Tins"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/red-velvet-2/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 300.0,
+  "price_range_php": [
+   300.0,
+   2500.0
+  ],
+  "variations": [
+   {
+    "id": 1443,
+    "label": "Size: Solo",
+    "attributes": {
+     "Size": "Solo"
+    },
+    "price_php": 300.0
+   },
+   {
+    "id": 1444,
+    "label": "Size: Sharing",
+    "attributes": {
+     "Size": "Sharing"
+    },
+    "price_php": 700.0
+   },
+   {
+    "id": 1445,
+    "label": "Size: Party",
+    "attributes": {
+     "Size": "Party"
+    },
+    "price_php": 2500.0
+   }
+  ]
+ },
+ {
+  "id": 1478,
+  "name": "The Brownie",
+  "slug": "the-brownie",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cake Tins"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/the-brownie/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 500.0,
+  "price_range_php": [
+   500.0,
+   4000.0
+  ],
+  "variations": [
+   {
+    "id": 1479,
+    "label": "Size: Solo",
+    "attributes": {
+     "Size": "Solo"
+    },
+    "price_php": 500.0
+   },
+   {
+    "id": 1480,
+    "label": "Size: Sharing",
+    "attributes": {
+     "Size": "Sharing"
+    },
+    "price_php": 1000.0
+   },
+   {
+    "id": 1481,
+    "label": "Size: Party",
+    "attributes": {
+     "Size": "Party"
+    },
+    "price_php": 4000.0
+   }
+  ]
+ },
+ {
+  "id": 1866,
+  "name": "Tiramisu",
+  "slug": "tiramisu-2",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cake Tins"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/tiramisu-2/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 350.0,
+  "price_range_php": [
+   350.0,
+   2500.0
+  ],
+  "variations": [
+   {
+    "id": 1870,
+    "label": "Size: Solo",
+    "attributes": {
+     "Size": "Solo"
+    },
+    "price_php": 350.0
+   },
+   {
+    "id": 1871,
+    "label": "Size: Sharing",
+    "attributes": {
+     "Size": "Sharing"
+    },
+    "price_php": 750.0
+   },
+   {
+    "id": 1872,
+    "label": "Size: Party",
+    "attributes": {
+     "Size": "Party"
+    },
+    "price_php": 2500.0
+   }
+  ]
+ },
+ {
+  "id": 1462,
+  "name": "Ube Halaya",
+  "slug": "ube-halaya-2",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cake Tins"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/ube-halaya-2/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 350.0,
+  "price_range_php": [
+   350.0,
+   3000.0
+  ],
+  "variations": [
+   {
+    "id": 1463,
+    "label": "Size: Solo",
+    "attributes": {
+     "Size": "Solo"
+    },
+    "price_php": 350.0
+   },
+   {
+    "id": 1464,
+    "label": "Size: Sharing",
+    "attributes": {
+     "Size": "Sharing"
+    },
+    "price_php": 750.0
+   },
+   {
+    "id": 1465,
+    "label": "Size: Party",
+    "attributes": {
+     "Size": "Party"
+    },
+    "price_php": 3000.0
+   }
+  ]
+ },
+ {
+  "id": 2004,
+  "name": "Almond Brownie",
+  "slug": "almond-brownie",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/almond-brownie/",
+  "short_description": "(No Frosting)",
+  "description": "",
+  "images": [],
+  "price_php": 40.0,
+  "price_range_php": [
+   40.0,
+   80.0
+  ],
+  "variations": [
+   {
+    "id": 2005,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 80.0
+   },
+   {
+    "id": 2006,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 40.0
+   }
+  ]
+ },
+ {
+  "id": 2017,
+  "name": "Banana Crumb",
+  "slug": "banana-crumb",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/banana-crumb/",
+  "short_description": "(No Frosting)",
+  "description": "",
+  "images": [],
+  "price_php": 40.0,
+  "price_range_php": [
+   40.0,
+   80.0
+  ],
+  "variations": [
+   {
+    "id": 2018,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 80.0
+   },
+   {
+    "id": 2019,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 40.0
+   }
+  ]
+ },
+ {
+  "id": 2023,
+  "name": "Banana Crumb + Buttercream",
+  "slug": "banana-crumb-buttercream",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/banana-crumb-buttercream/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 50.0,
+  "price_range_php": [
+   50.0,
+   95.0
+  ],
+  "variations": [
+   {
+    "id": 2024,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 95.0
+   },
+   {
+    "id": 2025,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 50.0
+   }
+  ]
+ },
+ {
+  "id": 2034,
+  "name": "Butter Cake + Lemon Curd +Buttercream",
+  "slug": "butter-cake-leon-curd-buttercream",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/butter-cake-leon-curd-buttercream/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 50.0,
+  "price_range_php": [
+   50.0,
+   110.0
+  ],
+  "variations": [
+   {
+    "id": 2035,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 110.0
+   },
+   {
+    "id": 2036,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 50.0
+   }
+  ]
+ },
+ {
+  "id": 2044,
+  "name": "Carrot + Cream Cheese",
+  "slug": "carrot-cream-cheese",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/carrot-cream-cheese/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 50.0,
+  "price_range_php": [
+   50.0,
+   120.0
+  ],
+  "variations": [
+   {
+    "id": 2045,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 120.0
+   },
+   {
+    "id": 2046,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 50.0
+   }
+  ]
+ },
+ {
+  "id": 2050,
+  "name": "Cheesecake",
+  "slug": "cheesecake-2",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/cheesecake-2/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 70.0,
+  "price_range_php": [
+   70.0,
+   140.0
+  ],
+  "variations": [
+   {
+    "id": 2051,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 140.0
+   },
+   {
+    "id": 2052,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 70.0
+   }
+  ]
+ },
+ {
+  "id": 2060,
+  "name": "Chiffon + Buttercream",
+  "slug": "chiffon-buttercream",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/chiffon-buttercream/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 30.0,
+  "price_range_php": [
+   30.0,
+   50.0
+  ],
+  "variations": [
+   {
+    "id": 2061,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 50.0
+   },
+   {
+    "id": 2062,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 30.0
+   }
+  ]
+ },
+ {
+  "id": 2069,
+  "name": "Chiffon + Jam + Buttercream",
+  "slug": "chiffon-jam-buttercream",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/chiffon-jam-buttercream/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 40.0,
+  "price_range_php": [
+   40.0,
+   80.0
+  ],
+  "variations": [
+   {
+    "id": 2070,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 80.0
+   },
+   {
+    "id": 2071,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 40.0
+   }
+  ]
+ },
+ {
+  "id": 2097,
+  "name": "Chocolate + Buttercream",
+  "slug": "chocolate-buttercream",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/chocolate-buttercream/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 40.0,
+  "price_range_php": [
+   40.0,
+   95.0
+  ],
+  "variations": [
+   {
+    "id": 2098,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 40.0
+   },
+   {
+    "id": 2099,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 95.0
+   }
+  ]
+ },
+ {
+  "id": 2084,
+  "name": "Chocolate + Buttercream + Yema",
+  "slug": "chocolate-buttercream-yema",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/chocolate-buttercream-yema/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 50.0,
+  "price_range_php": [
+   50.0,
+   100.0
+  ],
+  "variations": [
+   {
+    "id": 2086,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 50.0
+   },
+   {
+    "id": 2085,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 100.0
+   }
+  ]
+ },
+ {
+  "id": 2076,
+  "name": "Chocolate Caramel",
+  "slug": "chocolate-caramel-2",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/chocolate-caramel-2/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 60.0,
+  "price_range_php": [
+   60.0,
+   140.0
+  ],
+  "variations": [
+   {
+    "id": 2077,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 140.0
+   },
+   {
+    "id": 2078,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 60.0
+   }
+  ]
+ },
+ {
+  "id": 2091,
+  "name": "Chocolate Chip",
+  "slug": "chocolate-chip-3",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/chocolate-chip-3/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 60.0,
+  "price_range_php": [
+   60.0,
+   140.0
+  ],
+  "variations": [
+   {
+    "id": 2092,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 60.0
+   },
+   {
+    "id": 2093,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 140.0
+   }
+  ]
+ },
+ {
+  "id": 2103,
+  "name": "Dark Roast Coffee",
+  "slug": "dark-roast-coffee-4",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/dark-roast-coffee-4/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 40.0,
+  "price_range_php": [
+   40.0,
+   120.0
+  ],
+  "variations": [
+   {
+    "id": 2104,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 40.0
+   },
+   {
+    "id": 2105,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 120.0
+   }
+  ]
+ },
+ {
+  "id": 2110,
+  "name": "Ferrero",
+  "slug": "ferrero",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/ferrero/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 60.0,
+  "price_range_php": [
+   60.0,
+   140.0
+  ],
+  "variations": [
+   {
+    "id": 2111,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 60.0
+   },
+   {
+    "id": 2112,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 140.0
+   }
+  ]
+ },
+ {
+  "id": 2117,
+  "name": "Green Tea + White Chocolate",
+  "slug": "green-tea-white-chocolate",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/green-tea-white-chocolate/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 50.0,
+  "price_range_php": [
+   50.0,
+   120.0
+  ],
+  "variations": [
+   {
+    "id": 2118,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 50.0
+   },
+   {
+    "id": 2119,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 120.0
+   }
+  ]
+ },
+ {
+  "id": 2123,
+  "name": "Jack Black",
+  "slug": "jack-black",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/jack-black/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 60.0,
+  "price_range_php": [
+   60.0,
+   140.0
+  ],
+  "variations": [
+   {
+    "id": 2124,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 60.0
+   },
+   {
+    "id": 2125,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 140.0
+   }
+  ]
+ },
+ {
+  "id": 2130,
+  "name": "Kinder Bueno",
+  "slug": "kinder-bueno",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/kinder-bueno/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 50.0,
+  "price_range_php": [
+   50.0,
+   120.0
+  ],
+  "variations": [
+   {
+    "id": 2131,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 50.0
+   },
+   {
+    "id": 2132,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 120.0
+   }
+  ]
+ },
+ {
+  "id": 2137,
+  "name": "Lemon Butter + Buttercream",
+  "slug": "lemon-butter-buttercream",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/lemon-butter-buttercream/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 40.0,
+  "price_range_php": [
+   40.0,
+   95.0
+  ],
+  "variations": [
+   {
+    "id": 2138,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 40.0
+   },
+   {
+    "id": 2139,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 95.0
+   }
+  ]
+ },
+ {
+  "id": 2144,
+  "name": "Oreo Red Velvet",
+  "slug": "oreo-red-velvet-2",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/oreo-red-velvet-2/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 50.0,
+  "price_range_php": [
+   50.0,
+   120.0
+  ],
+  "variations": [
+   {
+    "id": 2145,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 50.0
+   },
+   {
+    "id": 2146,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 120.0
+   }
+  ]
+ },
+ {
+  "id": 2153,
+  "name": "Oreo Surprise",
+  "slug": "oreo-surprise",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/oreo-surprise/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 45.0,
+  "price_range_php": [
+   45.0,
+   115.0
+  ],
+  "variations": [
+   {
+    "id": 2154,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 45.0
+   },
+   {
+    "id": 2155,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 115.0
+   }
+  ]
+ },
+ {
+  "id": 2159,
+  "name": "Peanut Butter Smores",
+  "slug": "peanut-butter-smores",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/peanut-butter-smores/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 40.0,
+  "price_range_php": [
+   40.0,
+   95.0
+  ],
+  "variations": [
+   {
+    "id": 2160,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 40.0
+   },
+   {
+    "id": 2161,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 95.0
+   }
+  ]
+ },
+ {
+  "id": 2165,
+  "name": "Red Velvet + Buttercream",
+  "slug": "red-velvet-buttercream",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/red-velvet-buttercream/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 40.0,
+  "price_range_php": [
+   40.0,
+   95.0
+  ],
+  "variations": [
+   {
+    "id": 2166,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 40.0
+   },
+   {
+    "id": 2167,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 95.0
+   }
+  ]
+ },
+ {
+  "id": 2171,
+  "name": "Red Velvet + Cream Cheese",
+  "slug": "red-velvet-cream-cheese",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/red-velvet-cream-cheese/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 50.0,
+  "price_range_php": [
+   50.0,
+   120.0
+  ],
+  "variations": [
+   {
+    "id": 2172,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 50.0
+   },
+   {
+    "id": 2173,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 120.0
+   }
+  ]
+ },
+ {
+  "id": 2177,
+  "name": "Tiramisu + Mascarpone",
+  "slug": "tiramisu-mascarpone",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/tiramisu-mascarpone/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 55.0,
+  "price_range_php": [
+   55.0,
+   130.0
+  ],
+  "variations": [
+   {
+    "id": 2178,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 55.0
+   },
+   {
+    "id": 2179,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 130.0
+   }
+  ]
+ },
+ {
+  "id": 2190,
+  "name": "Ube + Swiss Buttercream",
+  "slug": "ube-swiss-buttercream",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/ube-swiss-buttercream/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 40.0,
+  "price_range_php": [
+   40.0,
+   95.0
+  ],
+  "variations": [
+   {
+    "id": 2191,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 40.0
+   },
+   {
+    "id": 2192,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 95.0
+   }
+  ]
+ },
+ {
+  "id": 2184,
+  "name": "Ube + Ube Mascarpone",
+  "slug": "ube-ube-mascarpone",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Cupcake Flavors"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/ube-ube-mascarpone/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 50.0,
+  "price_range_php": [
+   50.0,
+   120.0
+  ],
+  "variations": [
+   {
+    "id": 2185,
+    "label": "Size: Mini",
+    "attributes": {
+     "Size": "Mini"
+    },
+    "price_php": 50.0
+   },
+   {
+    "id": 2186,
+    "label": "Size: Regular",
+    "attributes": {
+     "Size": "Regular"
+    },
+    "price_php": 120.0
+   }
+  ]
+ },
+ {
+  "id": 1491,
+  "name": "Buttercream",
+  "slug": "buttercream",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Customize Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/buttercream/",
+  "short_description": "Additional Options: Additional 3D Character – P500.00/Character Convert to 3-Dimensionall – *1.30 of the layer rate Convert to Gravity-Defying – *1.30 of the layer rate Cake Flavors: Red Velvet Chocolate Caramel Chocolate Chip Lemon Butter Butter Choco Yema Ube Dark Roast Coffee",
+  "description": "",
+  "images": [],
+  "price_php": 7000.0,
+  "price_range_php": [
+   7000.0,
+   14000.0
+  ],
+  "variations": [
+   {
+    "id": 1492,
+    "label": "Size: 6 Inches",
+    "attributes": {
+     "Size": "6 Inches",
+     "Flavors": null
+    },
+    "price_php": 7000.0
+   },
+   {
+    "id": 1493,
+    "label": "Size: 8 Inches",
+    "attributes": {
+     "Size": "8 Inches",
+     "Flavors": null
+    },
+    "price_php": 8000.0
+   },
+   {
+    "id": 1494,
+    "label": "Size: 10 Inches",
+    "attributes": {
+     "Size": "10 Inches",
+     "Flavors": null
+    },
+    "price_php": 10000.0
+   },
+   {
+    "id": 1495,
+    "label": "Size: 12 Inches",
+    "attributes": {
+     "Size": "12 Inches",
+     "Flavors": null
+    },
+    "price_php": 12000.0
+   },
+   {
+    "id": 1496,
+    "label": "Size: 14 Inches",
+    "attributes": {
+     "Size": "14 Inches",
+     "Flavors": null
+    },
+    "price_php": 14000.0
+   }
+  ]
+ },
+ {
+  "id": 2199,
+  "name": "Dessert Box",
+  "slug": "dessert-box",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "Customize Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/dessert-box/",
+  "short_description": "A heart-shaped piñata with a heart-shaped cake inside, 4 sugar cookies, 2 chocolate covered oreos and one cakesicle, surrounded with marshmallows, sprinkles and merigue cake. Flavors: Red Velvet, Chocolate, Carrot and Butter.",
+  "description": "",
+  "images": [],
+  "price_php": 3000.0
+ },
+ {
+  "id": 2473,
+  "name": "Dummy Styro Layer",
+  "slug": "dummy-styro-layer",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Customize Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/dummy-styro-layer/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 5000.0,
+  "price_range_php": [
+   5000.0,
+   11000.0
+  ],
+  "variations": [
+   {
+    "id": 2520,
+    "label": "Size: 6 INCH Single",
+    "attributes": {
+     "Size": "6 INCH Single"
+    },
+    "price_php": 7000.0
+   },
+   {
+    "id": 2521,
+    "label": "Size: 8 INCH Single",
+    "attributes": {
+     "Size": "8 INCH Single"
+    },
+    "price_php": 8000.0
+   },
+   {
+    "id": 2523,
+    "label": "Size: 10 INCH Single",
+    "attributes": {
+     "Size": "10 INCH Single"
+    },
+    "price_php": 9000.0
+   },
+   {
+    "id": 2524,
+    "label": "Size: 12 INCH Single",
+    "attributes": {
+     "Size": "12 INCH Single"
+    },
+    "price_php": 10000.0
+   },
+   {
+    "id": 2525,
+    "label": "Size: 14 INCH Single",
+    "attributes": {
+     "Size": "14 INCH Single"
+    },
+    "price_php": 11000.0
+   },
+   {
+    "id": 2526,
+    "label": "Size: 6 INCH Additional",
+    "attributes": {
+     "Size": "6 INCH Additional"
+    },
+    "price_php": 5000.0
+   },
+   {
+    "id": 2527,
+    "label": "Size: 8 INCH Additional",
+    "attributes": {
+     "Size": "8 INCH Additional"
+    },
+    "price_php": 6000.0
+   },
+   {
+    "id": 2529,
+    "label": "Size: 10 INCH Additional",
+    "attributes": {
+     "Size": "10 INCH Additional"
+    },
+    "price_php": 7000.0
+   },
+   {
+    "id": 2530,
+    "label": "Size: 12 INCH Additional",
+    "attributes": {
+     "Size": "12 INCH Additional"
+    },
+    "price_php": 8000.0
+   },
+   {
+    "id": 2531,
+    "label": "Size: 14 INCH Additional",
+    "attributes": {
+     "Size": "14 INCH Additional"
+    },
+    "price_php": 9500.0
+   }
+  ]
+ },
+ {
+  "id": 2228,
+  "name": "Fondant/Ganache",
+  "slug": "fondant-ganache",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Customize Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/fondant-ganache/",
+  "short_description": "",
+  "description": "",
+  "images": [],
+  "price_php": 9000.0,
+  "price_range_php": [
+   9000.0,
+   16500.0
+  ],
+  "variations": [
+   {
+    "id": 2229,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH",
+     "Flavors": null
+    },
+    "price_php": 9000.0
+   },
+   {
+    "id": 2230,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH",
+     "Flavors": null
+    },
+    "price_php": 10000.0
+   },
+   {
+    "id": 2231,
+    "label": "Size: 9 INCH",
+    "attributes": {
+     "Size": "9 INCH",
+     "Flavors": null
+    },
+    "price_php": 12500.0
+   },
+   {
+    "id": 2232,
+    "label": "Size: 10 INCH",
+    "attributes": {
+     "Size": "10 INCH",
+     "Flavors": null
+    },
+    "price_php": 13500.0
+   },
+   {
+    "id": 2233,
+    "label": "Size: 12 INCH",
+    "attributes": {
+     "Size": "12 INCH",
+     "Flavors": null
+    },
+    "price_php": 15000.0
+   },
+   {
+    "id": 2234,
+    "label": "Size: 14 INCH",
+    "attributes": {
+     "Size": "14 INCH",
+     "Flavors": null
+    },
+    "price_php": 16500.0
+   }
+  ]
+ },
+ {
+  "id": 2470,
+  "name": "2 Cupcakes DIY Kit",
+  "slug": "2-cupcakes-diy-kit-2",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "DIY Cake & Cupcake"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/2-cupcakes-diy-kit-2/",
+  "short_description": "2 cupcakes 2 colors of buttercream 2 kinds of sprinkles 2 fondant toppers Design guide Kit Checklist",
+  "description": "",
+  "images": [],
+  "price_php": 350.0
+ },
+ {
+  "id": 1333,
+  "name": "4 Cupcakes DIY Kit",
+  "slug": "box-of-4-cupcakes",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "DIY Cake & Cupcake"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/box-of-4-cupcakes/",
+  "short_description": "4 cupcakes 4 colors of buttercream 3 kinds of sprinkles 4 sets of fondant toppers Design guide Kit Checklist",
+  "description": "",
+  "images": [],
+  "price_php": 550.0
+ },
+ {
+  "id": 1340,
+  "name": "DIY Cake Kit",
+  "slug": "diy-kits",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "DIY Cake & Cupcake"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/diy-kits/",
+  "short_description": "Blank bento cake 3 colors buttercream Sprinkles 1 spatula Fondant toppers Cardstock toppers",
+  "description": "",
+  "images": [],
+  "price_php": 700.0
+ },
+ {
+  "id": 1344,
+  "name": "DIY Piñata Kit",
+  "slug": "pinata-diy-kit",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "DIY Cake & Cupcake"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/pinata-diy-kit/",
+  "short_description": "1 chocolate piñata wooden mallet marshmallows and meringue 4 cupcakes 4 colors of buttercream 3 kinds of sprinkles 4 sets of fondant toppers design guide kit checklist",
+  "description": "",
+  "images": [],
+  "price_php": 1100.0
+ },
+ {
+  "id": 1996,
+  "name": "2D Cake Bouquet",
+  "slug": "2d-cake-bouquet",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "Seasonal Occassions"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/2d-cake-bouquet/",
+  "short_description": "Cupcakes in the form of a gorgeous bouquet! 12 cupcakes((maximum of 2 flavors), with a collor scheme of your choice. Comes with a ribbon and card.",
+  "description": "",
+  "images": [],
+  "price_php": 2500.0
+ },
+ {
+  "id": 1979,
+  "name": "3D Cupcake Bouquet",
+  "slug": "3d-cupcake-bouuet",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Seasonal Occassions"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/3d-cupcake-bouuet/",
+  "short_description": "7 Cupcakes(1 Flavor), with a color scheme of your choice. Comes in a box with a ribbon and card. Flavors: Red Velvet, Chocolate or Butter.",
+  "description": "",
+  "images": [],
+  "price_php": 1500.0,
+  "price_range_php": [
+   1500.0,
+   11500.0
+  ],
+  "variations": [
+   {
+    "id": 1984,
+    "label": "Size: 53pcs",
+    "attributes": {
+     "Size": "53pcs"
+    },
+    "price_php": 11500.0
+   },
+   {
+    "id": 1980,
+    "label": "Size: 7pcs",
+    "attributes": {
+     "Size": "7pcs"
+    },
+    "price_php": 1500.0
+   },
+   {
+    "id": 1981,
+    "label": "Size: 12pcs",
+    "attributes": {
+     "Size": "12pcs"
+    },
+    "price_php": 2500.0
+   },
+   {
+    "id": 1982,
+    "label": "Size: 19pcs",
+    "attributes": {
+     "Size": "19pcs"
+    },
+    "price_php": 4000.0
+   },
+   {
+    "id": 1983,
+    "label": "Size: 30pcs",
+    "attributes": {
+     "Size": "30pcs"
+    },
+    "price_php": 6500.0
+   }
+  ]
+ },
+ {
+  "id": 2427,
+  "name": "Bento Party",
+  "slug": "bento-party-2",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "Seasonal Occassions",
+   "Customize Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/bento-party-2/",
+  "short_description": "A 4″ bento cake surrounded by 8 assorted cupcakes, especially designed for Mother’s Day!",
+  "description": "",
+  "images": [
+   "bento-party.jpeg",
+   "bento-party.jpeg"
+  ],
+  "price_php": 2000.0
+ },
+ {
+  "id": 2413,
+  "name": "Box of Cupcakes",
+  "slug": "box-of-cupcakes",
+  "sku": "BOC",
+  "type": "variable",
+  "categories": [
+   "Seasonal Occassions"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/box-of-cupcakes/",
+  "short_description": "A box of delicious Mother’s Day themed cupcakes. Flavors: Chocolate, Red Velvet, Chocolate Chip Carrot, Oreo Surprise and Butter.",
+  "description": "",
+  "images": [
+   "box-of-cupcakes.jpeg",
+   "box-of-cupcakes.jpeg"
+  ],
+  "price_php": 900.0,
+  "price_range_php": [
+   900.0,
+   1350.0
+  ],
+  "variations": [
+   {
+    "id": 2414,
+    "label": "Size: 4 PCS",
+    "attributes": {
+     "Size": "4 PCS"
+    },
+    "price_php": 900.0
+   },
+   {
+    "id": 2415,
+    "label": "Size: 6 PCS",
+    "attributes": {
+     "Size": "6 PCS"
+    },
+    "price_php": 1350.0
+   }
+  ]
+ },
+ {
+  "id": 2443,
+  "name": "Bubble Balloon Cake",
+  "slug": "bubble-balloon-cake",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "Seasonal Occassions"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/bubble-balloon-cake/",
+  "short_description": "10 Inch Mother’s day Bubble balloon paired with a lovely 8-inch floral cake. Flavors: Red Velvet, Chocolate, Carrot, Ube, or Dark Roast Coffee.",
+  "description": "",
+  "images": [
+   "bubble-balloon-cake.jpeg",
+   "bubble-balloon-cake.jpeg"
+  ],
+  "price_php": 2500.0
+ },
+ {
+  "id": 1992,
+  "name": "Cake Bouquet",
+  "slug": "cake-bouquet",
+  "sku": "",
+  "type": "variable",
+  "categories": [
+   "Seasonal Occassions",
+   "Customize Cakes"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/cake-bouquet/",
+  "short_description": "Buttercream cake, wrapped and packaged like a bouquet. Flavors: Chocolate, Red Velvet, Chocolate Chip, or Carrot.",
+  "description": "",
+  "images": [],
+  "price_php": 3500.0,
+  "price_range_php": [
+   3500.0,
+   4500.0
+  ],
+  "variations": [
+   {
+    "id": 1993,
+    "label": "Size: 6 INCH",
+    "attributes": {
+     "Size": "6 INCH"
+    },
+    "price_php": 3500.0
+   },
+   {
+    "id": 1994,
+    "label": "Size: 8 INCH",
+    "attributes": {
+     "Size": "8 INCH"
+    },
+    "price_php": 4500.0
+   }
+  ]
+ },
+ {
+  "id": 1975,
+  "name": "Cake Pop Bouquet",
+  "slug": "cake-pop-bouquet",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "Seasonal Occassions"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/cake-pop-bouquet/",
+  "short_description": "6 cake pops, decorated for valentine’s day and wrapped in a bouquet. Flavors: Red Velvet, Butter, or Chocolate.",
+  "description": "",
+  "images": [],
+  "price_php": 700.0
+ },
+ {
+  "id": 2437,
+  "name": "Cakes & Flowers Box",
+  "slug": "cakes-flowers-box",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "Seasonal Occassions"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/cakes-flowers-box/",
+  "short_description": "4-inch custom floral bento cake with a beautiful mini bouquet of fresh or dried flowers. Flavors: Red Velvet, Chocolate, Carrot, Ube, or Dark Roast Coffee.",
+  "description": "",
+  "images": [
+   "cakes-and-flower-box.jpeg",
+   "cakes-and-flower-box.jpeg"
+  ],
+  "price_php": 2500.0
+ },
+ {
+  "id": 2442,
+  "name": "Flower Pot Cake",
+  "slug": "flower-pot-cake",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "Seasonal Occassions"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/flower-pot-cake/",
+  "short_description": "A charming pink mini cake designed like a flower pot, topped with a delicate rose sweet, elegant, and perfect for Mother’s day. Flavors: Red Velvet, Chocolate, Carrot, Ube, or Dark Roast Coffee.",
+  "description": "",
+  "images": [
+   "flowerpot-cake.jpeg",
+   "flowerpot-cake.jpeg"
+  ],
+  "price_php": 1000.0
+ },
+ {
+  "id": 2433,
+  "name": "Monogram Cupcakes",
+  "slug": "monogram-cupcakes",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "Seasonal Occassions"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/monogram-cupcakes/",
+  "short_description": "5-7 cupcakes in your choice of colors, customized in a letter or number, mixed with cake pops and an assortment of treats! Flavors: Red Velvet, Chocolate, Carrot, Ube, or Dark Roast Coffee Custom box 7 days leadtime",
+  "description": "",
+  "images": [
+   "monogram-cupcakes.jpeg",
+   "monogram-cupcakes.jpeg"
+  ],
+  "price_php": 2500.0
+ },
+ {
+  "id": 2423,
+  "name": "Piñata Dessert Box",
+  "slug": "pinata-dessert-box",
+  "sku": "",
+  "type": "simple",
+  "categories": [
+   "Seasonal Occassions"
+  ],
+  "purchasable": true,
+  "permalink": "https://darkblue-locust-788234.hostingersite.com/product/pinata-dessert-box/",
+  "short_description": "A Chocolate heart piñata filled with delectable treats, surrounded by chocolates, cakesicles and sugar cookies!",
+  "description": "",
+  "images": [
+   "pinata-dessert-box.jpeg",
+   "pinata-dessert-box.jpeg"
+  ],
+  "price_php": 3000.0
+ }
+]

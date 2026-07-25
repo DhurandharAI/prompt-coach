@@ -1,0 +1,247 @@
+ID,Type,SKU,Name,Published,Visibility in catalogue,Short description,Description,In stock?,Regular price,Categories,Images,Parent,Position,Attribute 1 name,Attribute 1 value(s),Attribute 1 visible,Attribute 1 global
+572,variable,CL-BCB,Bacon Butter,1,visible,"A rich brown sugar pound cake studded with crisp country bacon, frosted with smooth Swiss buttercream and finished with a hint of cheddar cheese for a sweet-savory balance.",,1,,Basic Cakes,Bacon-Butter-Whole.webp,,0,Size,"6 INCH, 8 INCH, 10 INCH",1,0
+,variation,,Bacon Butter - 6 INCH,1,visible,,,1,1200.00,,,id:572,1,Size,6 INCH,,0
+,variation,,Bacon Butter - 8 INCH,1,visible,,,1,1600.00,,,id:572,2,Size,8 INCH,,0
+,variation,,Bacon Butter - 10 INCH,1,visible,,,1,2000.00,,,id:572,3,Size,10 INCH,,0
+1765,simple,CC-BBC,Bibingka Cheesecake,1,visible,"Fluffy and cream cheesecake, with a graham crust, topped with salted duck egg / pulang itlog.",6 Inches,1,1500.00,Basic Cakes,"Bibingka-Cheesecake-whole.webp, Bibingka-Cheesecake-Sliced.webp",,0,,,,
+506,variable,,Carrot Cake,1,visible,"Moist carrot cake with cream cheese frosting and walnuts, topped with sugar carrot decorations.",,1,,Basic Cakes,Carrot-Cake-Whole.webp,,0,Size,"12 INCH, 14 INCH, 6 INCH, 8 INCH, 10 INCH",1,0
+,variation,,Carrot Cake - 12 INCH,1,visible,,,1,3700.00,,,id:506,1,Size,12 INCH,,0
+,variation,,Carrot Cake - 14 INCH,1,visible,,,1,4500.00,,,id:506,2,Size,14 INCH,,0
+,variation,,Carrot Cake - 6 INCH,1,visible,,,1,1500.00,,,id:506,3,Size,6 INCH,,0
+,variation,,Carrot Cake - 8 INCH,1,visible,,,1,2000.00,,,id:506,4,Size,8 INCH,,0
+,variation,,Carrot Cake - 10 INCH,1,visible,,,1,3000.00,,,id:506,5,Size,10 INCH,,0
+1809,variable,,Cheesecake,1,visible,"Rich , creamy cake made with a smooth blend of cream cheese, sugar, and eggs on a buttery crust Fruit Jam add on",,1,,Basic Cakes,,,0,Size,"6 INCH, 8 INCH, 10 INCH, 12 INCH",1,0
+,variation,,Cheesecake - 6 INCH,1,visible,,,1,1500.00,,,id:1809,1,Size,6 INCH,,0
+,variation,,Cheesecake - 8 INCH,1,visible,,,1,2000.00,,,id:1809,2,Size,8 INCH,,0
+,variation,,Cheesecake - 10 INCH,1,visible,,,1,3000.00,,,id:1809,3,Size,10 INCH,,0
+,variation,,Cheesecake - 12 INCH,1,visible,,,1,3500.00,,,id:1809,4,Size,12 INCH,,0
+579,variable,CH-BC,Chocolate Bacon,1,visible,"A rich brown sugar pound cake studded with crisp country bacon, frosted with soft, silky chocolate frosting for a bold yet well-balanced sweet-savory finish.",,1,,Basic Cakes,Chocolate-Bacon-Whole.webp,,0,Size,"6 INCH, 8 INCH, 10 INCH",1,0
+,variation,,Chocolate Bacon - 6 INCH,1,visible,,,1,1200.00,,,id:579,1,Size,6 INCH,,0
+,variation,,Chocolate Bacon - 8 INCH,1,visible,,,1,1600.00,,,id:579,2,Size,8 INCH,,0
+,variation,,Chocolate Bacon - 10 INCH,1,visible,,,1,2000.00,,,id:579,3,Size,10 INCH,,0
+567,variable,CL-CHC,Chocolate Cake,1,visible,"Our take on the classic chocolate cake a rich, decadent cake layered with smooth chocolate frosting for a timeless, satisfying indulgence .",,1,,Basic Cakes,Chocolate-Cake-Whole.webp,,0,Size,"12 INCH, 6 INCH, 8 INCH, 10 INCH",1,0
+,variation,,Chocolate Cake - 12 INCH,1,visible,,,1,3500.00,,,id:567,1,Size,12 INCH,,0
+,variation,,Chocolate Cake - 6 INCH,1,visible,,,1,1300.00,,,id:567,2,Size,6 INCH,,0
+,variation,,Chocolate Cake - 8 INCH,1,visible,,,1,1700.00,,,id:567,3,Size,8 INCH,,0
+,variation,,Chocolate Cake - 10 INCH,1,visible,,,1,2700.00,,,id:567,4,Size,10 INCH,,0
+500,variable,CL-CCCC,Chocolate Chip Cake,1,visible,"Carefully baked chocolate chip cake with a soft crumb, layered with smooth cookie dough buttercream and topped with chocolate chip cookies, made to be enjoyed bite after bite.",,1,,Basic Cakes,Chocolate-Chip-Cake-Whole.webp,,0,Size,"12 INCH, 6 INCH, 8 INCH, 10 INCH",1,0
+,variation,,Chocolate Chip Cake - 12 INCH,1,visible,,,1,5000.00,,,id:500,1,Size,12 INCH,,0
+,variation,,Chocolate Chip Cake - 6 INCH,1,visible,,,1,1700.00,,,id:500,2,Size,6 INCH,,0
+,variation,,Chocolate Chip Cake - 8 INCH,1,visible,,,1,2500.00,,,id:500,3,Size,8 INCH,,0
+,variation,,Chocolate Chip Cake - 10 INCH,1,visible,,,1,4000.00,,,id:500,4,Size,10 INCH,,0
+561,variable,CL-DRC,Dark Roast Coffee,1,visible,"Moist coffee cake made from coffee extra house-made from SAGADA beans, covered in a smooth Mexican frosting.",,1,,Basic Cakes,,,0,Size,"12 INCH, 14 INCH, 6 INCH, 8 INCH, 10 INCH",1,0
+,variation,,Dark Roast Coffee - 12 INCH,1,visible,,,1,3700.00,,,id:561,1,Size,12 INCH,,0
+,variation,,Dark Roast Coffee - 14 INCH,1,visible,,,1,4500.00,,,id:561,2,Size,14 INCH,,0
+,variation,,Dark Roast Coffee - 6 INCH,1,visible,,,1,1500.00,,,id:561,3,Size,6 INCH,,0
+,variation,,Dark Roast Coffee - 8 INCH,1,visible,,,1,2000.00,,,id:561,4,Size,8 INCH,,0
+,variation,,Dark Roast Coffee - 10 INCH,1,visible,,,1,3000.00,,,id:561,5,Size,10 INCH,,0
+1785,variable,CL-JD,Jack Daniels,1,visible,"A moist Jack Daniels infused chocolate cake, with Mexican buttercream frosting and Jack Daniels truffles.",,1,,Basic Cakes,,,0,Size,"6 INCH, 8 INCH, 10 INCH",1,0
+,variation,,Jack Daniels - 6 INCH,1,visible,,,1,2000.00,,,id:1785,1,Size,6 INCH,,0
+,variation,,Jack Daniels - 8 INCH,1,visible,,,1,3000.00,,,id:1785,2,Size,8 INCH,,0
+,variation,,Jack Daniels - 10 INCH,1,visible,,,1,4500.00,,,id:1785,3,Size,10 INCH,,0
+1482,variable,,Mini Cake Sampler,1,visible,"Four inch cakes of our best-selling flavors, Red Velvet, Carrot, Chocolate and Chocolate Chip",,1,,"Basic Cakes, Seasonal Occassions",mini-cake-sampler.webp,,0,Edition,"Standard, Seasonal / Mother's Day",1,0
+,variation,,Mini Cake Sampler - Standard,1,visible,,,1,2000.00,,,id:1482,1,Edition,Standard,,0
+,variation,,Mini Cake Sampler - Seasonal / Mother's Day,1,visible,,,1,2500.00,,,id:1482,2,Edition,Seasonal / Mother's Day,,0
+1800,variable,,Oreo Red Velvet,1,visible,"Our Signature Red Velvet cake, studded with oreos in the cream cheese frosting.",,1,,Basic Cakes,,,0,Size,"10 INCH, 12 INCH, 6 INCH, 8 INCH",1,0
+,variation,,Oreo Red Velvet - 10 INCH,1,visible,,,1,3500.00,,,id:1800,1,Size,10 INCH,,0
+,variation,,Oreo Red Velvet - 12 INCH,1,visible,,,1,4500.00,,,id:1800,2,Size,12 INCH,,0
+,variation,,Oreo Red Velvet - 6 INCH,1,visible,,,1,1500.00,,,id:1800,3,Size,6 INCH,,0
+,variation,,Oreo Red Velvet - 8 INCH,1,visible,,,1,2500.00,,,id:1800,4,Size,8 INCH,,0
+483,variable,CL-BC-RV,Signature Red Velvet Cake,1,visible,"Our best-seller! Ultra moist red velvet cake, cream cheese frosting, topped with white chocolate shavings.",,1,,Basic Cakes,"Red-Velvet-buttercream-Whole.webp, Red-Velvet-buttercream-Sliced.webp",,0,Size,"12 INCH, 14 INCH, 6 INCH, 8 INCH, 10 INCH",1,0
+,variation,,Signature Red Velvet Cake - 12 INCH,1,visible,,,1,3700.00,,,id:483,1,Size,12 INCH,,0
+,variation,,Signature Red Velvet Cake - 14 INCH,1,visible,,,1,4500.00,,,id:483,2,Size,14 INCH,,0
+,variation,,Signature Red Velvet Cake - 6 INCH,1,visible,,,1,1500.00,,,id:483,3,Size,6 INCH,,0
+,variation,,Signature Red Velvet Cake - 8 INCH,1,visible,,,1,2000.00,,,id:483,4,Size,8 INCH,,0
+,variation,,Signature Red Velvet Cake - 10 INCH,1,visible,,,1,3000.00,,,id:483,5,Size,10 INCH,,0
+555,variable,CL-UHC,Ube Halaya Cake,1,visible,"Moist yet fluffy ube cake, filled with swiss buttercream and ube halaya, frosted with ube swiss buttercream and ube cake crumbs.",,1,,Basic Cakes,Ube-Halaya-Cake-Whole.webp,,0,Size,"12 INCH, 6 INCH, 8 INCH, 10 INCH",1,0
+,variation,,Ube Halaya Cake - 12 INCH,1,visible,,,1,3700.00,,,id:555,1,Size,12 INCH,,0
+,variation,,Ube Halaya Cake - 6 INCH,1,visible,,,1,1300.00,,,id:555,2,Size,6 INCH,,0
+,variation,,Ube Halaya Cake - 8 INCH,1,visible,,,1,1700.00,,,id:555,3,Size,8 INCH,,0
+,variation,,Ube Halaya Cake - 10 INCH,1,visible,,,1,2800.00,,,id:555,4,Size,10 INCH,,0
+1820,variable,,Bento Cakes,1,visible,Mini Version of basic cakes with individual package.,Red Velvet Carrot Cake Ube Halayaa Lemon Butter,1,,Bento Cakes,"E2B79EE4-DC35-48E0-9056-4558146215CA.webp, C0DEBEA8-CA5D-44D4-854F-B17FEEA98B24.webp, 5182CAAA-45F7-456F-A820-049590CB118F.webp, 400DB527-FA35-4A0B-9717-016692AE865C.webp, 20FE5487-4F4E-4AB3-8458-69066C6E1C07.webp",,0,Flavor,"Lemon Butter, Chocolate Yema, Red Velvet, Dark Roast Coffee, Chiffon + Jam + Buttercream, Carrot, Chocolate Chip, Ube Halaya, Matcha, Butter Bacon, Chocolate Bacon",1,0
+,variation,,Bento Cakes - Lemon Butter,1,visible,,,1,500.00,,,id:1820,1,Flavor,Lemon Butter,,0
+,variation,,Bento Cakes - Chocolate Yema,1,visible,,,1,500.00,,,id:1820,2,Flavor,Chocolate Yema,,0
+,variation,,Bento Cakes - Red Velvet,1,visible,,,1,600.00,,,id:1820,3,Flavor,Red Velvet,,0
+,variation,,Bento Cakes - Dark Roast Coffee,1,visible,,,1,600.00,,,id:1820,4,Flavor,Dark Roast Coffee,,0
+,variation,,Bento Cakes - Chiffon + Jam + Buttercream,1,visible,,,1,600.00,,,id:1820,5,Flavor,Chiffon + Jam + Buttercream,,0
+,variation,,Bento Cakes - Carrot,1,visible,,,1,650.00,,,id:1820,6,Flavor,Carrot,,0
+,variation,,Bento Cakes - Chocolate Chip,1,visible,,,1,700.00,,,id:1820,7,Flavor,Chocolate Chip,,0
+,variation,,Bento Cakes - Ube Halaya,1,visible,,,1,700.00,,,id:1820,8,Flavor,Ube Halaya,,0
+,variation,,Bento Cakes - Matcha,1,visible,,,1,600.00,,,id:1820,9,Flavor,Matcha,,0
+,variation,,Bento Cakes - Butter Bacon,1,visible,,,1,600.00,,,id:1820,10,Flavor,Butter Bacon,,0
+,variation,,Bento Cakes - Chocolate Bacon,1,visible,,,1,600.00,,,id:1820,11,Flavor,Chocolate Bacon,,0
+1470,variable,,Butter Bacon,1,visible,,,1,,Cake Tins,,,0,Size,"Solo, Sharing, Party",1,0
+,variation,,Butter Bacon - Solo,1,visible,,,1,450.00,,,id:1470,1,Size,Solo,,0
+,variation,,Butter Bacon - Sharing,1,visible,,,1,1000.00,,,id:1470,2,Size,Sharing,,0
+,variation,,Butter Bacon - Party,1,visible,,,1,4000.00,,,id:1470,3,Size,Party,,0
+1454,variable,,Carrot,1,visible,,,1,,Cake Tins,,,0,Size,"Solo, Sharing, Party",1,0
+,variation,,Carrot - Solo,1,visible,,,1,350.00,,,id:1454,1,Size,Solo,,0
+,variation,,Carrot - Sharing,1,visible,,,1,750.00,,,id:1454,2,Size,Sharing,,0
+,variation,,Carrot - Party,1,visible,,,1,3000.00,,,id:1454,3,Size,Party,,0
+1474,variable,,Chocolate Bacon,1,visible,,,1,,Cake Tins,,,0,Size,"Solo, Sharing, Party",1,0
+,variation,,Chocolate Bacon - Solo,1,visible,,,1,450.00,,,id:1474,1,Size,Solo,,0
+,variation,,Chocolate Bacon - Sharing,1,visible,,,1,1000.00,,,id:1474,2,Size,Sharing,,0
+,variation,,Chocolate Bacon - Party,1,visible,,,1,4000.00,,,id:1474,3,Size,Party,,0
+1450,variable,,Chocolate Caramel,1,visible,,,1,,Cake Tins,,,0,Size,"Solo, Sharing, Party",1,0
+,variation,,Chocolate Caramel - Solo,1,visible,,,1,300.00,,,id:1450,1,Size,Solo,,0
+,variation,,Chocolate Caramel - Sharing,1,visible,,,1,700.00,,,id:1450,2,Size,Sharing,,0
+,variation,,Chocolate Caramel - Party,1,visible,,,1,2500.00,,,id:1450,3,Size,Party,,0
+1446,variable,,Chocolate Chip,1,visible,,,1,,Cake Tins,,,0,Size,"Solo, Sharing, Party",1,0
+,variation,,Chocolate Chip - Solo,1,visible,,,1,500.00,,,id:1446,1,Size,Solo,,0
+,variation,,Chocolate Chip - Sharing,1,visible,,,1,1000.00,,,id:1446,2,Size,Sharing,,0
+,variation,,Chocolate Chip - Party,1,visible,,,1,4000.00,,,id:1446,3,Size,Party,,0
+1466,variable,,Dark Roast Coffee,1,visible,,,1,,Cake Tins,,,0,Size,"Solo, Sharing, Party",1,0
+,variation,,Dark Roast Coffee - Solo,1,visible,,,1,350.00,,,id:1466,1,Size,Solo,,0
+,variation,,Dark Roast Coffee - Sharing,1,visible,,,1,750.00,,,id:1466,2,Size,Sharing,,0
+,variation,,Dark Roast Coffee - Party,1,visible,,,1,2500.00,,,id:1466,3,Size,Party,,0
+1438,variable,,Lemon Butter,1,visible,,,1,,Cake Tins,,,0,Size,"Solo, Sharing, Party",1,0
+,variation,,Lemon Butter - Solo,1,visible,,,1,300.00,,,id:1438,1,Size,Solo,,0
+,variation,,Lemon Butter - Sharing,1,visible,,,1,700.00,,,id:1438,2,Size,Sharing,,0
+,variation,,Lemon Butter - Party,1,visible,,,1,2500.00,,,id:1438,3,Size,Party,,0
+1458,variable,,Matcha,1,visible,,,1,,Cake Tins,,,0,Size,"Solo, Sharing, Party",1,0
+,variation,,Matcha - Solo,1,visible,,,1,350.00,,,id:1458,1,Size,Solo,,0
+,variation,,Matcha - Sharing,1,visible,,,1,750.00,,,id:1458,2,Size,Sharing,,0
+,variation,,Matcha - Party,1,visible,,,1,3000.00,,,id:1458,3,Size,Party,,0
+1442,variable,,Red Velvet,1,visible,,,1,,Cake Tins,,,0,Size,"Solo, Sharing, Party",1,0
+,variation,,Red Velvet - Solo,1,visible,,,1,300.00,,,id:1442,1,Size,Solo,,0
+,variation,,Red Velvet - Sharing,1,visible,,,1,700.00,,,id:1442,2,Size,Sharing,,0
+,variation,,Red Velvet - Party,1,visible,,,1,2500.00,,,id:1442,3,Size,Party,,0
+1478,variable,,The Brownie,1,visible,,,1,,Cake Tins,,,0,Size,"Solo, Sharing, Party",1,0
+,variation,,The Brownie - Solo,1,visible,,,1,500.00,,,id:1478,1,Size,Solo,,0
+,variation,,The Brownie - Sharing,1,visible,,,1,1000.00,,,id:1478,2,Size,Sharing,,0
+,variation,,The Brownie - Party,1,visible,,,1,4000.00,,,id:1478,3,Size,Party,,0
+1866,variable,,Tiramisu,1,visible,,,1,,Cake Tins,,,0,Size,"Solo, Sharing, Party",1,0
+,variation,,Tiramisu - Solo,1,visible,,,1,350.00,,,id:1866,1,Size,Solo,,0
+,variation,,Tiramisu - Sharing,1,visible,,,1,750.00,,,id:1866,2,Size,Sharing,,0
+,variation,,Tiramisu - Party,1,visible,,,1,2500.00,,,id:1866,3,Size,Party,,0
+1462,variable,,Ube Halaya,1,visible,,,1,,Cake Tins,,,0,Size,"Solo, Sharing, Party",1,0
+,variation,,Ube Halaya - Solo,1,visible,,,1,350.00,,,id:1462,1,Size,Solo,,0
+,variation,,Ube Halaya - Sharing,1,visible,,,1,750.00,,,id:1462,2,Size,Sharing,,0
+,variation,,Ube Halaya - Party,1,visible,,,1,3000.00,,,id:1462,3,Size,Party,,0
+2004,variable,,Almond Brownie,1,visible,(No Frosting),,1,,Cupcake Flavors,,,0,Size,"Regular, Mini",1,0
+,variation,,Almond Brownie - Regular,1,visible,,,1,80.00,,,id:2004,1,Size,Regular,,0
+,variation,,Almond Brownie - Mini,1,visible,,,1,40.00,,,id:2004,2,Size,Mini,,0
+2017,variable,,Banana Crumb,1,visible,(No Frosting),,1,,Cupcake Flavors,,,0,Size,"Regular, Mini",1,0
+,variation,,Banana Crumb - Regular,1,visible,,,1,80.00,,,id:2017,1,Size,Regular,,0
+,variation,,Banana Crumb - Mini,1,visible,,,1,40.00,,,id:2017,2,Size,Mini,,0
+2023,variable,,Banana Crumb + Buttercream,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Regular, Mini",1,0
+,variation,,Banana Crumb + Buttercream - Regular,1,visible,,,1,95.00,,,id:2023,1,Size,Regular,,0
+,variation,,Banana Crumb + Buttercream - Mini,1,visible,,,1,50.00,,,id:2023,2,Size,Mini,,0
+2034,variable,,Butter Cake + Lemon Curd +Buttercream,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Regular, Mini",1,0
+,variation,,Butter Cake + Lemon Curd +Buttercream - Regular,1,visible,,,1,110.00,,,id:2034,1,Size,Regular,,0
+,variation,,Butter Cake + Lemon Curd +Buttercream - Mini,1,visible,,,1,50.00,,,id:2034,2,Size,Mini,,0
+2044,variable,,Carrot + Cream Cheese,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Regular, Mini",1,0
+,variation,,Carrot + Cream Cheese - Regular,1,visible,,,1,120.00,,,id:2044,1,Size,Regular,,0
+,variation,,Carrot + Cream Cheese - Mini,1,visible,,,1,50.00,,,id:2044,2,Size,Mini,,0
+2050,variable,,Cheesecake,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Regular, Mini",1,0
+,variation,,Cheesecake - Regular,1,visible,,,1,140.00,,,id:2050,1,Size,Regular,,0
+,variation,,Cheesecake - Mini,1,visible,,,1,70.00,,,id:2050,2,Size,Mini,,0
+2060,variable,,Chiffon + Buttercream,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Regular, Mini",1,0
+,variation,,Chiffon + Buttercream - Regular,1,visible,,,1,50.00,,,id:2060,1,Size,Regular,,0
+,variation,,Chiffon + Buttercream - Mini,1,visible,,,1,30.00,,,id:2060,2,Size,Mini,,0
+2069,variable,,Chiffon + Jam + Buttercream,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Regular, Mini",1,0
+,variation,,Chiffon + Jam + Buttercream - Regular,1,visible,,,1,80.00,,,id:2069,1,Size,Regular,,0
+,variation,,Chiffon + Jam + Buttercream - Mini,1,visible,,,1,40.00,,,id:2069,2,Size,Mini,,0
+2097,variable,,Chocolate + Buttercream,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Chocolate + Buttercream - Mini,1,visible,,,1,40.00,,,id:2097,1,Size,Mini,,0
+,variation,,Chocolate + Buttercream - Regular,1,visible,,,1,95.00,,,id:2097,2,Size,Regular,,0
+2084,variable,,Chocolate + Buttercream + Yema,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Chocolate + Buttercream + Yema - Mini,1,visible,,,1,50.00,,,id:2084,1,Size,Mini,,0
+,variation,,Chocolate + Buttercream + Yema - Regular,1,visible,,,1,100.00,,,id:2084,2,Size,Regular,,0
+2076,variable,,Chocolate Caramel,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Regular, Mini",1,0
+,variation,,Chocolate Caramel - Regular,1,visible,,,1,140.00,,,id:2076,1,Size,Regular,,0
+,variation,,Chocolate Caramel - Mini,1,visible,,,1,60.00,,,id:2076,2,Size,Mini,,0
+2091,variable,,Chocolate Chip,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Chocolate Chip - Mini,1,visible,,,1,60.00,,,id:2091,1,Size,Mini,,0
+,variation,,Chocolate Chip - Regular,1,visible,,,1,140.00,,,id:2091,2,Size,Regular,,0
+2103,variable,,Dark Roast Coffee,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Dark Roast Coffee - Mini,1,visible,,,1,40.00,,,id:2103,1,Size,Mini,,0
+,variation,,Dark Roast Coffee - Regular,1,visible,,,1,120.00,,,id:2103,2,Size,Regular,,0
+2110,variable,,Ferrero,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Ferrero - Mini,1,visible,,,1,60.00,,,id:2110,1,Size,Mini,,0
+,variation,,Ferrero - Regular,1,visible,,,1,140.00,,,id:2110,2,Size,Regular,,0
+2117,variable,,Green Tea + White Chocolate,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Green Tea + White Chocolate - Mini,1,visible,,,1,50.00,,,id:2117,1,Size,Mini,,0
+,variation,,Green Tea + White Chocolate - Regular,1,visible,,,1,120.00,,,id:2117,2,Size,Regular,,0
+2123,variable,,Jack Black,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Jack Black - Mini,1,visible,,,1,60.00,,,id:2123,1,Size,Mini,,0
+,variation,,Jack Black - Regular,1,visible,,,1,140.00,,,id:2123,2,Size,Regular,,0
+2130,variable,,Kinder Bueno,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Kinder Bueno - Mini,1,visible,,,1,50.00,,,id:2130,1,Size,Mini,,0
+,variation,,Kinder Bueno - Regular,1,visible,,,1,120.00,,,id:2130,2,Size,Regular,,0
+2137,variable,,Lemon Butter + Buttercream,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Lemon Butter + Buttercream - Mini,1,visible,,,1,40.00,,,id:2137,1,Size,Mini,,0
+,variation,,Lemon Butter + Buttercream - Regular,1,visible,,,1,95.00,,,id:2137,2,Size,Regular,,0
+2144,variable,,Oreo Red Velvet,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Oreo Red Velvet - Mini,1,visible,,,1,50.00,,,id:2144,1,Size,Mini,,0
+,variation,,Oreo Red Velvet - Regular,1,visible,,,1,120.00,,,id:2144,2,Size,Regular,,0
+2153,variable,,Oreo Surprise,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Oreo Surprise - Mini,1,visible,,,1,45.00,,,id:2153,1,Size,Mini,,0
+,variation,,Oreo Surprise - Regular,1,visible,,,1,115.00,,,id:2153,2,Size,Regular,,0
+2159,variable,,Peanut Butter Smores,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Peanut Butter Smores - Mini,1,visible,,,1,40.00,,,id:2159,1,Size,Mini,,0
+,variation,,Peanut Butter Smores - Regular,1,visible,,,1,95.00,,,id:2159,2,Size,Regular,,0
+2165,variable,,Red Velvet + Buttercream,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Red Velvet + Buttercream - Mini,1,visible,,,1,40.00,,,id:2165,1,Size,Mini,,0
+,variation,,Red Velvet + Buttercream - Regular,1,visible,,,1,95.00,,,id:2165,2,Size,Regular,,0
+2171,variable,,Red Velvet + Cream Cheese,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Red Velvet + Cream Cheese - Mini,1,visible,,,1,50.00,,,id:2171,1,Size,Mini,,0
+,variation,,Red Velvet + Cream Cheese - Regular,1,visible,,,1,120.00,,,id:2171,2,Size,Regular,,0
+2177,variable,,Tiramisu + Mascarpone,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Tiramisu + Mascarpone - Mini,1,visible,,,1,55.00,,,id:2177,1,Size,Mini,,0
+,variation,,Tiramisu + Mascarpone - Regular,1,visible,,,1,130.00,,,id:2177,2,Size,Regular,,0
+2190,variable,,Ube + Swiss Buttercream,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Ube + Swiss Buttercream - Mini,1,visible,,,1,40.00,,,id:2190,1,Size,Mini,,0
+,variation,,Ube + Swiss Buttercream - Regular,1,visible,,,1,95.00,,,id:2190,2,Size,Regular,,0
+2184,variable,,Ube + Ube Mascarpone,1,visible,,,1,,Cupcake Flavors,,,0,Size,"Mini, Regular",1,0
+,variation,,Ube + Ube Mascarpone - Mini,1,visible,,,1,50.00,,,id:2184,1,Size,Mini,,0
+,variation,,Ube + Ube Mascarpone - Regular,1,visible,,,1,120.00,,,id:2184,2,Size,Regular,,0
+1491,variable,,Buttercream,1,visible,Additional Options: Additional 3D Character – P500.00/Character Convert to 3-Dimensionall – *1.30 of the layer rate Convert to Gravity-Defying – *1.30 of the layer rate Cake Flavors: Red Velvet Chocolate Caramel Chocolate Chip Lemon Butter Butter Choco Yema Ube Dark Roast Coffee,,1,,Customize Cakes,,,0,Size,"6 Inches, 8 Inches, 10 Inches, 12 Inches, 14 Inches",1,0
+,variation,,Buttercream - 6 Inches,1,visible,,,1,7000.00,,,id:1491,1,Size,6 Inches,,0
+,variation,,Buttercream - 8 Inches,1,visible,,,1,8000.00,,,id:1491,2,Size,8 Inches,,0
+,variation,,Buttercream - 10 Inches,1,visible,,,1,10000.00,,,id:1491,3,Size,10 Inches,,0
+,variation,,Buttercream - 12 Inches,1,visible,,,1,12000.00,,,id:1491,4,Size,12 Inches,,0
+,variation,,Buttercream - 14 Inches,1,visible,,,1,14000.00,,,id:1491,5,Size,14 Inches,,0
+2199,simple,,Dessert Box,1,visible,"A heart-shaped piñata with a heart-shaped cake inside, 4 sugar cookies, 2 chocolate covered oreos and one cakesicle, surrounded with marshmallows, sprinkles and merigue cake. Flavors: Red Velvet, Chocolate, Carrot and Butter.",,1,3000.00,Customize Cakes,,,0,,,,
+2473,variable,,Dummy Styro Layer,1,visible,,,1,,Customize Cakes,,,0,Size,"6 INCH Single, 8 INCH Single, 10 INCH Single, 12 INCH Single, 14 INCH Single, 6 INCH Additional, 8 INCH Additional, 10 INCH Additional, 12 INCH Additional, 14 INCH Additional",1,0
+,variation,,Dummy Styro Layer - 6 INCH Single,1,visible,,,1,7000.00,,,id:2473,1,Size,6 INCH Single,,0
+,variation,,Dummy Styro Layer - 8 INCH Single,1,visible,,,1,8000.00,,,id:2473,2,Size,8 INCH Single,,0
+,variation,,Dummy Styro Layer - 10 INCH Single,1,visible,,,1,9000.00,,,id:2473,3,Size,10 INCH Single,,0
+,variation,,Dummy Styro Layer - 12 INCH Single,1,visible,,,1,10000.00,,,id:2473,4,Size,12 INCH Single,,0
+,variation,,Dummy Styro Layer - 14 INCH Single,1,visible,,,1,11000.00,,,id:2473,5,Size,14 INCH Single,,0
+,variation,,Dummy Styro Layer - 6 INCH Additional,1,visible,,,1,5000.00,,,id:2473,6,Size,6 INCH Additional,,0
+,variation,,Dummy Styro Layer - 8 INCH Additional,1,visible,,,1,6000.00,,,id:2473,7,Size,8 INCH Additional,,0
+,variation,,Dummy Styro Layer - 10 INCH Additional,1,visible,,,1,7000.00,,,id:2473,8,Size,10 INCH Additional,,0
+,variation,,Dummy Styro Layer - 12 INCH Additional,1,visible,,,1,8000.00,,,id:2473,9,Size,12 INCH Additional,,0
+,variation,,Dummy Styro Layer - 14 INCH Additional,1,visible,,,1,9500.00,,,id:2473,10,Size,14 INCH Additional,,0
+2228,variable,,Fondant/Ganache,1,visible,,,1,,Customize Cakes,,,0,Size,"6 INCH, 8 INCH, 9 INCH, 10 INCH, 12 INCH, 14 INCH",1,0
+,variation,,Fondant/Ganache - 6 INCH,1,visible,,,1,9000.00,,,id:2228,1,Size,6 INCH,,0
+,variation,,Fondant/Ganache - 8 INCH,1,visible,,,1,10000.00,,,id:2228,2,Size,8 INCH,,0
+,variation,,Fondant/Ganache - 9 INCH,1,visible,,,1,12500.00,,,id:2228,3,Size,9 INCH,,0
+,variation,,Fondant/Ganache - 10 INCH,1,visible,,,1,13500.00,,,id:2228,4,Size,10 INCH,,0
+,variation,,Fondant/Ganache - 12 INCH,1,visible,,,1,15000.00,,,id:2228,5,Size,12 INCH,,0
+,variation,,Fondant/Ganache - 14 INCH,1,visible,,,1,16500.00,,,id:2228,6,Size,14 INCH,,0
+2470,simple,,2 Cupcakes DIY Kit,1,visible,2 cupcakes 2 colors of buttercream 2 kinds of sprinkles 2 fondant toppers Design guide Kit Checklist,,1,350.00,DIY Cake & Cupcake,,,0,,,,
+1333,simple,,4 Cupcakes DIY Kit,1,visible,4 cupcakes 4 colors of buttercream 3 kinds of sprinkles 4 sets of fondant toppers Design guide Kit Checklist,,1,550.00,DIY Cake & Cupcake,,,0,,,,
+1340,simple,,DIY Cake Kit,1,visible,Blank bento cake 3 colors buttercream Sprinkles 1 spatula Fondant toppers Cardstock toppers,,1,700.00,DIY Cake & Cupcake,,,0,,,,
+1344,simple,,DIY Piñata Kit,1,visible,1 chocolate piñata wooden mallet marshmallows and meringue 4 cupcakes 4 colors of buttercream 3 kinds of sprinkles 4 sets of fondant toppers design guide kit checklist,,1,1100.00,DIY Cake & Cupcake,,,0,,,,
+1996,simple,,2D Cake Bouquet,1,visible,"Cupcakes in the form of a gorgeous bouquet! 12 cupcakes((maximum of 2 flavors), with a collor scheme of your choice. Comes with a ribbon and card.",,1,2500.00,Seasonal Occassions,,,0,,,,
+1979,variable,,3D Cupcake Bouquet,1,visible,"7 Cupcakes(1 Flavor), with a color scheme of your choice. Comes in a box with a ribbon and card. Flavors: Red Velvet, Chocolate or Butter.",,1,,Seasonal Occassions,,,0,Size,"53pcs, 7pcs, 12pcs, 19pcs, 30pcs",1,0
+,variation,,3D Cupcake Bouquet - 53pcs,1,visible,,,1,11500.00,,,id:1979,1,Size,53pcs,,0
+,variation,,3D Cupcake Bouquet - 7pcs,1,visible,,,1,1500.00,,,id:1979,2,Size,7pcs,,0
+,variation,,3D Cupcake Bouquet - 12pcs,1,visible,,,1,2500.00,,,id:1979,3,Size,12pcs,,0
+,variation,,3D Cupcake Bouquet - 19pcs,1,visible,,,1,4000.00,,,id:1979,4,Size,19pcs,,0
+,variation,,3D Cupcake Bouquet - 30pcs,1,visible,,,1,6500.00,,,id:1979,5,Size,30pcs,,0
+2427,simple,,Bento Party,1,visible,"A 4″ bento cake surrounded by 8 assorted cupcakes, especially designed for Mother’s Day!",,1,2000.00,"Seasonal Occassions, Customize Cakes",bento-party.webp,,0,,,,
+2413,variable,BOC,Box of Cupcakes,1,visible,"A box of delicious Mother’s Day themed cupcakes. Flavors: Chocolate, Red Velvet, Chocolate Chip Carrot, Oreo Surprise and Butter.",,1,,Seasonal Occassions,box-of-cupcakes.webp,,0,Size,"4 PCS, 6 PCS",1,0
+,variation,,Box of Cupcakes - 4 PCS,1,visible,,,1,900.00,,,id:2413,1,Size,4 PCS,,0
+,variation,,Box of Cupcakes - 6 PCS,1,visible,,,1,1350.00,,,id:2413,2,Size,6 PCS,,0
+2443,simple,,Bubble Balloon Cake,1,visible,"10 Inch Mother’s day Bubble balloon paired with a lovely 8-inch floral cake. Flavors: Red Velvet, Chocolate, Carrot, Ube, or Dark Roast Coffee.",,1,2500.00,Seasonal Occassions,bubble-balloon-cake.webp,,0,,,,
+1992,variable,,Cake Bouquet,1,visible,"Buttercream cake, wrapped and packaged like a bouquet. Flavors: Chocolate, Red Velvet, Chocolate Chip, or Carrot.",,1,,"Seasonal Occassions, Customize Cakes",,,0,Size,"6 INCH, 8 INCH",1,0
+,variation,,Cake Bouquet - 6 INCH,1,visible,,,1,3500.00,,,id:1992,1,Size,6 INCH,,0
+,variation,,Cake Bouquet - 8 INCH,1,visible,,,1,4500.00,,,id:1992,2,Size,8 INCH,,0
+1975,simple,,Cake Pop Bouquet,1,visible,"6 cake pops, decorated for valentine’s day and wrapped in a bouquet. Flavors: Red Velvet, Butter, or Chocolate.",,1,700.00,Seasonal Occassions,,,0,,,,
+2437,simple,,Cakes & Flowers Box,1,visible,"4-inch custom floral bento cake with a beautiful mini bouquet of fresh or dried flowers. Flavors: Red Velvet, Chocolate, Carrot, Ube, or Dark Roast Coffee.",,1,2500.00,Seasonal Occassions,cakes-and-flower-box.webp,,0,,,,
+2442,simple,,Flower Pot Cake,1,visible,"A charming pink mini cake designed like a flower pot, topped with a delicate rose sweet, elegant, and perfect for Mother’s day. Flavors: Red Velvet, Chocolate, Carrot, Ube, or Dark Roast Coffee.",,1,1000.00,Seasonal Occassions,flowerpot-cake.webp,,0,,,,
+2433,simple,,Monogram Cupcakes,1,visible,"5-7 cupcakes in your choice of colors, customized in a letter or number, mixed with cake pops and an assortment of treats! Flavors: Red Velvet, Chocolate, Carrot, Ube, or Dark Roast Coffee Custom box 7 days leadtime",,1,2500.00,Seasonal Occassions,monogram-cupcakes.webp,,0,,,,
+2423,simple,,Piñata Dessert Box,1,visible,"A Chocolate heart piñata filled with delectable treats, surrounded by chocolates, cakesicles and sugar cookies!",,1,3000.00,Seasonal Occassions,pinata-dessert-box.webp,,0,,,,
