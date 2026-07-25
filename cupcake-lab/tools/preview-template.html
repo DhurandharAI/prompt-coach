@@ -1,0 +1,1192 @@
+<title>Cupcake Lab — Theme Preview</title>
+
+<style>
+	/* ==========================================================================
+	   Fonts — the theme's real pairing, inlined because the artifact CSP blocks
+	   external hosts. Both are variable fonts, so one file covers every weight.
+	   ========================================================================== */
+
+	@font-face {
+		font-family: "Cormorant Garamond";
+		src: url(__CORMORANT__) format("woff2");
+		font-weight: 300 700;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: "Manrope";
+		src: url(__MANROPE__) format("woff2");
+		font-weight: 200 800;
+		font-display: swap;
+	}
+
+	/* ==========================================================================
+	   Two palettes, kept deliberately separate.
+
+	   The "cl-" tokens are the Cupcake Lab theme's own, copied verbatim from
+	   theme/cupcakelab/style.css. They do NOT change between light and dark: the
+	   warm cream identity is the deliverable, and inverting it would show you
+	   something the site will never look like.
+
+	   The "x-" tokens are this preview's own annotation chrome, and those do
+	   adapt, so the page sits properly in either theme.
+	   ========================================================================== */
+
+	:root {
+		/* Cupcake Lab theme tokens — fixed */
+		--cl-bg: #fffaf7;
+		--cl-bg-soft: #fff1f5;
+		--cl-surface: #ffffff;
+		--cl-surface-2: #fff7fb;
+		--cl-text: #8a1220;
+		--cl-text-dark: #580702;
+		--cl-muted: #b14d63;
+		--cl-line: #f3d6d6;
+		--cl-brand: #cc1716;
+		--cl-brand-dark: #580702;
+		--cl-brand-soft-2: #ffd9d9;
+		--cl-shadow: 0 14px 34px rgba(88, 7, 2, 0.1);
+		--cl-radius: 28px;
+		--cl-serif: "Cormorant Garamond", Georgia, serif;
+		--cl-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+		/* Annotation chrome — warm-biased neutrals, theme-aware */
+		--x-ground: #f4f0ee;
+		--x-panel: #fffdfc;
+		--x-ink: #2b2224;
+		--x-muted: #6f6265;
+		--x-rule: #e2d9d7;
+		--x-accent: #580702;
+		--x-chip: #ece4e2;
+		--x-ok: #1f6b45;
+		--x-open: #8a5a12;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--x-ground: #171313;
+			--x-panel: #211b1c;
+			--x-ink: #ece5e4;
+			--x-muted: #9a8b8d;
+			--x-rule: #332a2b;
+			--x-accent: #ffa9a8;
+			--x-chip: #2c2425;
+			--x-ok: #6fce9f;
+			--x-open: #e8b765;
+		}
+	}
+
+	:root[data-theme="dark"] {
+		--x-ground: #171313;
+		--x-panel: #211b1c;
+		--x-ink: #ece5e4;
+		--x-muted: #9a8b8d;
+		--x-rule: #332a2b;
+		--x-accent: #ffa9a8;
+		--x-chip: #2c2425;
+		--x-ok: #6fce9f;
+		--x-open: #e8b765;
+	}
+
+	:root[data-theme="light"] {
+		--x-ground: #f4f0ee;
+		--x-panel: #fffdfc;
+		--x-ink: #2b2224;
+		--x-muted: #6f6265;
+		--x-rule: #e2d9d7;
+		--x-accent: #580702;
+		--x-chip: #ece4e2;
+		--x-ok: #1f6b45;
+		--x-open: #8a5a12;
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+		background: var(--x-ground);
+		color: var(--x-ink);
+		font-family: var(--cl-sans);
+		font-size: 16px;
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			transition-duration: 0.01ms !important;
+		}
+	}
+
+	:focus-visible {
+		outline: 3px solid var(--x-accent);
+		outline-offset: 2px;
+	}
+
+	/* ==========================================================================
+	   Annotation chrome
+	   ========================================================================== */
+
+	.x-wrap {
+		max-width: 1180px;
+		margin-inline: auto;
+		padding-inline: clamp(16px, 4vw, 40px);
+	}
+
+	.x-masthead {
+		padding-block: clamp(44px, 7vw, 84px) clamp(28px, 4vw, 44px);
+	}
+
+	.x-kicker {
+		display: inline-block;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--x-accent);
+		margin: 0 0 14px;
+	}
+
+	.x-masthead h1 {
+		font-family: var(--cl-serif);
+		font-weight: 700;
+		font-size: clamp(2.4rem, 5.5vw, 4rem);
+		line-height: 1.05;
+		letter-spacing: -0.015em;
+		margin: 0 0 18px;
+		text-wrap: balance;
+	}
+
+	.x-masthead p {
+		max-width: 62ch;
+		margin: 0 0 14px;
+		font-size: 1.05rem;
+		color: var(--x-muted);
+	}
+
+	.x-callout {
+		display: flex;
+		gap: 14px;
+		max-width: 68ch;
+		margin-top: 26px;
+		padding: 18px 22px;
+		border: 1px solid var(--x-rule);
+		border-left: 4px solid var(--x-accent);
+		border-radius: 4px 14px 14px 4px;
+		background: var(--x-panel);
+	}
+
+	.x-callout p {
+		margin: 0;
+		font-size: 0.95rem;
+		color: var(--x-ink);
+	}
+
+	.x-callout strong {
+		color: var(--x-accent);
+	}
+
+	/* Section label above each panel */
+	.x-note {
+		padding-block: clamp(38px, 5vw, 60px) 18px;
+		max-width: 70ch;
+	}
+
+	.x-note h2 {
+		font-family: var(--cl-serif);
+		font-weight: 600;
+		font-size: clamp(1.6rem, 3vw, 2.2rem);
+		line-height: 1.15;
+		margin: 8px 0 10px;
+		text-wrap: balance;
+	}
+
+	.x-note p {
+		margin: 0;
+		font-size: 0.97rem;
+		color: var(--x-muted);
+	}
+
+	.x-note code {
+		font-family: ui-monospace, "SF Mono", Menlo, monospace;
+		font-size: 0.86em;
+		padding: 1px 5px;
+		border-radius: 4px;
+		background: var(--x-chip);
+		color: var(--x-ink);
+	}
+
+	/* The frame that holds a real slice of the theme */
+	.x-frame {
+		border: 1px solid var(--x-rule);
+		border-radius: 16px;
+		overflow: hidden;
+		box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+	}
+
+	.x-frame__bar {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 10px 16px;
+		background: var(--x-chip);
+		border-bottom: 1px solid var(--x-rule);
+		font-size: 0.74rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--x-muted);
+	}
+
+	.x-frame__dot {
+		width: 9px;
+		height: 9px;
+		border-radius: 50%;
+		background: var(--x-rule);
+		flex: none;
+	}
+
+	.x-frame__label {
+		margin-left: 6px;
+	}
+
+	/* Status list */
+	.x-status {
+		display: grid;
+		gap: 0;
+		margin: 22px 0 0;
+		padding: 0;
+		list-style: none;
+		border: 1px solid var(--x-rule);
+		border-radius: 14px;
+		overflow: hidden;
+		background: var(--x-panel);
+	}
+
+	.x-status li {
+		display: flex;
+		gap: 14px;
+		align-items: baseline;
+		padding: 14px 18px;
+		border-top: 1px solid var(--x-rule);
+		font-size: 0.95rem;
+	}
+
+	.x-status li:first-child {
+		border-top: 0;
+	}
+
+	.x-tag {
+		flex: none;
+		min-width: 5.4em;
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.x-tag--built {
+		color: var(--x-ok);
+	}
+
+	.x-tag--open {
+		color: var(--x-open);
+	}
+
+	.x-foot {
+		padding-block: clamp(40px, 6vw, 70px);
+		border-top: 1px solid var(--x-rule);
+		margin-top: clamp(40px, 6vw, 70px);
+		font-size: 0.9rem;
+		color: var(--x-muted);
+	}
+
+	/* ==========================================================================
+	   Cupcake Lab theme slices — faithful to theme/cupcakelab/style.css
+	   ========================================================================== */
+
+	.cl {
+		background: var(--cl-bg);
+		color: var(--cl-text);
+		font-family: var(--cl-sans);
+	}
+
+	.cl h1,
+	.cl h2,
+	.cl h3 {
+		font-family: var(--cl-serif);
+		font-weight: 600;
+		color: var(--cl-text-dark);
+		line-height: 1.15;
+		letter-spacing: -0.01em;
+		margin: 0 0 0.5em;
+	}
+
+	.cl-inner {
+		padding: clamp(22px, 4vw, 48px);
+	}
+
+	.cl-eyebrow {
+		display: inline-block;
+		margin: 0 0 12px;
+		font-size: 0.74rem;
+		font-weight: 700;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: var(--cl-brand);
+	}
+
+	/* Header */
+	.cl-header {
+		display: flex;
+		align-items: center;
+		gap: 22px;
+		padding: 16px clamp(18px, 3vw, 34px);
+		background: var(--cl-bg);
+		border-bottom: 1px solid var(--cl-line);
+		flex-wrap: wrap;
+	}
+
+	.cl-brandmark {
+		font-family: var(--cl-serif);
+		font-size: 1.55rem;
+		font-weight: 700;
+		color: var(--cl-text-dark);
+		white-space: nowrap;
+	}
+
+	.cl-brandmark span {
+		color: var(--cl-brand);
+	}
+
+	.cl-nav {
+		display: flex;
+		gap: clamp(12px, 2vw, 26px);
+		margin-left: auto;
+		flex-wrap: wrap;
+	}
+
+	.cl-nav a {
+		color: var(--cl-text);
+		font-size: 0.92rem;
+		font-weight: 600;
+		text-decoration: none;
+		padding-block: 5px;
+		border-bottom: 2px solid transparent;
+	}
+
+	.cl-nav a[aria-current] {
+		color: var(--cl-brand);
+		border-bottom-color: var(--cl-brand);
+	}
+
+	.cl-cart {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 9px 17px;
+		border-radius: 999px;
+		background: var(--cl-brand-soft-2);
+		color: var(--cl-text-dark);
+		font-size: 0.88rem;
+		font-weight: 700;
+	}
+
+	.cl-cart b {
+		display: inline-grid;
+		place-items: center;
+		min-width: 21px;
+		height: 21px;
+		border-radius: 999px;
+		background: var(--cl-brand);
+		color: #fff;
+		font-size: 0.76rem;
+	}
+
+	/* Hero */
+	.cl-hero {
+		padding: clamp(46px, 7vw, 92px) clamp(20px, 4vw, 48px);
+		text-align: center;
+		background:
+			radial-gradient(120% 90% at 15% 0%, var(--cl-bg-soft) 0%, transparent 60%),
+			radial-gradient(100% 80% at 100% 20%, var(--cl-brand-soft-2) 0%, transparent 55%),
+			var(--cl-bg);
+	}
+
+	.cl-hero h1 {
+		font-size: clamp(2.3rem, 5vw, 3.9rem);
+		margin: 0 0 18px;
+		text-wrap: balance;
+	}
+
+	.cl-hero p {
+		max-width: 54ch;
+		margin: 0 auto 30px;
+		font-size: clamp(1rem, 1.5vw, 1.2rem);
+		color: var(--cl-muted);
+	}
+
+	.cl-actions {
+		display: flex;
+		gap: 13px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.cl-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 13px 28px;
+		border: 2px solid var(--cl-brand);
+		border-radius: 999px;
+		background: var(--cl-brand);
+		color: #fff;
+		font-family: var(--cl-sans);
+		font-size: 0.93rem;
+		font-weight: 700;
+		line-height: 1.2;
+		cursor: default;
+	}
+
+	.cl-btn--ghost {
+		background: transparent;
+		color: var(--cl-brand);
+	}
+
+	.cl-btn--block {
+		width: 100%;
+	}
+
+	.cl-btn[disabled] {
+		opacity: 1;
+	}
+
+	/* Occasions */
+	.cl-soft {
+		background: var(--cl-bg-soft);
+	}
+
+	.cl-grid {
+		display: grid;
+		gap: clamp(16px, 2vw, 26px);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.cl-grid--occasions {
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+	}
+
+	.cl-occasion {
+		padding: 26px 22px;
+		border: 1px solid var(--cl-line);
+		border-radius: var(--cl-radius);
+		background: var(--cl-surface);
+		box-shadow: var(--cl-shadow);
+	}
+
+	.cl-occasion--soon {
+		opacity: 0.72;
+	}
+
+	.cl-occasion__emoji {
+		font-size: 2rem;
+		line-height: 1;
+		margin: 0 0 12px;
+	}
+
+	.cl-occasion h3 {
+		font-size: 1.35rem;
+		margin: 0 0 5px;
+	}
+
+	.cl-occasion__date {
+		margin: 0;
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--cl-brand);
+	}
+
+	.cl-occasion--soon .cl-occasion__date {
+		color: var(--cl-muted);
+	}
+
+	/* Product grid */
+	.cl-products {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+		gap: clamp(16px, 2vw, 26px);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.cl-product {
+		display: flex;
+	}
+
+	.cl-card {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		background: var(--cl-surface);
+		border: 1px solid var(--cl-line);
+		border-radius: var(--cl-radius);
+		box-shadow: var(--cl-shadow);
+		overflow: hidden;
+	}
+
+	.cl-card__media {
+		aspect-ratio: 4 / 3;
+		background: var(--cl-surface-2);
+		overflow: hidden;
+	}
+
+	.cl-card__media img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.cl-card__media--empty {
+		display: grid;
+		place-items: center;
+		padding: 18px;
+		background: linear-gradient(135deg, var(--cl-surface-2), var(--cl-brand-soft-2));
+		color: var(--cl-brand-dark);
+		font-family: var(--cl-serif);
+		font-size: 1.4rem;
+		text-align: center;
+	}
+
+	.cl-card__body {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: 9px;
+		padding: 21px;
+	}
+
+	.cl-card__title {
+		font-size: 1.25rem;
+		margin: 0;
+	}
+
+	.cl-card__desc {
+		margin: 0;
+		font-size: 0.89rem;
+		color: var(--cl-muted);
+	}
+
+	.cl-card__variations {
+		margin: 0;
+		font-size: 0.78rem;
+		color: var(--cl-muted);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.cl-card__price {
+		margin: auto 0 0;
+		padding-top: 4px;
+		font-family: var(--cl-serif);
+		font-size: 1.3rem;
+		font-weight: 700;
+		color: var(--cl-brand);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.cl-card__actions {
+		margin-top: 2px;
+	}
+
+	/* Quick order dialog */
+	.cl-modal-stage {
+		display: grid;
+		place-items: center;
+		padding: clamp(26px, 5vw, 56px);
+		background:
+			repeating-linear-gradient(45deg, rgba(88, 7, 2, 0.05) 0 12px, transparent 12px 24px),
+			var(--cl-bg-soft);
+	}
+
+	.cl-dialog {
+		width: min(100%, 430px);
+		padding: 28px;
+		border-radius: var(--cl-radius);
+		background: var(--cl-surface);
+		box-shadow: 0 20px 44px rgba(88, 7, 2, 0.16);
+	}
+
+	.cl-dialog h3 {
+		font-size: 1.55rem;
+		margin: 0 0 2px;
+	}
+
+	.cl-dialog__lead {
+		margin: 0 0 18px;
+		font-size: 0.92rem;
+		color: var(--cl-muted);
+	}
+
+	.cl-sizes {
+		display: grid;
+		gap: 9px;
+		margin-bottom: 18px;
+	}
+
+	.cl-size {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		padding: 13px 17px;
+		border: 2px solid var(--cl-line);
+		border-radius: 14px;
+		background: var(--cl-surface);
+		color: var(--cl-text);
+		font-family: var(--cl-sans);
+		font-size: 0.95rem;
+		font-weight: 600;
+		text-align: left;
+		font-variant-numeric: tabular-nums;
+	}
+
+	.cl-size[aria-pressed="true"] {
+		border-color: var(--cl-brand);
+		background: var(--cl-surface-2);
+	}
+
+	.cl-size b {
+		font-family: var(--cl-serif);
+		font-size: 1.12rem;
+		color: var(--cl-brand);
+	}
+
+	/* Checkout */
+	.cl-form {
+		display: grid;
+		gap: 17px;
+		max-width: 620px;
+	}
+
+	.cl-field label {
+		display: block;
+		margin-bottom: 6px;
+		font-size: 0.87rem;
+		font-weight: 700;
+		color: var(--cl-text-dark);
+	}
+
+	.cl-field label i {
+		color: var(--cl-brand);
+		font-style: normal;
+	}
+
+	.cl-input {
+		width: 100%;
+		padding: 12px 15px;
+		border: 1px solid var(--cl-line);
+		border-radius: 14px;
+		background: var(--cl-surface);
+		color: var(--cl-text);
+		font-family: var(--cl-sans);
+		font-size: 0.97rem;
+	}
+
+	.cl-input--placeholder {
+		color: var(--cl-muted);
+	}
+
+	.cl-hint {
+		display: block;
+		margin-top: 6px;
+		font-size: 0.83rem;
+		color: var(--cl-muted);
+	}
+
+	.cl-radios {
+		display: flex;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+
+	.cl-radio {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 11px 18px;
+		border: 2px solid var(--cl-line);
+		border-radius: 999px;
+		font-size: 0.92rem;
+		font-weight: 600;
+	}
+
+	.cl-radio[aria-checked="true"] {
+		border-color: var(--cl-brand);
+		background: var(--cl-surface-2);
+	}
+
+	.cl-lead-notice {
+		display: flex;
+		gap: 11px;
+		padding: 15px 18px;
+		border: 1px solid #ffa9a8;
+		border-radius: 14px;
+		background: var(--cl-surface-2);
+		font-size: 0.9rem;
+	}
+
+	.cl-lead-notice p {
+		margin: 0;
+	}
+
+	.cl-error {
+		display: flex;
+		gap: 11px;
+		padding: 15px 18px;
+		border: 1px solid var(--cl-line);
+		border-top: 3px solid var(--cl-brand);
+		border-radius: 14px;
+		background: var(--cl-surface);
+		font-size: 0.9rem;
+	}
+
+	.cl-error p {
+		margin: 0;
+	}
+
+	.cl-two {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+		gap: 17px;
+	}
+
+	/* ==========================================================================
+	   Telegram card — dark chat surface, since that is where ops actually read it
+	   ========================================================================== */
+
+	.tg {
+		padding: clamp(22px, 4vw, 44px);
+		background: #17212b;
+	}
+
+	.tg__bubble {
+		max-width: 520px;
+		margin-inline: auto;
+		padding: 16px 18px;
+		border-radius: 14px 14px 14px 4px;
+		background: #2b5378;
+		color: #f2f6fa;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+		font-size: 0.92rem;
+		line-height: 1.55;
+	}
+
+	.tg__bubble p {
+		margin: 0 0 0.72em;
+	}
+
+	.tg__bubble p:last-child {
+		margin-bottom: 0;
+	}
+
+	.tg__bubble b {
+		color: #fff;
+	}
+
+	.tg__bubble code {
+		display: inline-block;
+		padding: 1px 6px;
+		border-radius: 4px;
+		background: rgba(255, 255, 255, 0.14);
+		font-family: ui-monospace, "SF Mono", Menlo, monospace;
+		font-size: 0.88em;
+	}
+
+	.tg__bubble a {
+		color: #8ec7ff;
+	}
+
+	.tg__bubble em {
+		color: #b8cde0;
+	}
+
+	.tg__meta {
+		margin-top: 10px;
+		text-align: right;
+		font-size: 0.72rem;
+		color: #a8c0d6;
+	}
+
+	.tg__caption {
+		max-width: 520px;
+		margin: 14px auto 0;
+		font-size: 0.8rem;
+		color: #8fa6bb;
+		text-align: center;
+	}
+</style>
+
+<div class="x-wrap">
+	<header class="x-masthead">
+		<p class="x-kicker">Cupcake Lab PH · build preview · 25 July 2026</p>
+		<h1>What the storefront looks like</h1>
+		<p>
+			A visual walkthrough of the WooCommerce theme rebuilt from your designer's
+			mockup, plus the checkout and the ops notification your team will actually
+			work from.
+		</p>
+		<p>
+			Everything below uses the real design tokens from
+			<code>theme/cupcakelab/style.css</code>, the real prices from the cleaned
+			catalogue, and the real product photos pulled off the mockup.
+		</p>
+
+		<div class="x-callout">
+			<span aria-hidden="true">⚠️</span>
+			<p>
+				<strong>This is a static picture, not a working shop.</strong> Nothing
+				here is clickable — a WordPress theme needs WordPress, MySQL and
+				WooCommerce running behind it, and the site has not been deployed to
+				Hostinger yet. Treat this as a design proof: it tells you whether the
+				look and the flow are right before anyone pays for hosting.
+			</p>
+		</div>
+	</header>
+
+	<section class="x-note">
+		<p class="x-kicker">Panel 1 — header and hero</p>
+		<h2>The landing moment</h2>
+		<p>
+			Where an Instagram tap arrives. Cormorant Garamond for display, Manrope for
+			everything else — the two faces your designer actually chose. The other five
+			font families on the mockup were Astra and Elementor leftovers, so dropping
+			them removed four network requests on a page that mostly loads over mobile data.
+		</p>
+	</section>
+</div>
+
+<div class="x-wrap">
+	<div class="x-frame">
+		<div class="x-frame__bar">
+			<span class="x-frame__dot"></span><span class="x-frame__dot"></span><span class="x-frame__dot"></span>
+			<span class="x-frame__label">cupcakelab.ph</span>
+		</div>
+		<div class="cl">
+			<div class="cl-header">
+				<span class="cl-brandmark">Cupcake<span>Lab</span></span>
+				<nav class="cl-nav">
+					<a href="#" aria-current="page">Shop</a>
+					<a href="#">Seasonal</a>
+					<a href="#">About</a>
+					<a href="#">Contact</a>
+				</nav>
+				<span class="cl-cart">Cart <b>2</b></span>
+			</div>
+
+			<div class="cl-hero">
+				<p class="cl-eyebrow">Cupcake Lab · Cubao, Quezon City</p>
+				<h1>A Symphony of Sweetness</h1>
+				<p>
+					Handcrafted cakes, cupcakes and desserts made with trusted recipes,
+					quality ingredients, and a balance of flavors for every celebration.
+				</p>
+				<div class="cl-actions">
+					<span class="cl-btn">Order now</span>
+					<span class="cl-btn cl-btn--ghost">Seasonal menus</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section class="x-note">
+		<p class="x-kicker">Panel 2 — seasonal menus</p>
+		<h2>Five occasions, one of them real</h2>
+		<p>
+			Mother's Day has twelve products behind it. The other four have nothing yet,
+			so they render as honest "coming soon" cards rather than links into empty
+			pages. When you build the Father's Day menu, one entry in the theme's
+			occasion list flips it live.
+		</p>
+	</section>
+
+	<div class="x-frame">
+		<div class="x-frame__bar">
+			<span class="x-frame__dot"></span><span class="x-frame__dot"></span><span class="x-frame__dot"></span>
+			<span class="x-frame__label">cupcakelab.ph/#occasions</span>
+		</div>
+		<div class="cl cl-soft">
+			<div class="cl-inner">
+				<ul class="cl-grid cl-grid--occasions">
+					<li class="cl-occasion">
+						<p class="cl-occasion__emoji" aria-hidden="true">🌸</p>
+						<h3>Mother's Day</h3>
+						<p class="cl-occasion__date">May 10</p>
+					</li>
+					<li class="cl-occasion cl-occasion--soon">
+						<p class="cl-occasion__emoji" aria-hidden="true">👔</p>
+						<h3>Father's Day</h3>
+						<p class="cl-occasion__date">Coming soon</p>
+					</li>
+					<li class="cl-occasion cl-occasion--soon">
+						<p class="cl-occasion__emoji" aria-hidden="true">💝</p>
+						<h3>Valentine's Day</h3>
+						<p class="cl-occasion__date">Coming soon</p>
+					</li>
+					<li class="cl-occasion cl-occasion--soon">
+						<p class="cl-occasion__emoji" aria-hidden="true">🎄</p>
+						<h3>Christmas</h3>
+						<p class="cl-occasion__date">Coming soon</p>
+					</li>
+					<li class="cl-occasion cl-occasion--soon">
+						<p class="cl-occasion__emoji" aria-hidden="true">🎃</p>
+						<h3>Halloween</h3>
+						<p class="cl-occasion__date">Coming soon</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<section class="x-note">
+		<p class="x-kicker">Panel 3 — the shop grid</p>
+		<h2>Real products, real prices</h2>
+		<p>
+			Twelve of your seventy-one products, at the prices you confirmed. The last
+			four have no photo — and that is the point: <strong>54 of 71 products are in
+			that state</strong>, so the theme gives them a typographic card instead of a
+			broken image. They still look intentional and still sell.
+		</p>
+	</section>
+
+	<div class="x-frame">
+		<div class="x-frame__bar">
+			<span class="x-frame__dot"></span><span class="x-frame__dot"></span><span class="x-frame__dot"></span>
+			<span class="x-frame__label">cupcakelab.ph/shop</span>
+		</div>
+		<div class="cl">
+			<div class="cl-inner">
+				<ul class="cl-products">
+					__CARDS__
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<section class="x-note">
+		<p class="x-kicker">Panel 4 — quick order</p>
+		<h2>The shortest path from a tap to a cart</h2>
+		<p>
+			Carried over from the mockup. Pick a size, add to cart, never leave the grid
+			— which matters when the customer arrived from a story link and will not
+			survive three page loads. Sizes and prices come from WooCommerce, so they
+			cannot drift out of sync with the product page.
+		</p>
+	</section>
+
+	<div class="x-frame">
+		<div class="x-frame__bar">
+			<span class="x-frame__dot"></span><span class="x-frame__dot"></span><span class="x-frame__dot"></span>
+			<span class="x-frame__label">quick order — Signature Red Velvet Cake</span>
+		</div>
+		<div class="cl cl-modal-stage">
+			<div class="cl-dialog">
+				<p class="cl-eyebrow">Quick order</p>
+				<h3>Signature Red Velvet Cake</h3>
+				<p class="cl-dialog__lead">Choose your size</p>
+				<div class="cl-sizes">
+					<span class="cl-size"><span>6 INCH</span><b>₱1,500</b></span>
+					<span class="cl-size" aria-pressed="true"><span>8 INCH</span><b>₱2,000</b></span>
+					<span class="cl-size"><span>10 INCH</span><b>₱3,000</b></span>
+					<span class="cl-size"><span>12 INCH</span><b>₱3,700</b></span>
+					<span class="cl-size"><span>14 INCH</span><b>₱4,500</b></span>
+				</div>
+				<span class="cl-btn cl-btn--block">Add to cart</span>
+			</div>
+		</div>
+	</div>
+
+	<section class="x-note">
+		<p class="x-kicker">Panel 5 — checkout</p>
+		<h2>The fields that make an order fulfillable</h2>
+		<p>
+			None of this existed on the mockup, which had stock WooCommerce checkout. The
+			Viber number is required because your team needs it to open the order group.
+			The date is validated on the server, not just in the browser — the error
+			shown here is what a customer gets when they ask for a cake sooner than you
+			can bake it.
+		</p>
+	</section>
+
+	<div class="x-frame">
+		<div class="x-frame__bar">
+			<span class="x-frame__dot"></span><span class="x-frame__dot"></span><span class="x-frame__dot"></span>
+			<span class="x-frame__label">cupcakelab.ph/checkout</span>
+		</div>
+		<div class="cl">
+			<div class="cl-inner">
+				<h2 style="font-size: 1.7rem">Order details</h2>
+				<div class="cl-form">
+					<div class="cl-field">
+						<label>Viber number <i>*</i></label>
+						<div class="cl-input">0917 123 4567</div>
+						<span class="cl-hint">
+							We create a Viber group for your order — design approvals, updates
+							and delivery photos all happen there.
+						</span>
+					</div>
+
+					<div class="cl-field">
+						<label>Delivery or pickup <i>*</i></label>
+						<div class="cl-radios">
+							<span class="cl-radio" aria-checked="true">● Deliver to me</span>
+							<span class="cl-radio">○ I will pick up</span>
+						</div>
+					</div>
+
+					<div class="cl-field">
+						<label>Delivery area <i>*</i></label>
+						<div class="cl-input">Quezon City (Cubao and nearby) — ₱150</div>
+					</div>
+
+					<div class="cl-two">
+						<div class="cl-field">
+							<label>Preferred date <i>*</i></label>
+							<div class="cl-input">2026-07-26</div>
+						</div>
+						<div class="cl-field">
+							<label>Preferred time <i>*</i></label>
+							<div class="cl-input">Morning (9 AM – 12 NN)</div>
+						</div>
+					</div>
+
+					<div class="cl-error">
+						<span aria-hidden="true">⚠️</span>
+						<p>
+							We need more notice than that. Everything is made to order, so the
+							earliest we can do is <b>28 Jul 2026</b> (you chose 26 Jul 2026).
+						</p>
+					</div>
+
+					<div class="cl-field">
+						<label>Dedication / topper text</label>
+						<div class="cl-input">Happy 60th, Mum &amp; Dad</div>
+						<span class="cl-hint">
+							Exactly as you want it written. Leave blank for no message.
+						</span>
+					</div>
+
+					<div class="cl-lead-notice">
+						<span aria-hidden="true">📦</span>
+						<p>
+							Made to order — please order at least <b>3 days</b> ahead. Earliest
+							date available: <b>28 Jul 2026</b>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section class="x-note">
+		<p class="x-kicker">Panel 6 — ops notification</p>
+		<h2>What lands in Telegram the moment payment clears</h2>
+		<p>
+			Posted to <code>#orders</code> by the webhook handler. Viber's API cannot
+			create group chats, so the card does the next best thing: it pre-formats the
+			group name to your convention and makes both it and the customer's number
+			tap-to-copy, then posts the welcome message separately so it can be pasted
+			straight in.
+		</p>
+		<p style="margin-top: 10px">
+			Note the dedication reading <em>Mum &amp; Dad</em>. An unescaped ampersand
+			makes Telegram reject the whole message, which would silently lose the order
+			card — there is a test covering exactly that case.
+		</p>
+	</section>
+
+	<div class="x-frame">
+		<div class="x-frame__bar">
+			<span class="x-frame__dot"></span><span class="x-frame__dot"></span><span class="x-frame__dot"></span>
+			<span class="x-frame__label">Telegram · MCJC · #orders</span>
+		</div>
+		<div class="tg">
+			<div class="tg__bubble">
+				<p>🧾 <b>Order #1042 — PAID</b></p>
+				<p>
+					<b>Ana Reyes</b><br />
+					📱 09171234567<br />
+					💬 Viber: <code>09171234567</code> <em>(tap to copy)</em><br />
+					✉️ ana.reyes@example.com
+				</p>
+				<p>
+					<b>Items</b><br />
+					• 1 × Signature Red Velvet Cake (8 INCH) — ₱2,000.00<br />
+					• 12 × Red Velvet + Cream Cheese (Regular) — ₱1,440.00
+				</p>
+				<p>✍️ <b>Dedication:</b> “Happy 60th, Mum &amp; Dad”</p>
+				<p>
+					📅 <b>Sat, 2 Aug 2026</b> — Morning (9 AM – 12 NN)<br />
+					📍 12 Sampaguita St, Cubao, Quezon City
+				</p>
+				<p>
+					💰 <b>₱3,590.00</b> via QRPh<br />
+					🖼 <a href="#">Design reference</a>
+				</p>
+				<p>
+					<b>➡️ Create the Viber group</b><br />
+					1. Name it: <code>CL #1042 – Ana R. – Aug 2</code><br />
+					2. Add customer: <code>09171234567</code><br />
+					3. Add CS + production lead<br />
+					4. Paste the welcome message below<br />
+					<em>Target: within 2 business hours.</em>
+				</p>
+				<p><a href="#">Open in admin</a></p>
+				<p class="tg__meta">CupcakeLabOpsBot · 14:32</p>
+			</div>
+			<p class="tg__caption">
+				A second message follows with the customer welcome text, ready to paste
+				into Viber.
+			</p>
+		</div>
+	</div>
+
+	<section class="x-note">
+		<p class="x-kicker">Where things stand</p>
+		<h2>Built, and not yet built</h2>
+	</section>
+
+	<ul class="x-status">
+		<li><span class="x-tag x-tag--built">Built</span><span>Theme: templates, design system, product cards, quick order</span></li>
+		<li><span class="x-tag x-tag--built">Built</span><span>Checkout fields, lead-time enforcement, delivery zones</span></li>
+		<li><span class="x-tag x-tag--built">Built</span><span>PayMongo webhook, Telegram and Slack routing, cron digests</span></li>
+		<li><span class="x-tag x-tag--built">Built</span><span>Manual bank transfer, for orders above the ₱50,000 QRPh ceiling</span></li>
+		<li><span class="x-tag x-tag--built">Built</span><span>Catalogue cleaned to 71 products, import file ready</span></li>
+		<li><span class="x-tag x-tag--open">Needs you</span><span>Hostinger account, domain, WordPress install — then this becomes a real site</span></li>
+		<li><span class="x-tag x-tag--open">Needs you</span><span>PayMongo test keys, Telegram bot token, eight channel IDs, Slack webhook URL</span></li>
+		<li><span class="x-tag x-tag--open">Needs you</span><span>Four policy pages — terms, privacy, refunds, delivery. These gate card activation</span></li>
+		<li><span class="x-tag x-tag--open">Needs you</span><span>54 missing product photos, 48 missing descriptions</span></li>
+		<li><span class="x-tag x-tag--open">Not started</span><span>Meta catalog sync and Instagram product tagging</span></li>
+	</ul>
+
+	<footer class="x-foot">
+		<p>
+			Generated from <code>data/catalog-clean.json</code> and
+			<code>theme/cupcakelab/style.css</code> on branch
+			<code>claude/cupcake-lab-ecommerce-6gzooo</code>. Rebuild with
+			<code>python3 tools/build-preview.py</code>.
+		</p>
+	</footer>
+</div>
