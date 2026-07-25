@@ -1,0 +1,346 @@
+<title>Cupcake Lab PH — Ecommerce Build Plan</title>
+<style>
+  :root {
+    --ground: #eef2f4;
+    --panel: #ffffff;
+    --ink: #16232e;
+    --ink-soft: #4e626f;
+    --ink-faint: #8b9ca7;
+    --rule: #d3dde2;
+    --rule-soft: #e4ebee;
+    --frosting: #c1355f;
+    --lab: #0d6f78;
+    --butter: #a8760c;
+    --shadow: 0 1px 2px rgba(22,35,46,.06), 0 8px 24px -16px rgba(22,35,46,.28);
+
+    --display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --body: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #101a21;
+      --panel: #17242c;
+      --ink: #e6eef2;
+      --ink-soft: #a3b6c0;
+      --ink-faint: #6d8794;
+      --rule: #2b3d47;
+      --rule-soft: #223038;
+      --frosting: #f08aae;
+      --lab: #4fc2cb;
+      --butter: #dda93f;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.9);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #101a21; --panel: #17242c; --ink: #e6eef2; --ink-soft: #a3b6c0;
+    --ink-faint: #6d8794; --rule: #2b3d47; --rule-soft: #223038;
+    --frosting: #f08aae; --lab: #4fc2cb; --butter: #dda93f;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+  :root[data-theme="light"] {
+    --ground: #eef2f4; --panel: #ffffff; --ink: #16232e; --ink-soft: #4e626f;
+    --ink-faint: #8b9ca7; --rule: #d3dde2; --rule-soft: #e4ebee;
+    --frosting: #c1355f; --lab: #0d6f78; --butter: #a8760c;
+    --shadow: 0 1px 2px rgba(22,35,46,.06), 0 8px 24px -16px rgba(22,35,46,.28);
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .sheet {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: clamp(1.25rem, 4vw, 3.5rem) clamp(1rem, 4vw, 3rem) 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 5vw, 4rem);
+  }
+  p { max-width: 66ch; }
+  a { color: var(--frosting); }
+
+  .label {
+    font-family: var(--display);
+    font-size: .688rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* masthead */
+  .masthead { border-bottom: 3px solid var(--ink); padding-bottom: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
+  .masthead-top { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; justify-content: space-between; align-items: baseline; }
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2.1rem, 6.5vw, 3.6rem);
+    line-height: .98;
+    letter-spacing: -.035em;
+    text-wrap: balance;
+    max-width: 18ch;
+  }
+  h1 .em { color: var(--frosting); }
+  .deck { font-size: 1.075rem; color: var(--ink-soft); max-width: 60ch; }
+
+  section { display: flex; flex-direction: column; gap: 1.25rem; }
+  h2 {
+    font-family: var(--display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -.015em;
+    display: flex;
+    align-items: baseline;
+    gap: .75rem;
+  }
+  h2::before {
+    content: attr(data-idx);
+    font-family: var(--mono);
+    font-size: .75rem;
+    font-weight: 400;
+    color: var(--frosting);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: .1rem .4rem;
+    flex: none;
+  }
+  h3 { font-family: var(--display); font-size: 1rem; font-weight: 700; letter-spacing: -.01em; }
+
+  /* journey */
+  .journey { display: flex; flex-direction: column; }
+  .step {
+    display: grid;
+    grid-template-columns: 4.25rem 1fr;
+    gap: 0 1.25rem;
+    padding: 1.15rem 0;
+    border-top: 1px solid var(--rule-soft);
+    align-items: start;
+  }
+  .step:first-child { border-top: 1px solid var(--rule); }
+  .step-num {
+    font-family: var(--mono);
+    font-size: .75rem;
+    color: var(--ink-faint);
+    padding-top: .25rem;
+    letter-spacing: .04em;
+  }
+  .step-body { display: flex; flex-direction: column; gap: .4rem; }
+  .step-title { font-family: var(--display); font-weight: 700; font-size: 1.02rem; letter-spacing: -.01em; }
+  .step-title .where { color: var(--lab); font-weight: 400; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; margin-left: .55rem; }
+  .step p { font-size: .96rem; color: var(--ink-soft); }
+  code, .mono { font-family: var(--mono); font-size: .84em; }
+  code { background: var(--rule-soft); padding: .08em .34em; border-radius: 3px; word-break: break-word; }
+
+  /* panels + tables */
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    padding: 1.25rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+  }
+  .scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: .93rem; min-width: 30rem; }
+  th, td { text-align: left; padding: .6rem .8rem; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  thead th {
+    font-family: var(--display); font-size: .688rem; font-weight: 700;
+    letter-spacing: .13em; text-transform: uppercase; color: var(--ink-faint);
+    border-bottom: 1px solid var(--rule);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: .85rem; white-space: nowrap; }
+  tr.total td { font-weight: 700; border-top: 2px solid var(--rule); }
+  .chan { font-family: var(--mono); font-size: .82rem; color: var(--lab); white-space: nowrap; }
+
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+  ul { display: flex; flex-direction: column; gap: .45rem; padding-left: 1.1rem; }
+  li { font-size: .96rem; color: var(--ink-soft); }
+  li strong { color: var(--ink); }
+
+  .flag {
+    border-left: 3px solid var(--butter);
+    background: color-mix(in srgb, var(--butter) 8%, transparent);
+    padding: .9rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    display: flex; flex-direction: column; gap: .5rem;
+  }
+  .flag .label { color: var(--butter); }
+
+  footer { border-top: 1px solid var(--rule); padding-top: 1rem; color: var(--ink-faint); font-size: .85rem; }
+  @media (max-width: 34rem) {
+    .step { grid-template-columns: 1fr; gap: .35rem; }
+    .step-num { padding-top: 0; }
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <span class="label">Cupcake Lab PH — Build Plan</span>
+      <span class="label">Prepared 25 July 2026</span>
+    </div>
+    <h1>From an Instagram post to a <span class="em">paid order</span>, without the DM backlog.</h1>
+    <p class="deck">A WooCommerce storefront on Hostinger, PayMongo taking cards, GCash and bank transfers, and every confirmed order fanned out to the Telegram channels the team already lives in — for roughly ₱350 a month in fixed cost.</p>
+  </header>
+
+  <section>
+    <h2 data-idx="A">The customer journey</h2>
+    <p>Seven stages. The first four are the customer alone on their phone; the last three are where your team takes over.</p>
+    <div class="journey">
+
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <div class="step-title">She sees the post<span class="where">Instagram / Facebook</span></div>
+          <p>Every post, reel and story carries either a tagged product (synced automatically from the website's catalogue to Meta) or a link sticker. The link is tagged so you can tell, later, which post sold what — for example <code>cupcakelab.ph/product/red-velvet-box?utm_source=ig&amp;utm_campaign=jul-launch</code>. The link in bio points at a page on your own site rather than Linktree.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <div class="step-title">She lands on the exact product<span class="where">Website</span></div>
+          <p>Not the homepage — the cupcake she just saw, with the same photograph. She picks flavours, box size, dedication text, and for a custom design uploads a reference photo or chooses from the approved-designs gallery. Then delivery or pickup, with the lead-time rules enforced for her (no orders for tomorrow when you need two days).</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <div class="step-title">She checks out<span class="where">Website</span></div>
+          <p>One page: name, mobile, <strong>Viber number</strong>, email, address and delivery date. The Viber number is asked for explicitly and framed as "where we'll set up your order group" — so it arrives correct instead of being chased for later.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <div class="step-title">She pays<span class="where">PayMongo</span></div>
+          <p>Card with 3D Secure, GCash, Maya, GrabPay, or bank transfer through BPI and UnionBank online banking and QRPh. Payment either succeeds or it doesn't — no screenshots to verify, no "sent na po" to reconcile by hand.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <div class="step-title">The order lands with your team<span class="where">Telegram MCJC</span></div>
+          <p>The moment PayMongo confirms payment, an order card appears in <span class="chan">#orders</span> with her Viber number ready to copy, the money lands in <span class="chan">#payables</span> with the fee and net already worked out, and a custom design request goes to <span class="chan">#design</span> with her reference image attached.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">06</div>
+        <div class="step-body">
+          <div class="step-title">Her Viber group opens<span class="where">Viber</span></div>
+          <p>Whoever is on duty creates the group from the order card — named to a convention like <span class="mono">CL #1042 – Ana R. – Aug 2</span> — adds her and the production lead, and pastes the welcome template. Her confirmation page has already told her to expect the invite within two business hours, so the wait is expected rather than worrying.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">07</div>
+        <div class="step-body">
+          <div class="step-title">It gets baked and delivered<span class="where">Telegram → Viber</span></div>
+          <p>At 6am <span class="chan">#production</span> gets the day's bake list with flavours already totalled, and <span class="chan">#dispatch</span> gets the delivery manifest with addresses and time windows. Design approvals, delivery updates and the finished photo all reach her in the Viber group — one thread per order, nothing lost in the main inbox.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 data-idx="B">Where it lives, and what it costs</h2>
+    <p>Hostinger shared hosting running WordPress and WooCommerce. Everything else — the payment webhook, the daily digests, the link-in-bio page — runs on that same account, so there are no extra subscriptions stacking up.</p>
+    <div class="panel scroll">
+      <table>
+        <thead>
+          <tr><th>Line item</th><th>What it covers</th><th class="num">Monthly</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Hostinger Business</td><td>PHP + MySQL, free SSL, daily backups, staging site, cron jobs</td><td class="num">≈ ₱230</td></tr>
+          <tr><td>Domain</td><td>Free .com in year one; <span class="mono">.ph</span> is ₱1,000–1,500 a year if you want it</td><td class="num">≈ ₱100</td></tr>
+          <tr><td>WordPress, WooCommerce, PayMongo plugin</td><td>Storefront, orders, inventory, refunds, discount codes</td><td class="num">₱0</td></tr>
+          <tr><td>Telegram bot, Slack webhook</td><td>All ops notifications and daily digests</td><td class="num">₱0</td></tr>
+          <tr class="total"><td>Fixed cost</td><td>Everything above, before a single sale</td><td class="num">≈ ₱330</td></tr>
+          <tr><td>PayMongo</td><td>Per transaction only: roughly 3.5% + ₱15 on cards, 2–2.5% on GCash, 1.5–2% on bank and QRPh</td><td class="num">% of sales</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>For comparison, Shopify starts around ₱1,700 a month before apps, and Wix handles Philippine payment methods poorly. WooCommerce also happens to be what PayMongo ships an official, maintained plugin for — which is the difference between an afternoon of setup and a custom integration.</p>
+  </section>
+
+  <section>
+    <h2 data-idx="C">What goes where, automatically</h2>
+    <p>One Telegram bot posts into the MCJC channels. Nothing here needs a person to forward it.</p>
+    <div class="panel scroll">
+      <table>
+        <thead><tr><th>When this happens</th><th>It posts to</th><th>Carrying</th></tr></thead>
+        <tbody>
+          <tr><td>Payment confirmed</td><td class="chan">#orders</td><td>Order number, items and flavours, dedication, delivery date and address, amount, and the customer's Viber number</td></tr>
+          <tr><td>Payment confirmed</td><td class="chan">#payables</td><td>Amount, method, PayMongo fee, net, payout batch reference</td></tr>
+          <tr><td>Order includes a custom design</td><td class="chan">#design</td><td>The brief, the uploaded reference image, and a link to the approved design in Slack</td></tr>
+          <tr><td>Every day, 6am</td><td class="chan">#production</td><td>Bake list for today and tomorrow, quantities already totalled by flavour</td></tr>
+          <tr><td>Every day, 6am</td><td class="chan">#dispatch</td><td>Delivery manifest: addresses, time windows, contact numbers</td></tr>
+          <tr><td>Every day, 8pm</td><td class="chan">#general</td><td>Order count, revenue, and tomorrow's load</td></tr>
+          <tr><td>Order flagged corporate or bulk</td><td class="chan">#CCI orders</td><td>The same order card, tagged CCI</td></tr>
+          <tr><td>Staff upload a finished-product shot</td><td class="chan">#photos</td><td>The image and order reference, ready to reuse as Instagram content</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Slack stays the approved-designs repository: each new custom request is posted into that channel by webhook, and approved designs get published to the website's gallery so customers choose from work you've already signed off on.</p>
+  </section>
+
+  <section>
+    <h2 data-idx="D">One thing worth knowing up front</h2>
+    <div class="flag">
+      <span class="label">Viber groups can't be created by software</span>
+      <p>Viber's API does not allow any app to create a group chat or add members to one. That part stays manual on every platform, ours included — so the plan makes it fast rather than pretending to automate it: the order card arrives with the number, the group name, and the welcome message ready to paste, and the customer has already been told to expect the invite within two business hours.</p>
+      <p>If you later want it fully hands-off, the alternative is a Viber bot that opens a one-to-one thread when she taps a link on the thank-you page. That works without anyone lifting a finger, but it's a private chat rather than a group — which is a change to how you work today, so I'd start with the group.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-idx="E">Four weeks to live</h2>
+    <div class="grid2">
+      <div class="panel">
+        <h3>Week 1 — Foundation</h3>
+        <p>Hosting and domain set up, WordPress and WooCommerce installed, a staging site alongside it, and your designer's mockup rebuilt as the real theme with the actual products and photographs.</p>
+      </div>
+      <div class="panel">
+        <h3>Week 2 — Commerce</h3>
+        <p>Flavours, box sizes and dedications as real product options. Delivery zones, fees and lead times. PayMongo tested end to end in test mode, then switched to live keys.</p>
+      </div>
+      <div class="panel">
+        <h3>Week 3 — Ops wiring</h3>
+        <p>The payment webhook, the Telegram bot across all eight channels, the Slack connection, the daily digests, and the Viber group procedure with its message templates.</p>
+      </div>
+      <div class="panel">
+        <h3>Week 4 — Social bridge and launch</h3>
+        <p>Catalogue synced to Meta so posts can be tagged, link-in-bio page, tracking on every link, analytics, real test orders placed by the team, then live.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-idx="F">What I need from you to start</h2>
+    <ul>
+      <li><strong>The mockup.</strong> This session's network blocked <span class="mono">darkblue-locust-788234.hostingersite.com</span>, so I couldn't read the products or pricing off it. Either allow that domain in the environment settings, or export the site files and images from Hostinger into the repo.</li>
+      <li><strong>Hosting and domain.</strong> Access to the Hostinger account, and a decision between <span class="mono">.ph</span> and <span class="mono">.com</span>.</li>
+      <li><strong>PayMongo.</strong> Test keys now, live keys at launch.</li>
+      <li><strong>Telegram.</strong> Create the bot through BotFather, add it to the eight MCJC channels, and send me the token and channel IDs.</li>
+      <li><strong>Slack.</strong> An incoming webhook URL for the approved-designs channel.</li>
+      <li><strong>The product list.</strong> Flavours, box sizes, prices, lead times, delivery zones and fees, and pickup branches.</li>
+    </ul>
+  </section>
+
+  <footer>Cupcake Lab PH · Ecommerce and order-flow plan · Draft for review</footer>
+
+</div>
