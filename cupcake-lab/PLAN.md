@@ -76,11 +76,28 @@ The webhook handler, cron digests, and link-in-bio page all run on the same Host
 
 ## 4. Payments — PayMongo integration
 
-- **Plugin:** official *PayMongo for WooCommerce* — connect with your live secret/public keys. Test first with test keys in a staging subdomain (`staging.cupcakelab.ph`, free on Hostinger).
-- **Methods enabled:** Credit/debit cards (with 3DS), **GCash**, Maya, GrabPay, **bank transfer** via BPI & UnionBank direct online banking and **QRPh** (scan-to-pay from any PH bank app — this is the practical "bank transfer" that confirms automatically, unlike manual InstaPay screenshots).
-- **Indicative fees** (verify current rates at paymongo.com/pricing): cards ~3.5% + ₱15; GCash/e-wallets ~2.0–2.5%; online banking/QRPh ~1.5–2%. Payouts to your bank on PayMongo's standard schedule.
-- **Webhooks:** subscribe to `payment.paid` and `payment.failed` → our PHP handler (signature-verified) marks the WooCommerce order and fans out notifications (§5). This kills the "did the GCash payment actually go through?" manual checking.
+**Activation status as of 25 Jul 2026 — this drives the launch plan:**
+
+| Method | Status | Launch role |
+|---|---|---|
+| **QRPh** | ✅ Live | **Primary method at launch.** Also reachable by GCash/Maya users, since both apps scan QR Ph codes |
+| Cards (Visa/MC) | ⏳ Submitted >10 days, following up | Build now, toggle on when approved. Priority for B2B |
+| GCash, Maya, ShopeePay | ⏳ Applied 25 Jul | Build now, toggle on when approved |
+| Manual bank transfer | Build ourselves | Required fallback — see below |
+
+- **Plugin:** official *PayMongo for WooCommerce*. Build and test with test keys on a staging subdomain (`staging.cupcakelab.ph`, free on Hostinger), then live keys.
+- **Launch with QRPh only.** Do not wait on card approval — see the note below on why launching may be what *unblocks* it.
+- **QRPh mobile UX is the main conversion risk.** Traffic arrives from IG on a phone, so there is no second device to scan the QR with. Checkout must carry explicit on-screen instructions: screenshot the code → open your bank/GCash app → scan → *upload QR from gallery*. Do not rely on PayMongo's default screen; most customers have never done this.
+- **₱50,000 ceiling.** QR Ph settles over InstaPay, capped around ₱50k per transaction (some banks lower — confirm with PayMongo). Bulk/CCI orders exceed this. So build a **manual bank transfer** method: places the order as *pending payment*, emails transfer instructions, ops marks it paid. Keep it after cards go live — corporate clients often prefer invoice-and-transfer.
+- **Indicative fees** (verify at paymongo.com/pricing): cards ~3.5% + ₱15; e-wallets ~2.0–2.5%; online banking/QRPh ~1.5–2%.
+- **Webhooks:** subscribe to `payment.paid` and `payment.failed` → our PHP handler (signature-verified) marks the WooCommerce order and fans out notifications (§5).
 - **Refunds/partials** handled from the WooCommerce order screen through the plugin.
+
+### Card activation depends on the live site
+
+Acquirer review of a merchant's **website** is a common cause of card-activation delay — reviewers look for a publicly reachable site with clear business identity and contact details, terms of service, privacy policy, refund/cancellation policy, and delivery terms. A staging URL or unfinished mockup typically fails this.
+
+So all of those policy pages ship **at launch, not later**, and the live URL gets sent to PayMongo as part of the follow-up. Ask PayMongo directly whether the holdup is documents or website review, and what specifically is missing.
 
 ---
 
@@ -120,7 +137,7 @@ If you later want true automation, the fallback is a **Viber bot 1-on-1 thread**
 | Phase | Scope | Est. effort |
 |---|---|---|
 | **1. Foundation** | Hostinger plan + domain, WordPress/WooCommerce install, staging subdomain, rebuild mockup as theme (products, photos, copy from the freelancer's site) | Week 1 |
-| **2. Commerce** | Product options (flavors/box sizes/dedications), delivery/pickup rules & fees, PayMongo test-mode end-to-end, then live keys | Week 2 |
+| **2. Commerce** | Product options (flavors/box sizes/dedications), delivery/pickup rules & fees, PayMongo test-mode end-to-end, then live keys. **Policy pages (terms, privacy, refunds, delivery, contact) — required for card activation review.** QRPh checkout instructions + manual bank transfer method | Week 2 |
 | **3. Ops wiring** | PayMongo webhook handler, Telegram bot + channel routing, Slack webhook, cron digests, Viber SOP + templates | Week 3 |
 | **4. Social bridge & launch** | Meta catalog sync, product tagging on IG/FB, link-in-bio page, UTM convention, analytics (GA4 or Plausible), test orders with the team, go live | Week 4 |
 
