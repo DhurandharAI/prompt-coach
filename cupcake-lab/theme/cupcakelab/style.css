@@ -680,11 +680,19 @@ ul.products {
 	list-style: none;
 }
 
+/* Woo wraps each card in li.product. Making the li a flex container and letting
+   the card grow keeps every card in a row the same height regardless of how much
+   description it carries. */
 .woocommerce ul.products li.product {
+	display: flex;
 	margin: 0;
 	width: auto;
 	float: none;
 	text-align: left;
+}
+
+.woocommerce ul.products li.product > .card {
+	flex: 1;
 }
 
 .woocommerce-result-count,
